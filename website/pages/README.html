@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="content">
+        <h1>Curso: Algoritmos Sostenibles para LLM (12 semanas)</h1>
+<p>Este repositorio incluye <strong>sílabos, cronograma, rúbricas, laboratorios</strong> y un <strong>framework mínimo (Python)</strong> para medir eficiencia energética y huella de carbono en <em>Large Language Models</em> (LLM), y para aplicar técnicas de <strong>cuantización/destilación/serving eficiente</strong>.</p>
+<h2>Estructura</h2>
+<pre><code>curso_algoritmos_sostenibles_llm/
+├─ docs/                      # Sílabos, cronograma, políticas, rúbricas, bibliografía
+├─ asignaciones/
+│  ├─ reto1/                  # Definición y medición
+│  ├─ reto2/                  # Framework de medición
+│  └─ reto3/                  # Optimización (cuantización/destilación/serving)
+├─ framework/                 # Paquete Python 'greenllm' + tests
+│  ├─ pyproject.toml
+│  ├─ src/greenllm/           # Código fuente del framework docente
+│  └─ tests/
+├─ scripts/                   # Scripts de benchmark/serving de ejemplo
+├─ data/
+│  ├─ prompts/                # Conjunto mínimo de prompts para pruebas
+│  └─ eval/                   # Indicaciones para evaluación rápida de calidad
+└─ notebooks/                 # Plantillas de cuadernos
+</code></pre>
+<h2>Inicio Rápido</h2>
+<ol>
+<li><strong>Crear entorno</strong> (ej., conda o venv) y activar.</li>
+<li>
+<p>Instalar dependencias mínimas:<br />
+<code>bash
+   cd framework
+   pip install -e .</code></p>
+<blockquote>
+<p>Nota: para cuantización avanzada/serving acelerado se requieren paquetes opcionales (ver <code>docs/REQUISITOS.md</code>).</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Medir un modelo pequeño</strong> (ejemplo usando <em>TinyLlama</em> para que funcione en GPU/CPU modesta):<br />
+<code>bash
+   greenllm measure      --model TinyLlama/TinyLlama-1.1B-Chat-v1.0      --prompts ../data/prompts/prompt_set_small.txt      --max-new-tokens 64      --meter nvml --carbon-intensity 300      --csv ../resultados_baseline.csv</code></p>
+</li>
+<li>
+<p><strong>Explorar resultados</strong>: el CSV incluye energía (J), latencia y métricas derivadas (<strong>J/token</strong>, <strong>tokens/J</strong>, <strong>gCO₂e/1k tokens</strong>).</p>
+</li>
+<li>
+<p><strong>Rutas sugeridas</strong>:</p>
+</li>
+<li><strong>Reto 1</strong>: usa <code>greenllm measure</code> para definir y validar tus métricas y protocolo.</li>
+<li><strong>Reto 2</strong>: extiende el paquete <code>greenllm</code> (añade nuevas fuentes de carbono/medidores/exportadores).</li>
+<li><strong>Reto 3</strong>: compara antes/después con <strong>cuantización/QLoRA/serving</strong> y reporta <strong>trade-offs</strong>.</li>
+</ol>
+<hr />
+    </div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+
+[project]
+name = "greenllm"
+version = "0.1.0"
+description = "Framework docente para medir y optimizar LLM sostenibles (medición energética y CO2e)"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "transformers",
+    "accelerate",
+    "torch",
+    "bitsandbytes",
+    "mlflow",
+    "codecarbon",
+    "pynvml"
+]
+
+[project.scripts]
+greenllm = "greenllm.cli:main"
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"

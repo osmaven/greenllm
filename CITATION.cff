@@ -1,0 +1,7 @@
+
+cff-version: 1.2.0
+message: "Si usas este paquete en docencia/investigación, por favor cita este repositorio."
+title: "greenllm (docente)"
+authors:
+  - family-names: "Equipo Docente"
+date-released: "2025-10-12"

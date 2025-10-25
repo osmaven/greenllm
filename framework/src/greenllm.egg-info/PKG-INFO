@@ -1,0 +1,28 @@
+Metadata-Version: 2.4
+Name: greenllm
+Version: 0.1.0
+Summary: Framework docente para medir y optimizar LLM sostenibles (medición energética y CO2e)
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Requires-Dist: transformers
+Requires-Dist: accelerate
+Requires-Dist: torch
+Requires-Dist: bitsandbytes
+Requires-Dist: mlflow
+Requires-Dist: codecarbon
+Requires-Dist: pynvml
+
+
+# greenllm (docente)
+
+Pequeño framework para medir energía/CO₂e y evaluar optimizaciones en LLM.
+
+## Instalación de desarrollo
+```bash
+pip install -e .
+```
+
+## Uso rápido
+```bash
+greenllm measure --model TinyLlama/TinyLlama-1.1B-Chat-v1.0 --prompts ../data/prompts/prompt_set_small.txt --max-new-tokens 64 --meter nvml --carbon-intensity 300 --csv ../resultados.csv
+```

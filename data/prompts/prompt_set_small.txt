@@ -1,0 +1,8 @@
+Explica en 3 frases por qué la eficiencia energética es clave en IA.
+Resume las ventajas y riesgos de cuantizar un LLM a 4 bits.
+Dame 3 ideas para reducir la latencia y el consumo durante inferencia de LLM.
+Cual es la capital de China
+1+1=
+Hola
+Generate a function to return the biggest and the smallest number of an array in python
+1,2,3,5,8

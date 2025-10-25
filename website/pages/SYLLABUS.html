@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="content">
+        <h1>Sílabos (12 semanas): Algoritmos sostenibles para LLM</h1>
+<ul>
+<li><strong>Objetivo general:</strong> que el alumnado defina <strong>métricas de eficiencia/huella</strong>, construya un <strong>framework de medición</strong> reproducible y <strong>optimice</strong> LLM mediante cuantización/destilación/serving eficiente con análisis de <em>trade-offs</em>.</li>
+<li><strong>Evaluación:</strong> Reto 1 (25%), Reto 2 (35%), Reto 3 (40%). Laboratorios semanales obligatorios (entregables integrados en los Retos).</li>
+<li><strong>Prerequisitos:</strong> Python, PyTorch, nociones de <em>transformers</em>, Linux y uso básico de GPU.</li>
+</ul>
+<h2>Semana a semana</h2>
+<p><strong>Semana 1 — Introducción, ética y alcance</strong>
+- Impacto ambiental de IA; huella en entrenamiento vs. inferencia; <em>operational vs. embodied emissions</em>; PUE; límites del sistema.
+- Laboratorio: entorno; modelos abiertos (p. ej., TinyLlama, OLMo, MPT); <em>hello world</em> de inferencia.
+- Entrega: one-pager con límites del sistema y unidad funcional (p. ej., 1.000 tokens).</p>
+<p><strong>Semana 2 — Medición de energía en CPU/GPU</strong>
+- Instrumentación directa (NVML, RAPL con pyJoules) y estimada (CodeCarbon).
+- Laboratorio: medir potencia/energía durante <em>prefill/decoding</em> y loguear CSV/MLflow.
+- Entrega: protocolo de medición (frecuencia, warm-up, repeticiones, estadísticos p50/p95).</p>
+<p><strong>Semana 3 — Métricas sostenibles específicas para LLM</strong>
+- J/token, tokens/J, CO₂e/1k tokens, latencia, throughput, <em>tail latency</em>; calidad mínima (perplejidad o set de tareas ligero).
+- Laboratorio: <em>baseline</em> con un modelo pequeño y cálculo de CO₂e en dos configuraciones.</p>
+<p><strong>Semana 4 — Factores de emisión e incertidumbre</strong>
+- Intensidad de carbono horaria/regional; diferencias <em>location vs. marginal</em>; PUE.
+- Laboratorio: repetir pruebas en dos franjas horarias; análisis de variabilidad.
+- Cierre Reto 1: mini-paper (4–6 págs.).</p>
+<p><strong>Semana 5 — Framework reproducible (I)</strong>
+- Diseño modular (runner/medidores/fuentes/exportadores); CLI; control de metadatos.
+- Laboratorio: plantilla de paquete, primeras integraciones y pruebas de humo.
+- Entrega: design doc + sprint backlog.</p>
+<p><strong>Semana 6 — Framework reproducible (II)</strong>
+- Serving y carga: vLLM/TGI; batch y <em>long context</em>; trazabilidad de experimentos con MLflow.
+- Laboratorio: servidor local y <em>bench</em> con distintas longitudes de contexto.
+- Entrega: CLI funcional + dashboard MLflow.</p>
+<p><strong>Semana 7 — Cuantización y QLoRA</strong>
+- PTQ vs. QAT; bitsandbytes (8/4-bit, NF4), GPTQ, AWQ; QLoRA.
+- Laboratorio: cargar modelo 8/4-bit; medir memoria/latencia/energía y comparar calidad.</p>
+<p><strong>Semana 8 — KV-cache y atención eficiente</strong>
+- Por qué domina coste; compresión y cuantización de KV-cache; kernels eficientes (FlashAttention).
+- Laboratorio: prompts largos con/sin compresión; análisis de degradación.
+- Cierre Reto 2: release v0.1 del framework.</p>
+<p><strong>Semana 9 — Destilación y decodificación eficiente</strong>
+- Knowledge distillation hacia modelos pequeños; <em>speculative decoding</em> y variantes (p. ej., Medusa).
+- Laboratorio: destilar subset instruct y comparar tokens/J vs. calidad.</p>
+<p><strong>Semana 10 — Serving extremo y aceleradores</strong>
+- vLLM/TensorRT-LLM: <em>prefill/decoding</em> tuning, streaming, workers, afinidad CPU/GPU.
+- Laboratorio: tuning y repetición de mediciones con el framework.</p>
+<p><strong>Semana 11 — Carbono incorporado y decisiones de despliegue</strong>
+- Estimar M (fabricación/fin de vida) y prorrateo; planificación consciente del carbono.
+- Laboratorio: escenarios con M bajo/alto y reporte SCI junto a métricas operacionales.</p>
+<p><strong>Semana 12 — Presentaciones finales</strong>
+- Demo y paper (6–10 págs.): antes→después, gráficos, costes, guía de adopción.
+- Cierre Reto 3.</p>
+<h2>Resultados de aprendizaje</h2>
+<p>1) Definir métricas y SCI aplicadas a LLM; 2) Medir energía/CO₂e con trazabilidad; 3) Diseñar un framework reproducible; 4) Optimizar con técnicas modernas justificando <em>trade-offs</em>.</p>
+    </div>
+</body>
+</html>

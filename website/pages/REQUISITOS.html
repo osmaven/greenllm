@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="content">
+        <h1>Requisitos y recomendaciones de entorno</h1>
+<ul>
+<li>Python 3.10+ (recomendado 3.11)</li>
+<li>GPU NVIDIA con drivers recientes (para NVML y aceleración). CPU/Apple Silicon funcionan con modelos pequeños.</li>
+<li>Paquetes principales: <code>torch</code>, <code>transformers</code>, <code>accelerate</code>, <code>bitsandbytes</code>, <code>mlflow</code>, <code>codecarbon</code>, <code>pynvml</code>.</li>
+<li>Opcionales: <code>pyJoules</code> (RAPL CPU/DRAM), <code>auto-gptq</code>, <code>awq</code>, <code>vllm</code>, <code>tensorrt-llm</code>.</li>
+<li>Usa modelos ligeros para probar (p. ej., <code>TinyLlama/TinyLlama-1.1B-Chat-v1.0</code>).</li>
+</ul>
+<blockquote>
+<p>Consejos: fija <em>seeds</em>, realiza warm-up, repite N≥5, reporta intervalos de confianza.</p>
+</blockquote>
+    </div>
+</body>
+</html>
