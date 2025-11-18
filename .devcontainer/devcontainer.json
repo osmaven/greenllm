@@ -1,0 +1,28 @@
+{
+  "name": "Algoritmos Verdes Dev",
+  "dockerFile": "../Dockerfile",
+  "context": "..",
+  "workspaceFolder": "/app",
+  "runArgs": ["--gpus", "all"],
+
+  "mounts": [
+    "source=${localWorkspaceFolder},target=/app,type=bind"
+  ],
+
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/bin/python",
+        "terminal.integrated.shell.linux": "/bin/bash"
+      },
+      "extensions": [
+        "ms-python.python",
+        "ms-toolsai.jupyter",
+        "ms-azuretools.vscode-docker"
+      ]
+    }
+  },
+
+  "postCreateCommand": "uv pip install --system -e ./framework",
+  "remoteUser": "root"
+}

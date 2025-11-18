@@ -1,0 +1,34 @@
+[CULTURA]
+What is the capital of France?
+Who painted the Mona Lisa?
+In which continent is Egypt located?
+Which language is primarily spoken in Brazil?
+What is the largest ocean in the world?
+
+[MATEMATICAS]
+Solve: 8 + 5 × 2
+What is the square root of 81?
+If a triangle has sides 3, 4, and 5, what is its perimeter?
+Simplify: (10 - 3) × 2
+Convert 0.75 to a fraction.
+
+[PROGRAMACION]
+Write a Python function that adds two numbers.
+Write a Python program that prints “Hello, World!”.
+Create a Python function that returns the largest of three numbers.
+Write a Python loop that prints numbers from 1 to 10.
+Write a Python function that checks if a number is even or odd.
+
+[TRADUCCION]
+Translate into Spanish: “The president is speaking right now in the news.”
+Translate into English: “El cielo está muy nublado hoy.”
+Translate into French: “I would like a cup of coffee, please.”
+Translate into Spanish: “She has been working here for five years.”
+Translate into English: “¿A qué hora llega el tren?”
+
+[CIENCIA]
+What gas do plants absorb during photosynthesis?
+What is the boiling point of water at sea level (in Celsius)?
+Which planet is known as the Red Planet?
+What part of the cell contains the genetic material?
+What force keeps us anchored to the Earth?

@@ -46,3 +46,9 @@ curso_algoritmos_sostenibles_llm/
    - **Reto 3**: compara antes/después con **cuantización/QLoRA/serving** y reporta **trade-offs**.
 
 ---
+
+## Descargo de responsabilidad
+
+- El código es **docente** y prioriza claridad; no pretende ser una suite de *benchmark* industrial.
+- Algunas dependencias son pesadas (p. ej., `torch`). Ajusta a tu hardware y usa modelos pequeños para pruebas iniciales.
+- La **medición energética** via NVML/pyJoules requiere permisos y HW compatibles; ofrece *fallbacks* si no están disponibles.
