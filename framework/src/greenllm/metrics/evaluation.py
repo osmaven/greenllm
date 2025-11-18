@@ -2,7 +2,11 @@ import requests
 import json
 import re
 import time
-API_KEY = "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"
+
+with open("../api.key", "r") as f:
+
+    API_KEY = f.read().strip()
+
 API_URL = "https://openrouter.ai/api/v1/chat/completions"
 SITE_URL = "https://tu-sitio.com"
 SITE_NAME = "Mi Sitio"
@@ -89,3 +93,6 @@ def evaluar_modelos(prompts, disciplinas, resultados, seed, model="deepseek/deep
         puntuaciones.append(puntuacion)
 
     return puntuaciones
+
+
+print(API_KEY)
