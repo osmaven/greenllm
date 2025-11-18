@@ -7,12 +7,11 @@ import torch
 import numpy as np
 from ..system_data.platform_data import get_system_info
 import time
+import datetime
 
-# Detectar GPU si está disponible
+
+
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-print(f"Usando dispositivo: {device}")
-if device.type == "cuda":
-    print(f"GPU detectada: {torch.cuda.get_device_name(torch.cuda.current_device())}")
 
 
 def _read_prompts(path: str) -> List[List[str]]:
@@ -123,6 +122,8 @@ def _get_meter(name: str, carbon_intensity):
         return CodeCarbonMeter(carbon_intensity = carbon_intensity)
 
 
+
+
 def measure_idle_power(meter_name:str="codecarbon", carbon_intensity = 'auto'):
     """
     Mide el consumo energético en estado idle durante 5 segundos.
@@ -143,7 +144,7 @@ def measure_idle_power(meter_name:str="codecarbon", carbon_intensity = 'auto'):
 
 
 def run_measurement(model_name: str, prompts_path: str, max_new_tokens: int=64, batch_size:int=1,
-                    precision:str="auto", meter_name:str="codecarbon", carbon_intensity = 'auto', seed:int=42, n_iterations:int=1) -> dict:
+                    precision:str="auto", meter_name:str="codecarbon", carbon_intensity = 'auto', seed:int=42, n_iterations:int=1, verbose:bool = False) -> dict:
     """
     Ejecuta la medición de consumo energético y generación de texto del modelo sobre un conjunto de prompts.
 
@@ -161,6 +162,13 @@ def run_measurement(model_name: str, prompts_path: str, max_new_tokens: int=64, 
     Returns:
         dict: Diccionario con resultados de generación, consumo energético, memoria, y evaluación.
     """
+
+    if verbose:
+        print(f"Usando dispositivo: {device}")
+        if device.type == "cuda":
+            print(f"GPU detectada: {torch.cuda.get_device_name(torch.cuda.current_device())}")
+
+
     random.seed(seed)
 
     # Leer prompts y disciplinas
@@ -188,7 +196,8 @@ def run_measurement(model_name: str, prompts_path: str, max_new_tokens: int=64, 
     warmup_prompt = ["Prompt solo para warm-up."]
     _generate_batch(tok, model, warmup_prompt, max_new_tokens=max_new_tokens)
 
-    for _ in range(n_iterations):
+    for i in range(n_iterations):
+        print(f'\033[32m[greenllm @ {datetime.datetime.now().strftime("%H:%M:%S")}]\033[0m Ejecutando iteración {i+1} de {n_iterations}')
         texts = []
         durations_s = []
         energies_w = []
@@ -200,6 +209,9 @@ def run_measurement(model_name: str, prompts_path: str, max_new_tokens: int=64, 
 
         # Procesar prompts en batches
         for i in range(0, len(prompts), batch_size):
+
+            print(f'\033[32m[greenllm @ {datetime.datetime.now().strftime("%H:%M:%S")}]\033[0m Procesando prompts {i+1} a {min(i+batch_size, len(prompts))} de {len(prompts)}', end="\r")
+
             sub = prompts[i:i+batch_size]
 
             meter = _get_meter(meter_name, carbon_intensity)
@@ -232,6 +244,9 @@ def run_measurement(model_name: str, prompts_path: str, max_new_tokens: int=64, 
             energies_w.extend([energy_j] * len(sub))
             emissions_kg_tot.extend([emissions_kg] * len(sub))
             tokens_generated.extend(batch_tokens_generated)
+        
+        print(f'\033[32m[greenllm @ {datetime.datetime.now().strftime("%H:%M:%S")}]\033[0m Ejecución {i+1} de {n_iterations} completada.      ')
+
 
         # Guardar resultados de esta iteración
         return_dict = {
@@ -254,6 +269,7 @@ def run_measurement(model_name: str, prompts_path: str, max_new_tokens: int=64, 
 
         return_dicts.append(return_dict)
 
+
     # Promediar resultados sobre n_iterations
     for key in ["energy_w", "durations_s", "tokens_generated", "emissions_kg"]:
         suma = [0.0] * len(return_dicts[0][key])
@@ -262,6 +278,8 @@ def run_measurement(model_name: str, prompts_path: str, max_new_tokens: int=64, 
         return_dicts[0][key] = [s / n_iterations for s in suma]
 
     # Evaluar resultados generados
+    print(f"\033[32m[greenllm]\033[0m Evaluando resultados generados con modelo oráculo")
+
     eval_scores = evaluar_modelos(prompts, disciplinas, texts, seed=seed, model="tngtech/deepseek-r1t2-chimera:free")
     agrupado = {}
     for valor, etiqueta in zip(eval_scores, disciplinas):

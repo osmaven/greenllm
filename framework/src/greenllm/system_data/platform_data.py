@@ -42,4 +42,3 @@ def get_system_info() -> dict:
     return info
 
 
-print(get_system_info())

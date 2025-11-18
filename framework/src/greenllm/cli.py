@@ -1,8 +1,17 @@
 
+
+import warnings
+warnings.filterwarnings("ignore", category=FutureWarning)
+
+from transformers import logging as hf_logging
+hf_logging.set_verbosity_error()
+
+
 import argparse, json, time, os
-from .runners.inference_runner import run_measurement
 from .metrics.metrics import compute_metrics
 from .exporters.json_exporter import JSONExporter
+
+
 
 def main():
 
@@ -27,9 +36,25 @@ def main():
     m.add_argument("--seed", type=int, default=42)
     m.add_argument("--n-iterations", type=int, default=1, help="Número de iteraciones sobre el conjunto de prompts")
 
+    m.add_argument("--verbose", type = bool, default = False, help="Modo verbose")
 
     args = parser.parse_args()
 
+    print("""\033[32m 
+                            _ _           
+   __ _ _ __ ___  ___ _ __ | | |_ __ ___  
+  / _` | '__/ _ \/ _ \ '_ \| | | '_ ` _ \ 
+ | (_| | | |  __/  __/ | | | | | | | | | |
+  \__, |_|  \___|\___|_| |_|_|_|_| |_| |_|
+  |___/                                   \n""")
+    
+    import shutil
+    columnas = shutil.get_terminal_size().columns
+    import datetime
+    print("-" * columnas)
+    print(f'[greenllm @ {datetime.datetime.now().strftime("%H:%M:%S")}] \033[0m Ejecutando medición con los siguientes parámetros: \nModelo: {args.model}\nPrompts: {args.prompts}\nMax new tokens: {args.max_new_tokens}\nBatch size: {args.batch_size}\nPrecision: {args.precision}\nMedidor: {args.meter}\nCarbon intensity: {args.carbon_intensity}\nSeed: {args.seed}\nIteraciones: {args.n_iterations}\n', "\033[0m")
+
+    from .runners.inference_runner import run_measurement
     results = run_measurement(
         model_name=args.model,
         prompts_path=args.prompts,
@@ -39,8 +64,10 @@ def main():
         meter_name=args.meter,
         carbon_intensity=args.carbon_intensity,
         seed=args.seed,
-        n_iterations=args.n_iterations
+        n_iterations=args.n_iterations,
+        verbose= args.verbose
     )
+    
 
     # Derivar métricas agregadas
     metrics = compute_metrics(results)
@@ -49,5 +76,7 @@ def main():
     if args.json:
         JSONExporter(args.json).export(metrics)
         print(f"[greenllm] JSON escrito en: {args.json}")
+
+
 
 
