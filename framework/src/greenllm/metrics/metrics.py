@@ -1,45 +1,81 @@
+import numpy as np
+
+
+#Separa una lista plana en sublistas según la estructura dada (usado para tener según disciplinas)
+def split_by_structure(flat_list, structure):
+    result, idx = [], 0
+    for sub in structure:
+        n = len(sub)
+        result.append(flat_list[idx: idx + n])
+        idx += n
+    return result
+
 
 def compute_metrics(results: dict) -> dict:
     """
-    A partir de resultados brutos (energía J, tokens, latencias), devuelve métricas derivadas.
-    Espera claves: energy_j, tokens_generated, durations_s (lista), emissions_kg opcional, carbon_intensity_g_per_kwh opcional.
+    A partir de resultados brutos (energía J, tokens, latencias), devuelve métricas derivadas agrupadas por disciplina.
+    Espera claves: energy_w, tokens_generated, durations_s, evaluation_scores (lista de listas).
     """
-    energy_j = float(results.get("energy_j", 0.0))
-    tokens = int(results.get("tokens_generated", 0))
+    energy_w = results.get("energy_w", [])
+    tokens = results.get("tokens_generated", [])
     durations = results.get("durations_s", [])
-    co2e_g = None
+    eval_scores = results.get("evaluation_scores", [])
 
-    # Energía y tokens
-    j_per_token = (energy_j / tokens) if tokens > 0 else None
-    tokens_per_j = (tokens / energy_j) if energy_j > 0 else None
 
-    # CO2e estimado (si hay intensidad y/o emissions_kg de CodeCarbon)
-    if "emissions_kg" in results and results["emissions_kg"] is not None:
-        co2e_g = results["emissions_kg"] * 1000.0
-    else:
-        # Si tenemos intensidad (g/kWh), pasar energía J -> kWh = J / 3.6e6
-        I = results.get("carbon_intensity_g_per_kwh", None)
-        if I is not None:
-            co2e_g = (energy_j / 3_600_000.0) * float(I)
 
-    # Percentiles de latencia simples
-    def perc(xs, p):
-        if not xs: return None
-        xs2 = sorted(xs)
-        k = int((len(xs2)-1) * p)
-        return xs2[k]
+    # --- Energía y tokens ---
+    w_per_token = [(e / t) if (t and t > 0) else None for e, t in zip(energy_w, tokens)]
+    tokens_per_w = [(t / e) if (e and e > 0) else None for t, e in zip(tokens, energy_w)]
+    w_per_1k_tokens = [(w / (t / 1000)) if (t and t > 0) else None for w, t in zip(energy_w, tokens)]
 
-    p50 = perc(durations, 0.50)
-    p95 = perc(durations, 0.95) if len(durations) > 1 else p50
+    j_per_token = [w * 3600 for w in w_per_token] 
+    tokens_per_w = [w / 3600 for w in tokens_per_w] 
+    j_per_1k_tokens = [w * 3600 for w in w_per_1k_tokens]
 
-    # Normalización por 1k tokens
-    co2e_per_1k = (co2e_g / (tokens/1000)) if (co2e_g is not None and tokens > 0) else None
 
-    return {
-        "j_per_token": j_per_token,
-        "tokens_per_joule": tokens_per_j,
-        "latency_p50_s": p50,
-        "latency_p95_s": p95,
-        "co2e_g_total": co2e_g,
-        "co2e_g_per_1k_tokens": co2e_per_1k,
+    # --- CO2e estimado (si hay intensidad y/o emissions_kg de CodeCarbon) ---
+    kg_co2 = results["emissions_kg"] 
+    g_co2 = [(c * 1000) if c is not None else None for c in kg_co2]
+
+    # --- Normalización por 1k tokens ---
+    co2e_per_1k = [(c / (t / 1000)) if (c is not None and t and t > 0) else None for c, t in zip(g_co2, tokens)]
+
+    # --- Nueva métrica: tokens/segundo ---
+    tokens_per_s = [(t / d) if (d and d > 0) else None for t, d in zip(tokens, durations)]
+
+
+
+
+    grouped_metrics = {
+        
+        "run_info": {
+            "model": results.get("model", None),
+            "precision": results.get("precision", None),
+            "meter": results.get("meter", None),
+            "prompts_count": results.get("prompts_count", None),
+            "batch_size": results.get("batch_size", None),
+            "max_new_tokens": results.get("max_new_tokens", None),
+            "idle_power_w": results.get("idle_power_w", None),
+            "gpu_memory_allocated_mb": results.get("gpu_memory_allocated_mb", None),
+            "gpu_memory_reserved_mb": results.get("gpu_memory_reserved_mb", None),
+            "system_info": results.get("info", None),
+            "disciplines": results.get("disciplines", []),
+            "generated_texts": results.get("generated_texts", None),
+
+        },
+
+        "metrics": {
+            "w_per_token": split_by_structure(w_per_token, eval_scores),
+            "tokens_per_wat": split_by_structure(tokens_per_w, eval_scores),
+            "j_per_token": split_by_structure(j_per_token, eval_scores),
+            "tokens_per_j": split_by_structure(tokens_per_w, eval_scores),
+            "w_per_1k_tokens": split_by_structure(w_per_1k_tokens, eval_scores),
+            "j_per_1k_tokens": split_by_structure(j_per_1k_tokens, eval_scores),
+            "co2e_g_total": split_by_structure(g_co2, eval_scores),
+            "co2e_g_per_1k_tokens": split_by_structure(co2e_per_1k, eval_scores),
+            "evaluation_scores": eval_scores,
+            "tokens_per_second": split_by_structure(tokens_per_s, eval_scores), 
+        }
     }
+
+    return grouped_metrics

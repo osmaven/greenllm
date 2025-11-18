@@ -3,5 +3,7 @@ __pycache__/
 *.pyc
 .venv/
 .env
+.key
 .ipynb_checkpoints/
 mlruns/
+*.key

@@ -2,25 +2,31 @@
 import argparse, json, time, os
 from .runners.inference_runner import run_measurement
 from .metrics.metrics import compute_metrics
-from .exporters.csv_exporter import CSVExporter
-from .exporters.mlflow_exporter import MLflowExporter
+from .exporters.json_exporter import JSONExporter
 
 def main():
+
     parser = argparse.ArgumentParser(prog="greenllm", description="Medición energética/CO2e para LLM (docente)")
     sub = parser.add_subparsers(dest="cmd", required=True)
 
     m = sub.add_parser("measure", help="Ejecuta inferencia y mide energía/métricas")
     m.add_argument("--model", required=True, help="Nombre del modelo HF")
-    m.add_argument("--prompts", required=True, help="Ruta a archivo de prompts (uno por línea)")
+    m.add_argument("--prompts", required=True, help="Ruta a archivo de prompts (uno por línea)]")
+
     m.add_argument("--max-new-tokens", type=int, default=64)
+
     m.add_argument("--batch-size", type=int, default=1)
     m.add_argument("--precision", choices=["fp16","bf16","int8","int4","auto"], default="auto")
-    m.add_argument("--meter", choices=["nvml","codecarbon","pyjoules","none"], default="none")
-    m.add_argument("--carbon-intensity", type=float, default=None, help="gCO2e/kWh (si no se usa fuente externa)")
-    m.add_argument("--csv", default=None, help="Ruta de salida CSV")
-    m.add_argument("--mlflow-uri", default=None, help="MLflow tracking URI")
-    m.add_argument("--experiment", default="greenllm", help="Nombre de experimento MLflow")
+
+    m.add_argument("--meter", choices=["codecarbon"], default="codecarbon")
+
+    m.add_argument("--carbon-intensity", default= 'auto', help="gCO2e/kWh (si no se usa fuente externa)")
+
+    m.add_argument("--json", default=None, help="Ruta de salida JSON")
+    
     m.add_argument("--seed", type=int, default=42)
+    m.add_argument("--n-iterations", type=int, default=1, help="Número de iteraciones sobre el conjunto de prompts")
+
 
     args = parser.parse_args()
 
@@ -33,18 +39,15 @@ def main():
         meter_name=args.meter,
         carbon_intensity=args.carbon_intensity,
         seed=args.seed,
+        n_iterations=args.n_iterations
     )
 
     # Derivar métricas agregadas
     metrics = compute_metrics(results)
-    payload = {**results, **metrics}
-    print(json.dumps(payload, indent=2))
+    print(json.dumps(metrics, indent=2))
 
-    # Exportadores opcionales
-    if args.csv:
-        CSVExporter(args.csv).export(payload)
-        print(f"[greenllm] CSV escrito en: {args.csv}")
+    if args.json:
+        JSONExporter(args.json).export(metrics)
+        print(f"[greenllm] JSON escrito en: {args.json}")
 
-    if args.mlflow_uri:
-        MLflowExporter(experiment=args.experiment, tracking_uri=args.mlflow_uri).export(payload)
-        print(f"[greenllm] Registro en MLflow ({args.mlflow_uri}).")
+
