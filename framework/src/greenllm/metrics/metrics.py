@@ -79,3 +79,18 @@ def compute_metrics(results: dict) -> dict:
     }
 
     return grouped_metrics
+
+def compute_benchmark_metrics(results: dict) -> dict:
+    """
+    A partir de resultados brutos para distintos modelos, obtiene las métricas para todos ellos.
+    """
+    metrics = dict()
+
+    for prompts_path in results.keys():
+        prompts_results = results[prompts_path]
+        prompts_metrics = dict()
+        for model in prompts_results.keys():
+            model_results = prompts_results[model]
+            model_metrics = compute_metrics(model_results)
+            prompts_metrics[model] = model_metrics
+        metrics[prompts_path] = prompts_metrics

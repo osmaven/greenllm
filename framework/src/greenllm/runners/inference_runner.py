@@ -143,7 +143,8 @@ def measure_idle_power(meter_name:str="codecarbon", carbon_intensity = 'auto'):
 
 
 def run_measurement(model_name: str, prompts_path: str, max_new_tokens: int=64, batch_size:int=1,
-                    precision:str="auto", meter_name:str="codecarbon", carbon_intensity = 'auto', seed:int=42, n_iterations:int=1) -> dict:
+                    precision:str="auto", meter_name:str="codecarbon", carbon_intensity = 'auto', 
+                    seed:int=42, n_iterations:int=1, disciplinas_a_usar = 'all') -> dict:
     """
     Ejecuta la medición de consumo energético y generación de texto del modelo sobre un conjunto de prompts.
 
@@ -157,6 +158,7 @@ def run_measurement(model_name: str, prompts_path: str, max_new_tokens: int=64, 
         carbon_intensity: Intensidad de carbono.
         seed (int): Semilla para reproducibilidad.
         n_iterations (int): Número de iteraciones a promediar.
+        disciplinas_a_usar (str): Disciplinas de conocimiento a utilizar.
 
     Returns:
         dict: Diccionario con resultados de generación, consumo energético, memoria, y evaluación.
@@ -164,7 +166,7 @@ def run_measurement(model_name: str, prompts_path: str, max_new_tokens: int=64, 
     random.seed(seed)
 
     # Leer prompts y disciplinas
-    prompts_disciplinas = _read_prompts(prompts_path)
+    prompts_disciplinas = _read_prompts(prompts_path, disciplinas_a_usar)
     prompts  = prompts_disciplinas[0]
     disciplinas = prompts_disciplinas[1]
 
@@ -276,3 +278,35 @@ def run_measurement(model_name: str, prompts_path: str, max_new_tokens: int=64, 
     return_dicts[0]["idle_power_w"] = np.mean(w_idle)
 
     return return_dicts[0]
+
+
+def run_benchmark(model_names: str, prompts_paths: str, max_new_tokens: int=64, batch_size:int=1,
+                    precision:str="auto", meter_name:str="codecarbon", carbon_intensity = 'auto', 
+                    seed:int=42, n_iterations:int=1, categories = 'all') -> dict:
+    """
+    Ejecuta la medición de consumo energético y generación de texto del modelo sobre un conjunto de prompts.
+
+    Args:
+        model_names (str): Nombre o ruta de los modelos.
+        prompts_paths (str): Archivos con prompts.
+        max_new_tokens (int): Máximo número de tokens a generar.
+        batch_size (int): Tamaño de los batches de prompts.
+        precision (str): Precisión del modelo ("int8", "fp16", etc.).
+        meter_name (str): Nombres de los medidores de energía.
+        carbon_intensity: Intensidad de carbono.
+        seed (int): Semilla para reproducibilidad.
+        n_iterations (int): Número de iteraciones a promediar.
+        categories (str): Categorías de conocimiento a utilizar.
+
+    Returns:
+        dict: Diccionario con resultados de generación, consumo energético, memoria, y evaluación.
+    """
+    results = dict()
+    for prompts_path in prompts_paths:
+        prompts_results = dict()
+        for model_name in model_names:
+            res = run_measurement(model_name, prompts_path, max_new_tokens, batch_size, 
+                precision, meter_name, carbon_intensity, seed, n_iterations, categories)
+            prompts_results{model_name} = res
+        results{prompts_path} = prompts_results
+    return results
