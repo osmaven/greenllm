@@ -4,15 +4,16 @@ import re
 import time
 import os
 
-api_key_file=os.environ.get("API_KEY_FILE","../api.key")
+API_KEY = os.getenv("API_KEY")
 
-with open("../api.key", "r") as f:
+if API_KEY is None:
+    API_KEY_FILE=os.environ.get("API_KEY_FILE","../api.key")
+    with open(API_KEY_FILE, "r") as f:
+        API_KEY = f.read().strip()
 
-    API_KEY = f.read().strip()
-
-API_URL = "https://openrouter.ai/api/v1/chat/completions"
-SITE_URL = "https://tu-sitio.com"
-SITE_NAME = "Mi Sitio"
+API_URL = os.getenv("API_URL","https://openrouter.ai/api/v1/chat/completions")
+SITE_URL = os.getenv("SITE_URL","https://tu-sitio.com")
+SITE_NAME = os.getenv("SITE_NAME","Mi Sitio")
 
 def evaluar_modelos(prompts, disciplinas, resultados, seed, model="deepseek/deepseek-chat-v3.1:free"):
     """
