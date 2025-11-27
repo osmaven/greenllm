@@ -1,14 +1,14 @@
 {
-  "exported_at": "2025-11-18T14:44:12.203892",
+  "exported_at": "2025-11-18T15:16:24.388964",
   "payload": {
     "run_info": {
       "model": "openai-community/gpt2",
       "precision": "auto",
       "meter": "codecarbon",
       "prompts_count": 10,
-      "batch_size": 1,
+      "batch_size": 10,
       "max_new_tokens": 64,
-      "idle_power_w": 242.29861760631226,
+      "idle_power_w": 157.2915619212525,
       "gpu_memory_allocated_mb": 487.46875,
       "gpu_memory_reserved_mb": 542.0,
       "system_info": {
@@ -39,198 +39,198 @@
         "CIENCIA"
       ],
       "generated_texts": [
-        "The capital of France is Paris.\n\nThe capital of France is Paris.\n\nThe capital of France is Paris.\n\nThe capital of France is Paris.\n\nThe capital of France is Paris.\n\nThe capital of France is Paris.\n\nThe capital of France is Paris.",
+        "The capital of France is Paris. It is the capital of France. It is the capital of France. It is the capital of France. It is the capital of France. It is the capital of France. It is the capital of France. It is the capital of France. It is the capital of France. It",
         "The Mona Lisa is a very popular figure in the Marvel Universe. It was first seen in the Marvel Cinematic Universe, where it was featured in the first two Avengers films. It was also featured in the first two Avengers: Age of Ultron, where it was featured in the first two Avengers: Infinity War",
-        "= 8 × 2 = 8 × 2 = 8 × 2 = 8 × 2 = 8 × 2 = 8 × 2 = 8 × 2 = 8 × 2 = 8 × 2 = 8 × 2 = 8 × 2 = 8 × 2 = 8 × 2 = 8 × 2 = 8 × 2 = 8 × 2",
-        "The square root of 81 is the square root of the square root of the square root of the square root of the square root of the square root of the square root of the square root of the square root of the square root of the square root of the square root of the square root of the square root of",
+        "The following table shows the number of points you can earn from each of the following:\n\nPoints earned from the following:\n\n1. The following table shows the number of points you can earn from each of the following:\n\nPoints earned from the following:\n\n2. The following table shows",
+        "The square root of 81 is the square root of the square root of the square root of the square root of the square root of the square root of the square root of the square root of the square root of the square root of the square root of the square root of the square root of the square root of the square",
         "import math import time import time.time import time.time.time.time.time.time.time.time.time.time.time.time.time.time.time.time.time.time.time.time.time.time.time.time.time.time.time",
         "The program will print the following:\n\nHello, World!\n\nThe program will print the following:\n\nHello, World!\n\nThe program will print the following:\n\nHello, World!\n\nThe program will print the following:\n\nHello, World!\n\nThe program",
         "”The president is speaking right now in the news.”\n\n”The president is speaking right now in the news.”\n\n”The president is speaking right now in the news.”\n\n”The president is speaking right now in the news.”",
         "””””””””””””””””””””””””””””””””",
         "The answer is that plants absorb a lot of carbon dioxide from the atmosphere. The amount of carbon dioxide in the atmosphere is about 1.5 times that of the sun. Plants absorb about 1.5 times more carbon dioxide than the sun.\n\nThe amount of carbon dioxide in the atmosphere is about 1.",
-        "The boiling point of water at sea level is about 1.5 degrees Celsius.\n\nHow much water is in the water?\n\nThe water at sea level is about 1.5 degrees Celsius.\n\nHow much water is in the water?\n\nThe water at sea level is about 1."
+        "The boiling point of water at sea level is about 1.5 degrees Celsius. The boiling point of water at sea level is about 1.5 degrees Celsius.\n\nWhat is the temperature of water at sea level (in Celsius)?The boiling point of water at sea level is about 1.5 degrees Celsius. The"
       ]
     },
     "metrics": {
       "w_per_token": [
         [
-          0.0006524533577946022,
-          0.0005211677528544384
+          0.0007333494705463578,
+          0.0007333494705463578
         ],
         [
-          0.00039779460748712515,
-          0.0004423645500251069
+          0.0007333494705463578,
+          0.0007333494705463578
         ],
         [
-          0.0005184744389681559,
-          0.00046676054173993854
+          0.0007333494705463578,
+          0.0007333494705463578
         ],
         [
-          0.00041996640796852335,
-          0.00048709108721266633
+          0.0007333494705463578,
+          0.0007333494705463578
         ],
         [
-          0.00048541214821278087,
-          0.0005347643256179866
+          0.0007333494705463578,
+          0.0007333494705463578
         ]
       ],
       "tokens_per_wat": [
         [
-          0.42574350251903303,
-          0.532991107481972
+          0.37877954363399025,
+          0.37877954363399025
         ],
         [
-          0.698294477978232,
-          0.6279386034934585
+          0.37877954363399025,
+          0.37877954363399025
         ],
         [
-          0.5357598309582984,
-          0.5951183807061077
+          0.37877954363399025,
+          0.37877954363399025
         ],
         [
-          0.6614285631116413,
-          0.5702789171679068
+          0.37877954363399025,
+          0.37877954363399025
         ],
         [
-          0.5722513925547937,
-          0.5194396194188367
+          0.37877954363399025,
+          0.37877954363399025
         ]
       ],
       "j_per_token": [
         [
-          2.348832088060568,
-          1.8762039102759782
+          2.6400580939668883,
+          2.6400580939668883
         ],
         [
-          1.4320605869536505,
-          1.5925123800903849
+          2.6400580939668883,
+          2.6400580939668883
         ],
         [
-          1.8665079802853612,
-          1.6803379502637787
+          2.6400580939668883,
+          2.6400580939668883
         ],
         [
-          1.511879068686684,
-          1.7535279139655988
+          2.6400580939668883,
+          2.6400580939668883
         ],
         [
-          1.7474837335660112,
-          1.9251515722247519
+          2.6400580939668883,
+          2.6400580939668883
         ]
       ],
       "tokens_per_j": [
         [
-          0.42574350251903303,
-          0.532991107481972
+          0.37877954363399025,
+          0.37877954363399025
         ],
         [
-          0.698294477978232,
-          0.6279386034934585
+          0.37877954363399025,
+          0.37877954363399025
         ],
         [
-          0.5357598309582984,
-          0.5951183807061077
+          0.37877954363399025,
+          0.37877954363399025
         ],
         [
-          0.6614285631116413,
-          0.5702789171679068
+          0.37877954363399025,
+          0.37877954363399025
         ],
         [
-          0.5722513925547937,
-          0.5194396194188367
+          0.37877954363399025,
+          0.37877954363399025
         ]
       ],
       "w_per_1k_tokens": [
         [
-          0.6524533577946022,
-          0.5211677528544384
+          0.7333494705463578,
+          0.7333494705463578
         ],
         [
-          0.39779460748712514,
-          0.4423645500251069
+          0.7333494705463578,
+          0.7333494705463578
         ],
         [
-          0.5184744389681558,
-          0.46676054173993853
+          0.7333494705463578,
+          0.7333494705463578
         ],
         [
-          0.41996640796852336,
-          0.4870910872126663
+          0.7333494705463578,
+          0.7333494705463578
         ],
         [
-          0.48541214821278084,
-          0.5347643256179866
+          0.7333494705463578,
+          0.7333494705463578
         ]
       ],
       "j_per_1k_tokens": [
         [
-          2348.832088060568,
-          1876.2039102759782
+          2640.058093966888,
+          2640.058093966888
         ],
         [
-          1432.0605869536505,
-          1592.5123800903848
+          2640.058093966888,
+          2640.058093966888
         ],
         [
-          1866.5079802853609,
-          1680.3379502637788
+          2640.058093966888,
+          2640.058093966888
         ],
         [
-          1511.8790686866841,
-          1753.5279139655986
+          2640.058093966888,
+          2640.058093966888
         ],
         [
-          1747.483733566011,
-          1925.1515722247518
+          2640.058093966888,
+          2640.058093966888
         ]
       ],
       "co2e_g_total": [
         [
-          0.012527104469656361,
-          0.010006420854805218
+          0.014080309834490072,
+          0.014080309834490072
         ],
         [
-          0.007637656463752803,
-          0.008493399360482053
+          0.014080309834490072,
+          0.014080309834490072
         ],
         [
-          0.009954709228188592,
-          0.00896180240140682
+          0.014080309834490072,
+          0.014080309834490072
         ],
         [
-          0.008063355032995649,
-          0.009352148874483194
+          0.014080309834490072,
+          0.014080309834490072
         ],
         [
-          0.009319913245685393,
-          0.010267475051865342
+          0.014080309834490072,
+          0.014080309834490072
         ]
       ],
       "co2e_g_per_1k_tokens": [
         [
-          0.19573600733838065,
-          0.15635032585633152
+          0.22000484116390737,
+          0.22000484116390737
         ],
         [
-          0.11933838224613755,
-          0.13270936500753208
+          0.22000484116390737,
+          0.22000484116390737
         ],
         [
-          0.15554233169044676,
-          0.14002816252198158
+          0.22000484116390737,
+          0.22000484116390737
         ],
         [
-          0.125989922390557,
-          0.1461273261637999
+          0.22000484116390737,
+          0.22000484116390737
         ],
         [
-          0.14562364446383427,
-          0.16042929768539596
+          0.22000484116390737,
+          0.22000484116390737
         ]
       ],
       "evaluation_scores": [
         [
-          9.0,
+          6.0,
           0.0
         ],
         [
@@ -243,33 +243,33 @@
         ],
         [
           0.0,
-          0.0
+          10.0
         ],
         [
-          5.0,
+          1.0,
           0.0
         ]
       ],
       "tokens_per_second": [
         [
-          36.74049920239575,
-          41.97639155485257
+          27.69704385491101,
+          27.69704385491101
         ],
         [
-          42.303215525877,
-          41.72134645475623
+          27.69704385491101,
+          27.69704385491101
         ],
         [
-          39.97819301882912,
-          41.515601208092896
+          27.69704385491101,
+          27.69704385491101
         ],
         [
-          40.40800918242544,
-          40.26923055574849
+          27.69704385491101,
+          27.69704385491101
         ],
         [
-          40.54160844803314,
-          40.29439181105147
+          27.69704385491101,
+          27.69704385491101
         ]
       ]
     }
