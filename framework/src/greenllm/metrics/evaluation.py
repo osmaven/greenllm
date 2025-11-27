@@ -2,6 +2,9 @@ import requests
 import json
 import re
 import time
+import os
+
+api_key_file=os.environ.get("API_KEY_FILE","../api.key")
 
 with open("../api.key", "r") as f:
 
