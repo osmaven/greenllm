@@ -94,3 +94,4 @@ def compute_benchmark_metrics(results: dict) -> dict:
             model_metrics = compute_metrics(model_results)
             prompts_metrics[model] = model_metrics
         metrics[prompts_path] = prompts_metrics
+    return metrics
