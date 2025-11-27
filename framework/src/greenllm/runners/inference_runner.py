@@ -307,6 +307,6 @@ def run_benchmark(model_names: str, prompts_paths: str, max_new_tokens: int=64, 
         for model_name in model_names:
             res = run_measurement(model_name, prompts_path, max_new_tokens, batch_size, 
                 precision, meter_name, carbon_intensity, seed, n_iterations, categories)
-            prompts_results{model_name} = res
-        results{prompts_path} = prompts_results
+            prompts_results[model_name] = res
+        results[prompts_path] = prompts_results
     return results
