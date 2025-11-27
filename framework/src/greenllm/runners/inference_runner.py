@@ -282,7 +282,7 @@ def run_measurement(model_name: str, prompts_path: str, max_new_tokens: int=64, 
     # Evaluar resultados generados
     print(f"\033[32m[greenllm]\033[0m Evaluando resultados generados con modelo oráculo")
 
-    eval_scores = evaluar_modelos(prompts, disciplinas, texts, seed=seed, model="tngtech/deepseek-r1t2-chimera:free")
+    eval_scores = evaluar_modelos(prompts, disciplinas, texts, seed=seed, model="gemini-2.5-flash-lite")
     agrupado = {}
     for valor, etiqueta in zip(eval_scores, disciplinas):
         agrupado.setdefault(etiqueta, []).append(valor)
