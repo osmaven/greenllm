@@ -1,5 +1,6 @@
 
 import time
+
 class CodeCarbonMeter():
     """
     
@@ -10,11 +11,13 @@ class CodeCarbonMeter():
         self._start = None
         self._carbon_intensity = carbon_intensity
         try:
-            from codecarbon import EmissionsTracker
-            self._available = True
-            self._tracker = EmissionsTracker(measure_power_secs=measure_power_secs)
 
-            print("CodeCarbon está disponible para medir las emisiones.")
+            import logging
+            from codecarbon import EmissionsTracker
+            logging.getLogger("codecarbon").setLevel(logging.ERROR)
+
+            self._available = True
+            self._tracker = EmissionsTracker(measure_power_secs=measure_power_secs, log_level = "critical" if not verbose else "info")
 
         except Exception as e:
             print("CodeCarbon no está disponible. No se medirán las emisiones. Exception:", e)

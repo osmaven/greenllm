@@ -73,7 +73,6 @@ def evaluar_modelos(prompts, disciplinas, resultados, seed, model="deepseek/deep
                 result = response.json()
                 contenido = result.get("choices", [{}])[0].get("message", {}).get("content", "").strip()
 
-                print(contenido)
 
                 # Clean possible tags or extra characters
                 contenido_limpio = re.sub(r"<.*?>", "", contenido, flags=re.DOTALL).strip()
@@ -99,4 +98,3 @@ def evaluar_modelos(prompts, disciplinas, resultados, seed, model="deepseek/deep
     return puntuaciones
 
 
-print(API_KEY)
