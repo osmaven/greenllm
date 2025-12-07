@@ -11,7 +11,7 @@ def plot_metrics(metrics: dict) -> dict:
 
     info = {}
 
-    for prompt_set, models in data.items():
+    for prompt_set, models in metrics.items():
         prompt_name = prompt_set.split('/')[-1].replace('.txt', '')
         
         for model_name, model_data in models.items():
