@@ -4,12 +4,20 @@ import matplotlib.pyplot as plt
 
 
 
-def plot_metrics(metrics: dict) -> dict:
+def plot_metrics(metrics: dict, metric_key: str, agg:str = 'avg') -> dict:
     """
     A partir de las métricas generadas, dibuja una gráfica agrupada por fichero de prompts y modelo.
     """
 
     info = {}
+
+    if agg == 'avg':
+        agg_label = 'Average'
+        agg_function = np.average
+    elif agg == 'sum':
+        agg_label = 'Sum'
+        agg_function = np.sum
+    else raise Exception ('Aggregate method not supported')
 
     for prompt_set, models in metrics.items():
         prompt_name = prompt_set.split('/')[-1].replace('.txt', '')
@@ -17,13 +25,13 @@ def plot_metrics(metrics: dict) -> dict:
         for model_name, model_data in models.items():
             model_short = model_name.split('/')[-1]
             
-            # Flatten all w_per_token values and calculate average
-            w_per_token_values = model_data['metrics']['w_per_token']
-            all_values = [val for sublist in w_per_token_values for val in sublist]
-            avg_w_per_token = np.average(all_values)
+            # Flatten all metric values and calculate average
+            metric_values = model_data['metrics'][metric_key]
+            all_values = [val for sublist in metric_values for val in sublist]
+            metric_value = agg_function(all_values)
             
             key = f"{prompt_name}_{model_short}"
-            info[key] = avg_w_per_token
+            info[key] = metric_value
 
 
     labels = list(info.keys())
@@ -37,8 +45,8 @@ def plot_metrics(metrics: dict) -> dict:
 
     # Customize the plot
     ax.set_xlabel('Model - Prompt Set', fontsize=12, fontweight='bold')
-    ax.set_ylabel('Average Watts per Token', fontsize=12, fontweight='bold')
-    ax.set_title('Average Energy Consumption (w_per_token) by Model and Prompt Set', 
+    ax.set_ylabel(f'{agg_label} {metric_key}', fontsize=12, fontweight='bold')
+    ax.set_title(f'{agg_label} {metric_key} by Model and Prompt Set', 
                 fontsize=14, fontweight='bold', pad=20)
     ax.set_xticks(range(len(labels)))
     ax.set_xticklabels(labels, rotation=45, ha='right')
