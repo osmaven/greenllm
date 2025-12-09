@@ -11,13 +11,14 @@ def plot_metrics(metrics: dict, metric_key: str, agg:str = 'avg') -> dict:
 
     info = {}
 
-    if agg is 'avg':
+    if agg == 'avg':
         agg_label = 'Average'
         agg_function = np.average
-    elif agg is 'sum':
+    elif agg == 'sum':
         agg_label = 'Sum'
         agg_function = np.sum
-    else raise Exception ('Aggregate method not supported')
+    else:
+        raise Exception ('Aggregate method not supported')
 
     for prompt_set, models in metrics.items():
         prompt_name = prompt_set.split('/')[-1].replace('.txt', '')
