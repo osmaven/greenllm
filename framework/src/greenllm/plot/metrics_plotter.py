@@ -11,10 +11,10 @@ def plot_metrics(metrics: dict, metric_key: str, agg:str = 'avg') -> dict:
 
     info = {}
 
-    if agg == 'avg':
+    if agg is 'avg':
         agg_label = 'Average'
         agg_function = np.average
-    elif agg == 'sum':
+    elif agg is 'sum':
         agg_label = 'Sum'
         agg_function = np.sum
     else raise Exception ('Aggregate method not supported')
