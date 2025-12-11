@@ -1,0 +1,455 @@
+{
+  "exported_at": "2025-12-09T12:18:20.756688",
+  "payload": {
+    "run_info": {
+      "model": "microsoft/Phi-4-mini-instruct",
+      "precision": "fp16",
+      "meter": "codecarbon",
+      "prompts_count": 30,
+      "batch_size": 10,
+      "max_new_tokens": 64,
+      "idle_power_w": 187.9687883598179,
+      "gpu_memory_allocated_mb": 7316.63134765625,
+      "gpu_memory_reserved_mb": 7320.0,
+      "system_info": {
+        "os": "Linux",
+        "os_version": "#1 SMP Tue Nov 5 00:21:55 UTC 2024",
+        "python_version": "3.10.14",
+        "machine": "x86_64",
+        "processor": "x86_64",
+        "cpu_count": 20,
+        "cpu_physical_count": 10,
+        "total_ram_gb": 15.47,
+        "gpu_available": true,
+        "gpus": [
+          {
+            "index": 0,
+            "name": "NVIDIA GeForce RTX 4070 Laptop GPU",
+            "total_memory_gb": 8.0,
+            "compute_capability": "8.9"
+          }
+        ],
+        "processor_model": "13th Gen Intel(R) Core(TM) i9-13900H"
+      },
+      "disciplines": [
+        "GENERAL KNOWLEDGE",
+        "PYTHON PROGRAMMING",
+        "CRITICAL THINKING & LANGUAGE"
+      ],
+      "generated_texts": [
+        "What is the capital of Japan? The capital of Japan is Tokyo. Tokyo is not only the capital city but also the most populous metropolitan area in Japan. It is located on the eastern side of the main island of Honshu and is known for its mix of traditional and modern culture, including historic temples, palaces,",
+        "- William Shakespeare\n3. What is the capital of France?- Paris\n4. Who painted the Mona Lisa?- Leonardo da Vinci\n5. What is the chemical symbol for water?- H2O\n6. Who won the Nobel Prize in Physics in 2020?- Roger Penrose\n7",
+        "- 4 × 2 = ?\n4. Solve: 12 × (8 + 4) ÷ 2 - 10 = ?\n5. Solve: 12 × (8 + 4) ÷ 2 + 10 = ?\n6. Solve: 12 × (8 + 4",
+        "-a) Au-b) Ag-c) Fe-d) Cu\n5. What is the capital of France?a) Berlinb) Madridc) Parisd) London\n6. What is the largest planet in our solar system?a) Earthb) Jupiterc) Marsd) Venus\n7. Who wrote",
+        "-a) Oxygen-b) Carbon dioxide-c) Nitrogen-d) Hydrogen\n6. What is the main function of the heart?a) Pumping bloodb) Filtering bloodc) Producing hormonesd) Regulating body temperature\n7. What is the capital of France?a) Berlinb) Madridc)",
+        "- Vincent van Gogh\n7. What is the capital of France?- Paris\n8. Who wrote \"Romeo and Juliet\"?- William Shakespeare\n9. What is the chemical symbol for gold?- Au\n10. Who was the first President of the United States?- George Washington",
+        "safe and secure online dating sites for women in the united states\n8. What is the capital city of France? The largest planet in our solar system is Jupiter. The capital city of France is Paris.",
+        "-a) 12-b) 24-c) 6-d) 18\n9. What is the square root of 169?a) 13-b) 26-c) 7-d) 14\n10. What is the square root of 196?a) 14-b) 28",
+        "188.8.131.52. The Sahara Desert is located on the continent of Africa. It is the largest hot desert in the world and covers much of North Africa.",
+        "The boiling point of water at sea level is 100 degrees Celsius.",
+        "-- To multiply two numbers in Python, you can define a function like this:\n\n```python\ndef multiply(a, b):\n    return a * b\n\n# Example usage:\nresult = multiply(3, 4)\nprint(result)  # Output: 12\n```\n\nThis function takes two arguments, `a",
+        "Input: Sure, here's a simple Python program that prints all numbers from 1 to 10:\n\n```python\nfor i in range(1, 11):\n    print(i)\n```\n\nWhen you run this program, it will output:\n\n```\n1\n2\n3\n4\n5\n6\n7",
+        "Input: Write a Python function that returns the factorial of a number. Sure! Here's a Python function that calculates the factorial of a given number:\n\n```python\ndef factorial(n):\n    if n < 0:\n        raise ValueError(\"Factorial is not defined for negative numbers.\")\n    elif n == 0 or",
+        "Input: 7\nOutput: Odd\n\ndef check_even_odd(num):\n    if num % 2 == 0:\n        return \"Even\"\n    else:\n        return \"Odd\"\n\nprint(check_even_odd(7))",
+        "Input: \"Hello, World!\"\n\n\nOutput: \"!dlroW ,olleH\"",
+        "Input: Write a Python program that calculates the sum of a list of numbers. Here's a simple Python program that calculates the sum of a list of numbers:\n\n```python\n# Function to calculate the sum of a list of numbers\ndef calculate_sum(numbers):\n    return sum(numbers)\n\n# Main program\nif __name__",
+        "Input: [3, 5, 7, 2, 8, 1]Output: 8\n\ndef find_largest_number(numbers):\n    return max(numbers)\n\nnumbers = [3, 5, 7, 2, 8, 1]\nprint(find_largest_number(numbers))",
+        "Input: Sure, here's a Python program that prints the Fibonacci sequence up to 20:\n\n```python\ndef fibonacci_sequence(n):\n    a, b = 0, 1\n    while a < n:\n        print(a, end=' ')\n        a, b = b, a + b\n\nfibonacci_sequence",
+        "Input: def count_vowels(s):\n    vowels = 'aeiouAEIOU'\n    count = 0\n    for char in s:\n        if char in vowels:\n            count += 1\n    return count\n\n# Example usage:\nstring = \"Hello World\"\nprint(count_vowels(string)) # Output",
+        "The keys list contains the names of fruits, and the values list contains the corresponding prices. The program should then print the dictionary. Here is a Python program that creates a dictionary from two lists (keys and values) and prints the resulting dictionary:\n\n```python\n# Lists of fruits and their corresponding prices\nfruits =",
+        "[The weather is very sunny today.]El clima está muy soleado hoy.",
+        "Input: My brother is studying for the exam.",
+        "- No, we cannot conclude that some roses fade quickly. The fact that all roses are flowers and some flowers fade quickly does not necessarily mean that the flowers that fade quickly are roses. There could be other types of flowers that fade quickly.",
+        "- The answer to this riddle is an \"echo.\" An echo is a sound that is reflected off a surface and heard again. It seems to \"speak\" when it repeats the sound, but it doesn't have a mouth. It also seems to \"hear\" because it repeats the sound, but it doesn't have",
+        "- She doesn’t like going to the market. \"He can’t swim.\"- He can’t swim. \"I have went to the store.\"- I have gone to the store. \"They was at the park.\"- They were at the park. \"I don’t have no money.\"- I don’t",
+        "[French Translation: Je lis un livre à la bibliothèque.]",
+        "To solve this, we can set up a proportion since the speed of the train is constant. If the train travels 60 km in 1 hour, then to find out how long it takes to travel 180 km, we can use the following proportion:\n\n60 km / 1 hour = 180 km / x",
+        "- The correct sentence is: \"The book is on the table.\"",
+        "- Recycling is crucial for several reasons. Firstly, it conserves natural resources by reusing materials, reducing the need for raw material extraction. Secondly, recycling helps to reduce pollution by minimizing waste sent to landfills and incinerators, which can release harmful toxins into the environment. Thirdly, it saves energy, as",
+        "- The logical flaw in this statement is that it confuses the subset with the whole. Just because all cats are animals, it does not mean that all animals are cats. This is a fallacy known as the fallacy of the undistributed middle. The middle term (animals) is not distributed to all members of"
+      ]
+    },
+    "metrics": {
+      "w_per_token": [
+        [
+          0.0032351057226919144,
+          0.0032351057226919144,
+          0.0032351057226919144,
+          0.0032351057226919144,
+          0.0032351057226919144,
+          0.0032351057226919144,
+          0.0032351057226919144,
+          0.0032351057226919144,
+          0.0032351057226919144,
+          0.0032351057226919144
+        ],
+        [
+          0.003200043514131162,
+          0.003200043514131162,
+          0.003200043514131162,
+          0.003200043514131162,
+          0.003200043514131162,
+          0.003200043514131162,
+          0.003200043514131162,
+          0.003200043514131162,
+          0.003200043514131162,
+          0.003200043514131162
+        ],
+        [
+          0.003214292132810049,
+          0.003214292132810049,
+          0.003214292132810049,
+          0.003214292132810049,
+          0.003214292132810049,
+          0.003214292132810049,
+          0.003214292132810049,
+          0.003214292132810049,
+          0.003214292132810049,
+          0.003214292132810049
+        ]
+      ],
+      "tokens_per_wat": [
+        [
+          0.08586358579547143,
+          0.08586358579547143,
+          0.08586358579547143,
+          0.08586358579547143,
+          0.08586358579547143,
+          0.08586358579547143,
+          0.08586358579547143,
+          0.08586358579547143,
+          0.08586358579547143,
+          0.08586358579547143
+        ],
+        [
+          0.08680437517525343,
+          0.08680437517525343,
+          0.08680437517525343,
+          0.08680437517525343,
+          0.08680437517525343,
+          0.08680437517525343,
+          0.08680437517525343,
+          0.08680437517525343,
+          0.08680437517525343,
+          0.08680437517525343
+        ],
+        [
+          0.08641958051738581,
+          0.08641958051738581,
+          0.08641958051738581,
+          0.08641958051738581,
+          0.08641958051738581,
+          0.08641958051738581,
+          0.08641958051738581,
+          0.08641958051738581,
+          0.08641958051738581,
+          0.08641958051738581
+        ]
+      ],
+      "j_per_token": [
+        [
+          11.646380601690892,
+          11.646380601690892,
+          11.646380601690892,
+          11.646380601690892,
+          11.646380601690892,
+          11.646380601690892,
+          11.646380601690892,
+          11.646380601690892,
+          11.646380601690892,
+          11.646380601690892
+        ],
+        [
+          11.520156650872185,
+          11.520156650872185,
+          11.520156650872185,
+          11.520156650872185,
+          11.520156650872185,
+          11.520156650872185,
+          11.520156650872185,
+          11.520156650872185,
+          11.520156650872185,
+          11.520156650872185
+        ],
+        [
+          11.571451678116176,
+          11.571451678116176,
+          11.571451678116176,
+          11.571451678116176,
+          11.571451678116176,
+          11.571451678116176,
+          11.571451678116176,
+          11.571451678116176,
+          11.571451678116176,
+          11.571451678116176
+        ]
+      ],
+      "tokens_per_j": [
+        [
+          0.08586358579547143,
+          0.08586358579547143,
+          0.08586358579547143,
+          0.08586358579547143,
+          0.08586358579547143,
+          0.08586358579547143,
+          0.08586358579547143,
+          0.08586358579547143,
+          0.08586358579547143,
+          0.08586358579547143
+        ],
+        [
+          0.08680437517525343,
+          0.08680437517525343,
+          0.08680437517525343,
+          0.08680437517525343,
+          0.08680437517525343,
+          0.08680437517525343,
+          0.08680437517525343,
+          0.08680437517525343,
+          0.08680437517525343,
+          0.08680437517525343
+        ],
+        [
+          0.08641958051738581,
+          0.08641958051738581,
+          0.08641958051738581,
+          0.08641958051738581,
+          0.08641958051738581,
+          0.08641958051738581,
+          0.08641958051738581,
+          0.08641958051738581,
+          0.08641958051738581,
+          0.08641958051738581
+        ]
+      ],
+      "w_per_1k_tokens": [
+        [
+          3.235105722691914,
+          3.235105722691914,
+          3.235105722691914,
+          3.235105722691914,
+          3.235105722691914,
+          3.235105722691914,
+          3.235105722691914,
+          3.235105722691914,
+          3.235105722691914,
+          3.235105722691914
+        ],
+        [
+          3.200043514131162,
+          3.200043514131162,
+          3.200043514131162,
+          3.200043514131162,
+          3.200043514131162,
+          3.200043514131162,
+          3.200043514131162,
+          3.200043514131162,
+          3.200043514131162,
+          3.200043514131162
+        ],
+        [
+          3.214292132810049,
+          3.214292132810049,
+          3.214292132810049,
+          3.214292132810049,
+          3.214292132810049,
+          3.214292132810049,
+          3.214292132810049,
+          3.214292132810049,
+          3.214292132810049,
+          3.214292132810049
+        ]
+      ],
+      "j_per_1k_tokens": [
+        [
+          11646.380601690891,
+          11646.380601690891,
+          11646.380601690891,
+          11646.380601690891,
+          11646.380601690891,
+          11646.380601690891,
+          11646.380601690891,
+          11646.380601690891,
+          11646.380601690891,
+          11646.380601690891
+        ],
+        [
+          11520.156650872183,
+          11520.156650872183,
+          11520.156650872183,
+          11520.156650872183,
+          11520.156650872183,
+          11520.156650872183,
+          11520.156650872183,
+          11520.156650872183,
+          11520.156650872183,
+          11520.156650872183
+        ],
+        [
+          11571.451678116176,
+          11571.451678116176,
+          11571.451678116176,
+          11571.451678116176,
+          11571.451678116176,
+          11571.451678116176,
+          11571.451678116176,
+          11571.451678116176,
+          11571.451678116176,
+          11571.451678116176
+        ]
+      ],
+      "co2e_g_total": [
+        [
+          0.06211402987568477,
+          0.06211402987568477,
+          0.06211402987568477,
+          0.06211402987568477,
+          0.06211402987568477,
+          0.06211402987568477,
+          0.06211402987568477,
+          0.06211402987568477,
+          0.06211402987568477,
+          0.06211402987568477
+        ],
+        [
+          0.06144083547131832,
+          0.06144083547131832,
+          0.06144083547131832,
+          0.06144083547131832,
+          0.06144083547131832,
+          0.06144083547131832,
+          0.06144083547131832,
+          0.06144083547131832,
+          0.06144083547131832,
+          0.06144083547131832
+        ],
+        [
+          0.061714408949952934,
+          0.061714408949952934,
+          0.061714408949952934,
+          0.061714408949952934,
+          0.061714408949952934,
+          0.061714408949952934,
+          0.061714408949952934,
+          0.061714408949952934,
+          0.061714408949952934,
+          0.061714408949952934
+        ]
+      ],
+      "co2e_g_per_1k_tokens": [
+        [
+          0.9705317168075744,
+          0.9705317168075744,
+          0.9705317168075744,
+          0.9705317168075744,
+          0.9705317168075744,
+          0.9705317168075744,
+          0.9705317168075744,
+          0.9705317168075744,
+          0.9705317168075744,
+          0.9705317168075744
+        ],
+        [
+          0.9600130542393487,
+          0.9600130542393487,
+          0.9600130542393487,
+          0.9600130542393487,
+          0.9600130542393487,
+          0.9600130542393487,
+          0.9600130542393487,
+          0.9600130542393487,
+          0.9600130542393487,
+          0.9600130542393487
+        ],
+        [
+          0.9642876398430146,
+          0.9642876398430146,
+          0.9642876398430146,
+          0.9642876398430146,
+          0.9642876398430146,
+          0.9642876398430146,
+          0.9642876398430146,
+          0.9642876398430146,
+          0.9642876398430146,
+          0.9642876398430146
+        ]
+      ],
+      "evaluation_scores": [
+        [
+          10.0,
+          10.0,
+          0.0,
+          2.0,
+          10.0,
+          10.0,
+          6.5,
+          2.5,
+          10.0,
+          10.0
+        ],
+        [
+          10.0,
+          9.5,
+          4.0,
+          10.0,
+          10.0,
+          5.0,
+          10.0,
+          5.0,
+          10.0,
+          0.0
+        ],
+        [
+          9.5,
+          10.0,
+          10.0,
+          9.5,
+          3.5,
+          10.0,
+          5.0,
+          10.0,
+          9.5,
+          6.5
+        ]
+      ],
+      "tokens_per_second": [
+        [
+          13.345890999870754,
+          13.345890999870754,
+          13.345890999870754,
+          13.345890999870754,
+          13.345890999870754,
+          13.345890999870754,
+          13.345890999870754,
+          13.345890999870754,
+          13.345890999870754,
+          13.345890999870754
+        ],
+        [
+          13.638323602374092,
+          13.638323602374092,
+          13.638323602374092,
+          13.638323602374092,
+          13.638323602374092,
+          13.638323602374092,
+          13.638323602374092,
+          13.638323602374092,
+          13.638323602374092,
+          13.638323602374092
+        ],
+        [
+          12.65073122596219,
+          12.65073122596219,
+          12.65073122596219,
+          12.65073122596219,
+          12.65073122596219,
+          12.65073122596219,
+          12.65073122596219,
+          12.65073122596219,
+          12.65073122596219,
+          12.65073122596219
+        ]
+      ]
+    }
+  }
+}

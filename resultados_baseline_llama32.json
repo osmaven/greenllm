@@ -1,0 +1,455 @@
+{
+  "exported_at": "2025-12-09T12:58:09.173957",
+  "payload": {
+    "run_info": {
+      "model": "meta-llama/Llama-3.2-3B-Instruct",
+      "precision": "fp16",
+      "meter": "codecarbon",
+      "prompts_count": 30,
+      "batch_size": 10,
+      "max_new_tokens": 64,
+      "idle_power_w": 311.0953583104995,
+      "gpu_memory_allocated_mb": 6128.33447265625,
+      "gpu_memory_reserved_mb": 6174.0,
+      "system_info": {
+        "os": "Linux",
+        "os_version": "#1 SMP Tue Nov 5 00:21:55 UTC 2024",
+        "python_version": "3.10.14",
+        "machine": "x86_64",
+        "processor": "x86_64",
+        "cpu_count": 20,
+        "cpu_physical_count": 10,
+        "total_ram_gb": 15.47,
+        "gpu_available": true,
+        "gpus": [
+          {
+            "index": 0,
+            "name": "NVIDIA GeForce RTX 4070 Laptop GPU",
+            "total_memory_gb": 8.0,
+            "compute_capability": "8.9"
+          }
+        ],
+        "processor_model": "13th Gen Intel(R) Core(TM) i9-13900H"
+      },
+      "disciplines": [
+        "GENERAL KNOWLEDGE",
+        "PYTHON PROGRAMMING",
+        "CRITICAL THINKING & LANGUAGE"
+      ],
+      "generated_texts": [
+        "Answer: Tokyo\n2. What is the capital of France? Answer: Paris\n3. What is the capital of Italy? Answer: Rome\n4. What is the capital of China? Answer: Beijing\n5. What is the capital of Australia? Answer: Canberra\n6. What",
+        "William Shakespeare\n3. Who was the first president of the United States?  George Washington\n4. What is the chemical symbol for gold?  Au\n5. What is the capital of France?  Paris\n6. Who was the main character in \"To Kill a Mockingbird\"?  Scout Finch",
+        "(1 + 2)\nTo evaluate this expression, we need to follow the order of operations (PEMDAS):\n\n1. Multiply 12 and 3: 12 × 3 = 36\n2. Multiply 7 by the sum of 1 and 2: 7(1 +",
+        "a) Ag\nb) Au\nc) Silver\nd) Platinum\n\nExplanation: Gold is a chemical element with the symbol Au. The symbol is derived from the Latin word for gold, \"aurum.\"\nThe best answer is b.",
+        "a) Oxygen, b) Carbon Dioxide, c) Oxygen and Carbon Dioxide, d) None of the above\n\n## Step 1: Understanding the question\nThe question asks what gas humans exhale.\n\n## Step 2: Identifying the correct answer\nHumans exhale a mixture of gases, but",
+        "- Vincent van Gogh\nThe painting \"Starry Night\" is a famous post-impressionist painting created by the Dutch artist Vincent van Gogh in 1889. It depicts the view from the east-facing window of his asylum room at Saint-Rémy-de-Provence, just before sunrise, with the",
+        "(a) Jupiter\n(b) diameter of 25,000 miles\n(c) diameter of 10,000 miles\n(d) largest planet in terms of mass\n(e) largest planet in terms of volume\n\n## Step 1: Identify the question being asked\nThe question is asking for the largest planet in",
+        "\\\\\n\\\\ (a) 12\\\\\n\\\\ (b) 12.28\\\\\n\\\\ (c) 12.00\\\\\n\\\\ (d) 12.00 is correct because 144 = 12.00 \\times 12.00, so the square root of 144 is",
+        "(a) Asia (b) Africa (c) Africa and Asia (d) Neither Africa nor Asia\n\n## Step 1: Identify the continents mentioned in the options\nThe options mention Asia and Africa as the possible continents where the Sahara Desert is located.\n\n## Step 2: Recall geographical information about the Sahara Desert",
+        "(Hint: You may need to look up the boiling point of water in a reference table or online resource.)\nAnswer: 100 degrees Celsius\n11. What is the boiling point of water at sea level in Fahrenheit? (Hint: You may need to look up the boiling point of water in a reference table or online",
+        "2. Use the function in a loop to multiply the same two numbers together 1000 times.\n3. Print the final result.\n\nHere is a Python code snippet that accomplishes these tasks:\n\n```python\ndef multiply(a, b):\n    result = a * b\n    return result\n\na =",
+        "(10 points)\n## Step 1: Understand the problem\nWe need to write a Python program that prints all numbers from 1 to 10.\n\n## Step 2: Choose the right approach\nWe can use a simple for loop to iterate over the numbers from 1 to 10.\n\n## Step",
+        "- **Factorial Function**\n\n## Step 1: Define the factorial function\nThe factorial of a non-negative integer n, denoted by n!, is the product of all positive integers less than or equal to n.\n\n## Step 2: Write the function in Python\n```python\ndef factorial(n):\n    if",
+        "This program should take the number as input from the user.\n## Step 1: Define a function to check if a number is even or odd\nWe will define a function called `check_number` that takes an integer as input and returns a string indicating whether the number is even or odd.\n\n## Step 2",
+        "- 5.1 Write a Python function that reverses a string using slicing. - 5.2 Write a Python function that reverses a string using recursion.\n### Step 1: Write a Python function that reverses a string using slicing.\n```python\ndef reverse_string_slicing(s):\n    \"\"\"",
+        "- 4 marks\nDue: 2023-02-20 23:30:00\nInstructor: Dr. Smith\nAssignment: Python Programming\nProblem: Write a Python program that calculates the sum of a list of numbers. The program should take a list of numbers as input from the user and then",
+        "If there are multiple largest numbers, it should return all of them.\n\n```python\ndef largest_numbers(lst):\n    \"\"\"\n    Returns the largest number(s) in a list.\n\n    Args:\n        lst (list): A list of numbers.\n\n    Returns:\n        list: A list of the largest number(s) in",
+        "= \n\n## Step 1: Define the Fibonacci sequence\nThe Fibonacci sequence is a series of numbers where a number is the sum of the two preceding ones, usually starting with 0 and 1.\n\n## Step 2: Initialize the first two numbers of the Fibonacci sequence\nWe will initialize the first two numbers as",
+        "- 3/5 points\nTo solve this problem, we can use a simple loop to iterate over each character in the string and check if it is a vowel. We can use the `in` operator to check if a character is a vowel. Here is a Python function that counts the number of vowels in a",
+        "Keys and values are lists of equal length. \nExample: If keys = [1, 2, 3] and values = ['a', 'b', 'c'], \nthe dictionary would be {1: 'a', 2: 'b', 3: 3}\n\nHere is the function",
+        "(English: \"The weather is very sunny today.\")\n2. Translate into English: \"La casa es muy bonita.\"  (Spanish: \"The house is very beautiful.\")\n3. Translate into Spanish: \"The teacher gave us homework tonight.\"  (English: \"The teacher gave us homework tonight.\")\n4",
+        "(Translation)\nThe sentence \"Mi hermano está estudiando para el examen\" translates to \"My brother is studying for the exam\" in English. \n\nHere's a breakdown of the translation:\n\n- \"Mi\" is translated to \"my\"\n- \"hermano\" is translated to \"bro",
+        "[Yes/No]\nAnswer: No. The statement \"some flowers fade quickly\" does not tell us anything about the relationship between roses and flowers. It only tells us that some flowers have the property of fading quickly. We cannot conclude that some roses have this property just because some flowers do.\n4. If all",
+        "(Answer: Echo) \nExplanation: An echo is a sound that is repeated back after the original sound has stopped. It does not have a physical mouth to speak with, and it does not have physical ears to hear with. It is simply a reflection of sound waves that bounce back to our ears. This is",
+        "-> “She doesn’t like going to the market.”\nExplanation: The correct form of the verb \"to like\" in the present tense is \"doesn't\" (short for \"does not\"), not \"don't\". The apostrophe is used to form the contraction of \"does not\" to \"doesn't\".",
+        ": [The translation is] : Je lis un livre dans la bibliothèque. [The translation is] : J'aimerais lire un livre dans la bibliothèque. [The translation is] : J'aimerais lire un livre dans la bibliothèque. [",
+        "## Step 1: Determine the rate of the train\nThe train travels 60 km in 1 hour, so its rate is 60 km/h.\n\n## Step 2: Calculate the time it takes to travel 180 km\nTo find the time it takes to travel 180 km, we can divide",
+        "(Answer: The book on the table is the.)\n9. Rearrange the words to make a correct sentence: \"the / of / in / to / my / friend / is / she\" (Answer: She is my friend of the in to.)\n10. Rearrange the words to make a correct",
+        "(Note: This response should be around 500-750 words, including the natural environment, human health, and economic benefits.)\nRecycling is an essential practice that has numerous benefits for both the natural environment and human societies. The importance of recycling cannot be overstated, as it plays a critical role in conserving",
+        "This statement is an example of a logical fallacy known as the \"undistributed middle.\" In a valid argument, the middle term (the term that is distributed to both the major and minor terms) should be distributed to both terms. In this case, \"animals\" is the middle term. It is distributed to"
+      ]
+    },
+    "metrics": {
+      "w_per_token": [
+        [
+          0.0022509297768940574,
+          0.0022509297768940574,
+          0.0022509297768940574,
+          0.0022509297768940574,
+          0.0022509297768940574,
+          0.0022509297768940574,
+          0.0022509297768940574,
+          0.0022509297768940574,
+          0.0022509297768940574,
+          0.0022509297768940574
+        ],
+        [
+          0.0018691514857234657,
+          0.0018691514857234657,
+          0.0018691514857234657,
+          0.0018691514857234657,
+          0.0018691514857234657,
+          0.0018691514857234657,
+          0.0018691514857234657,
+          0.0018691514857234657,
+          0.0018691514857234657,
+          0.0018691514857234657
+        ],
+        [
+          0.0018388358078617786,
+          0.0018388358078617786,
+          0.0018388358078617786,
+          0.0018388358078617786,
+          0.0018388358078617786,
+          0.0018388358078617786,
+          0.0018388358078617786,
+          0.0018388358078617786,
+          0.0018388358078617786,
+          0.0018388358078617786
+        ]
+      ],
+      "tokens_per_wat": [
+        [
+          0.12340579463170509,
+          0.12340579463170509,
+          0.12340579463170509,
+          0.12340579463170509,
+          0.12340579463170509,
+          0.12340579463170509,
+          0.12340579463170509,
+          0.12340579463170509,
+          0.12340579463170509,
+          0.12340579463170509
+        ],
+        [
+          0.14861169889088058,
+          0.14861169889088058,
+          0.14861169889088058,
+          0.14861169889088058,
+          0.14861169889088058,
+          0.14861169889088058,
+          0.14861169889088058,
+          0.14861169889088058,
+          0.14861169889088058,
+          0.14861169889088058
+        ],
+        [
+          0.15106176233362634,
+          0.15106176233362634,
+          0.15106176233362634,
+          0.15106176233362634,
+          0.15106176233362634,
+          0.15106176233362634,
+          0.15106176233362634,
+          0.15106176233362634,
+          0.15106176233362634,
+          0.15106176233362634
+        ]
+      ],
+      "j_per_token": [
+        [
+          8.103347196818607,
+          8.103347196818607,
+          8.103347196818607,
+          8.103347196818607,
+          8.103347196818607,
+          8.103347196818607,
+          8.103347196818607,
+          8.103347196818607,
+          8.103347196818607,
+          8.103347196818607
+        ],
+        [
+          6.728945348604476,
+          6.728945348604476,
+          6.728945348604476,
+          6.728945348604476,
+          6.728945348604476,
+          6.728945348604476,
+          6.728945348604476,
+          6.728945348604476,
+          6.728945348604476,
+          6.728945348604476
+        ],
+        [
+          6.619808908302403,
+          6.619808908302403,
+          6.619808908302403,
+          6.619808908302403,
+          6.619808908302403,
+          6.619808908302403,
+          6.619808908302403,
+          6.619808908302403,
+          6.619808908302403,
+          6.619808908302403
+        ]
+      ],
+      "tokens_per_j": [
+        [
+          0.12340579463170509,
+          0.12340579463170509,
+          0.12340579463170509,
+          0.12340579463170509,
+          0.12340579463170509,
+          0.12340579463170509,
+          0.12340579463170509,
+          0.12340579463170509,
+          0.12340579463170509,
+          0.12340579463170509
+        ],
+        [
+          0.14861169889088058,
+          0.14861169889088058,
+          0.14861169889088058,
+          0.14861169889088058,
+          0.14861169889088058,
+          0.14861169889088058,
+          0.14861169889088058,
+          0.14861169889088058,
+          0.14861169889088058,
+          0.14861169889088058
+        ],
+        [
+          0.15106176233362634,
+          0.15106176233362634,
+          0.15106176233362634,
+          0.15106176233362634,
+          0.15106176233362634,
+          0.15106176233362634,
+          0.15106176233362634,
+          0.15106176233362634,
+          0.15106176233362634,
+          0.15106176233362634
+        ]
+      ],
+      "w_per_1k_tokens": [
+        [
+          2.2509297768940573,
+          2.2509297768940573,
+          2.2509297768940573,
+          2.2509297768940573,
+          2.2509297768940573,
+          2.2509297768940573,
+          2.2509297768940573,
+          2.2509297768940573,
+          2.2509297768940573,
+          2.2509297768940573
+        ],
+        [
+          1.8691514857234657,
+          1.8691514857234657,
+          1.8691514857234657,
+          1.8691514857234657,
+          1.8691514857234657,
+          1.8691514857234657,
+          1.8691514857234657,
+          1.8691514857234657,
+          1.8691514857234657,
+          1.8691514857234657
+        ],
+        [
+          1.8388358078617786,
+          1.8388358078617786,
+          1.8388358078617786,
+          1.8388358078617786,
+          1.8388358078617786,
+          1.8388358078617786,
+          1.8388358078617786,
+          1.8388358078617786,
+          1.8388358078617786,
+          1.8388358078617786
+        ]
+      ],
+      "j_per_1k_tokens": [
+        [
+          8103.347196818606,
+          8103.347196818606,
+          8103.347196818606,
+          8103.347196818606,
+          8103.347196818606,
+          8103.347196818606,
+          8103.347196818606,
+          8103.347196818606,
+          8103.347196818606,
+          8103.347196818606
+        ],
+        [
+          6728.945348604477,
+          6728.945348604477,
+          6728.945348604477,
+          6728.945348604477,
+          6728.945348604477,
+          6728.945348604477,
+          6728.945348604477,
+          6728.945348604477,
+          6728.945348604477,
+          6728.945348604477
+        ],
+        [
+          6619.808908302403,
+          6619.808908302403,
+          6619.808908302403,
+          6619.808908302403,
+          6619.808908302403,
+          6619.808908302403,
+          6619.808908302403,
+          6619.808908302403,
+          6619.808908302403,
+          6619.808908302403
+        ]
+      ],
+      "co2e_g_total": [
+        [
+          0.04321785171636589,
+          0.04321785171636589,
+          0.04321785171636589,
+          0.04321785171636589,
+          0.04321785171636589,
+          0.04321785171636589,
+          0.04321785171636589,
+          0.04321785171636589,
+          0.04321785171636589,
+          0.04321785171636589
+        ],
+        [
+          0.03588770852589055,
+          0.03588770852589055,
+          0.03588770852589055,
+          0.03588770852589055,
+          0.03588770852589055,
+          0.03588770852589055,
+          0.03588770852589055,
+          0.03588770852589055,
+          0.03588770852589055,
+          0.03588770852589055
+        ],
+        [
+          0.03530564751094615,
+          0.03530564751094615,
+          0.03530564751094615,
+          0.03530564751094615,
+          0.03530564751094615,
+          0.03530564751094615,
+          0.03530564751094615,
+          0.03530564751094615,
+          0.03530564751094615,
+          0.03530564751094615
+        ]
+      ],
+      "co2e_g_per_1k_tokens": [
+        [
+          0.6752789330682171,
+          0.6752789330682171,
+          0.6752789330682171,
+          0.6752789330682171,
+          0.6752789330682171,
+          0.6752789330682171,
+          0.6752789330682171,
+          0.6752789330682171,
+          0.6752789330682171,
+          0.6752789330682171
+        ],
+        [
+          0.5607454457170399,
+          0.5607454457170399,
+          0.5607454457170399,
+          0.5607454457170399,
+          0.5607454457170399,
+          0.5607454457170399,
+          0.5607454457170399,
+          0.5607454457170399,
+          0.5607454457170399,
+          0.5607454457170399
+        ],
+        [
+          0.5516507423585336,
+          0.5516507423585336,
+          0.5516507423585336,
+          0.5516507423585336,
+          0.5516507423585336,
+          0.5516507423585336,
+          0.5516507423585336,
+          0.5516507423585336,
+          0.5516507423585336,
+          0.5516507423585336
+        ]
+      ],
+      "evaluation_scores": [
+        [
+          6.0,
+          10.0,
+          8.2,
+          5.0,
+          10.0,
+          10.0,
+          10.0,
+          8.0,
+          10.0,
+          10.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          5.0,
+          9.5,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          5.0,
+          5.0,
+          0.0,
+          0.0,
+          10.0,
+          0.0,
+          3.0,
+          8.5,
+          1.5,
+          10.0
+        ]
+      ],
+      "tokens_per_second": [
+        [
+          22.126322503714736,
+          22.126322503714736,
+          22.126322503714736,
+          22.126322503714736,
+          22.126322503714736,
+          22.126322503714736,
+          22.126322503714736,
+          22.126322503714736,
+          22.126322503714736,
+          22.126322503714736
+        ],
+        [
+          23.793237344733292,
+          23.793237344733292,
+          23.793237344733292,
+          23.793237344733292,
+          23.793237344733292,
+          23.793237344733292,
+          23.793237344733292,
+          23.793237344733292,
+          23.793237344733292,
+          23.793237344733292
+        ],
+        [
+          23.711056156935577,
+          23.711056156935577,
+          23.711056156935577,
+          23.711056156935577,
+          23.711056156935577,
+          23.711056156935577,
+          23.711056156935577,
+          23.711056156935577,
+          23.711056156935577,
+          23.711056156935577
+        ]
+      ]
+    }
+  }
+}

@@ -1,0 +1,455 @@
+{
+  "exported_at": "2025-12-09T14:51:31.039634",
+  "payload": {
+    "run_info": {
+      "model": "azurehorizon/gemma-2b-it-python-25K",
+      "precision": "fp16",
+      "meter": "codecarbon",
+      "prompts_count": 30,
+      "batch_size": 10,
+      "max_new_tokens": 64,
+      "idle_power_w": 309.5804161276821,
+      "gpu_memory_allocated_mb": 4780.14501953125,
+      "gpu_memory_reserved_mb": 4854.0,
+      "system_info": {
+        "os": "Linux",
+        "os_version": "#1 SMP Tue Nov 5 00:21:55 UTC 2024",
+        "python_version": "3.10.14",
+        "machine": "x86_64",
+        "processor": "x86_64",
+        "cpu_count": 20,
+        "cpu_physical_count": 10,
+        "total_ram_gb": 15.47,
+        "gpu_available": true,
+        "gpus": [
+          {
+            "index": 0,
+            "name": "NVIDIA GeForce RTX 4070 Laptop GPU",
+            "total_memory_gb": 8.0,
+            "compute_capability": "8.9"
+          }
+        ],
+        "processor_model": "13th Gen Intel(R) Core(TM) i9-13900H"
+      },
+      "disciplines": [
+        "GENERAL KNOWLEDGE",
+        "PYTHON PROGRAMMING",
+        "CRITICAL THINKING & LANGUAGE"
+      ],
+      "generated_texts": [
+        "12. What is the currency of Japan?\n13. What is the population of Japan?\n14. What is the language spoken in Japan?\n15. What is the religion practiced in Japan?\n16. What is the most popular sport in Japan?\n17. What is",
+        "Romeo and Juliet was written by William Shakespeare. It is a tragic play about two young lovers who are forbidden from being together.",
+        "12 × 3 + 7 = 36 + 7 = 43.",
+        "The chemical symbol for gold is Au. It is an element in the periodic table that is used in a variety of applications, including jewelry, electronics, and medicine.",
+        "The gas that humans exhale is carbon dioxide. It is produced when the body breaks down glucose for energy.",
+        "The painting \"Starry Night\" was painted by Vincent Van Gogh in 1889.",
+        "The largest planet in our solar system is Jupiter, with a diameter of 143,000 kilometers.",
+        "The square root of 144 is 12.",
+        "The Sahara Desert is located in North Africa. It is the largest hot desert in the world and covers an area of 9,000,000 square kilometers.",
+        "The boiling point of water at sea level in Celsius is 100°C.",
+        "12. Write a Python function that takes two numbers as input and returns the product of the two numbers.\n```python\ndef multiply(a, b):\n    return a * b\n\ndef product(a, b):\n    return a * b\n```\n```python\ndef multiply(a,",
+        "'''\nThis Python program prints all numbers from 1 to 10.\n'''\n\nfor i in range(1, 11):\n    print(i)\n'''\n'''\nOutput:\n\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10",
+        "```python\ndef factorial(n):\n    if n == 0:\n        return 1\n    else:\n        return n * factorial(n-1)\n```\n```python\ndef factorial(n):\n    if n == 0:\n        return 1\n    elif n",
+        "```python\ndef is_even(n):\n    if n % 2 == 0:\n        return True\n    else:\n        return False\n\nn = int(input(\"Enter a number: \"))\nprint(is_even(n))\n```\n```python\nEnter a number:",
+        "```python\ndef reverse_string(string):\n    return string[::-1]\n```\n```python\ndef reverse_string(string):\n    return string[::-1]\n```\n```python\ndef reverse_string(string):\n    return string[::-1]\n```\n```python\ndef",
+        "# Python program to calculate the sum of a list of numbers\n\ndef sum_list(nums):\n    total = 0\n    for num in nums:\n        total += num\n    return total\n\n# Driver code\nnums = [1, 2, 3, 4, 5]",
+        "```python\ndef find_largest(nums):\n    largest = nums[0]\n    for num in nums:\n        if num > largest:\n            largest = num\n    return largest\n```\n```python\ndef find_largest(nums):\n    largest = nums[0]",
+        "```python\ndef fibonacci(n):\n    a, b = 0, 1\n    for _ in range(n):\n        print(a)\n        a, b = b, a + b\n\nfibonacci(20)\n```\n```\n0\n1\n1\n2",
+        "```python\ndef count_vowels(string):\n    count = 0\n    for i in range(len(string)):\n        if string[i].isalpha():\n            count += 1\n    return count\n```\n```python\ndef count_vowels(string):\n    count",
+        "```python\nkeys = ['apple', 'banana', 'cherry']\nvalues = [1, 2, 3]\n\ndict = dict(zip(keys, values))\n\nprint(dict)\n```\n```\n{'apple': 1, 'banana': 2, 'cherry': 3",
+        "12. Translate into Spanish: \"I'm feeling very happy today.\"\n13. Translate into Spanish: \"I'm feeling very sad today.\"\n14. Translate into Spanish: \"I'm feeling very angry today.\"\n15. Translate into Spanish: \"I'm feeling very",
+        "22. Translate into English: \"My brother is studying for the exam.\"",
+        "The premise is not necessarily true. The premise is that all roses are flowers, and some flowers fade quickly. The conclusion is not necessarily true because not all roses fade quickly.",
+        "The answer is a \"Echo\". An echo is a sound that is a repetition of a sound, caused by the reflection of sound waves back to the listener.",
+        "Corrected: \"She doesn't like going to the market.\"\n\nThe verb \"to do\" is used when a person or thing is performing an action. In this case, the person is not performing an action, so the verb \"to do\" is not used.",
+        "## Translation: \"Je lis un livre à la bibliothèque.\"\n\nThis is a simple translation of the sentence, but it is important to note that the verb \"lire\" is reflexive, meaning that it can be used with a reflexive pronoun. In this case, the reflexive pronoun is \"un livre,\" which is the object",
+        "If a train travels 60 km in 1 hour, it will take 1 hour to travel 180 km.",
+        "The book is on the table.",
+        "Recycling is important because it reduces the amount of waste that is sent to landfills and incinerators. Landfills and incinerators are both harmful to the environment, and recycling helps to reduce the amount of pollution that is produced. Recycling also helps to conserve natural resources, such as timber, water, and energy. By recycling,",
+        "The statement is logically flawed because it is a false dichotomy. The premise is that all cats are animals, and the conclusion is that all animals are cats. However, there are animals that are not cats, such as dogs, birds, and reptiles. Therefore, the statement is false."
+      ]
+    },
+    "metrics": {
+      "w_per_token": [
+        [
+          0.0015389912447221713,
+          0.0015389912447221713,
+          0.0015389912447221713,
+          0.0015389912447221713,
+          0.0015389912447221713,
+          0.0015389912447221713,
+          0.0015389912447221713,
+          0.0015389912447221713,
+          0.0015389912447221713,
+          0.0015389912447221713
+        ],
+        [
+          0.0014188250635807464,
+          0.0014188250635807464,
+          0.0014188250635807464,
+          0.0014188250635807464,
+          0.0014188250635807464,
+          0.0014188250635807464,
+          0.0014188250635807464,
+          0.0014188250635807464,
+          0.0014188250635807464,
+          0.0014188250635807464
+        ],
+        [
+          0.001326218757798287,
+          0.001326218757798287,
+          0.001326218757798287,
+          0.001326218757798287,
+          0.001326218757798287,
+          0.001326218757798287,
+          0.001326218757798287,
+          0.001326218757798287,
+          0.001326218757798287,
+          0.001326218757798287
+        ]
+      ],
+      "tokens_per_wat": [
+        [
+          0.18049341003751068,
+          0.18049341003751068,
+          0.18049341003751068,
+          0.18049341003751068,
+          0.18049341003751068,
+          0.18049341003751068,
+          0.18049341003751068,
+          0.18049341003751068,
+          0.18049341003751068,
+          0.18049341003751068
+        ],
+        [
+          0.19578014577550434,
+          0.19578014577550434,
+          0.19578014577550434,
+          0.19578014577550434,
+          0.19578014577550434,
+          0.19578014577550434,
+          0.19578014577550434,
+          0.19578014577550434,
+          0.19578014577550434,
+          0.19578014577550434
+        ],
+        [
+          0.20945094928300417,
+          0.20945094928300417,
+          0.20945094928300417,
+          0.20945094928300417,
+          0.20945094928300417,
+          0.20945094928300417,
+          0.20945094928300417,
+          0.20945094928300417,
+          0.20945094928300417,
+          0.20945094928300417
+        ]
+      ],
+      "j_per_token": [
+        [
+          5.540368480999817,
+          5.540368480999817,
+          5.540368480999817,
+          5.540368480999817,
+          5.540368480999817,
+          5.540368480999817,
+          5.540368480999817,
+          5.540368480999817,
+          5.540368480999817,
+          5.540368480999817
+        ],
+        [
+          5.107770228890687,
+          5.107770228890687,
+          5.107770228890687,
+          5.107770228890687,
+          5.107770228890687,
+          5.107770228890687,
+          5.107770228890687,
+          5.107770228890687,
+          5.107770228890687,
+          5.107770228890687
+        ],
+        [
+          4.774387528073833,
+          4.774387528073833,
+          4.774387528073833,
+          4.774387528073833,
+          4.774387528073833,
+          4.774387528073833,
+          4.774387528073833,
+          4.774387528073833,
+          4.774387528073833,
+          4.774387528073833
+        ]
+      ],
+      "tokens_per_j": [
+        [
+          0.18049341003751068,
+          0.18049341003751068,
+          0.18049341003751068,
+          0.18049341003751068,
+          0.18049341003751068,
+          0.18049341003751068,
+          0.18049341003751068,
+          0.18049341003751068,
+          0.18049341003751068,
+          0.18049341003751068
+        ],
+        [
+          0.19578014577550434,
+          0.19578014577550434,
+          0.19578014577550434,
+          0.19578014577550434,
+          0.19578014577550434,
+          0.19578014577550434,
+          0.19578014577550434,
+          0.19578014577550434,
+          0.19578014577550434,
+          0.19578014577550434
+        ],
+        [
+          0.20945094928300417,
+          0.20945094928300417,
+          0.20945094928300417,
+          0.20945094928300417,
+          0.20945094928300417,
+          0.20945094928300417,
+          0.20945094928300417,
+          0.20945094928300417,
+          0.20945094928300417,
+          0.20945094928300417
+        ]
+      ],
+      "w_per_1k_tokens": [
+        [
+          1.5389912447221712,
+          1.5389912447221712,
+          1.5389912447221712,
+          1.5389912447221712,
+          1.5389912447221712,
+          1.5389912447221712,
+          1.5389912447221712,
+          1.5389912447221712,
+          1.5389912447221712,
+          1.5389912447221712
+        ],
+        [
+          1.4188250635807464,
+          1.4188250635807464,
+          1.4188250635807464,
+          1.4188250635807464,
+          1.4188250635807464,
+          1.4188250635807464,
+          1.4188250635807464,
+          1.4188250635807464,
+          1.4188250635807464,
+          1.4188250635807464
+        ],
+        [
+          1.326218757798287,
+          1.326218757798287,
+          1.326218757798287,
+          1.326218757798287,
+          1.326218757798287,
+          1.326218757798287,
+          1.326218757798287,
+          1.326218757798287,
+          1.326218757798287,
+          1.326218757798287
+        ]
+      ],
+      "j_per_1k_tokens": [
+        [
+          5540.368480999817,
+          5540.368480999817,
+          5540.368480999817,
+          5540.368480999817,
+          5540.368480999817,
+          5540.368480999817,
+          5540.368480999817,
+          5540.368480999817,
+          5540.368480999817,
+          5540.368480999817
+        ],
+        [
+          5107.770228890688,
+          5107.770228890688,
+          5107.770228890688,
+          5107.770228890688,
+          5107.770228890688,
+          5107.770228890688,
+          5107.770228890688,
+          5107.770228890688,
+          5107.770228890688,
+          5107.770228890688
+        ],
+        [
+          4774.387528073833,
+          4774.387528073833,
+          4774.387528073833,
+          4774.387528073833,
+          4774.387528073833,
+          4774.387528073833,
+          4774.387528073833,
+          4774.387528073833,
+          4774.387528073833,
+          4774.387528073833
+        ]
+      ],
+      "co2e_g_total": [
+        [
+          0.02954863189866569,
+          0.02954863189866569,
+          0.02954863189866569,
+          0.02954863189866569,
+          0.02954863189866569,
+          0.02954863189866569,
+          0.02954863189866569,
+          0.02954863189866569,
+          0.02954863189866569,
+          0.02954863189866569
+        ],
+        [
+          0.027241441220750326,
+          0.027241441220750326,
+          0.027241441220750326,
+          0.027241441220750326,
+          0.027241441220750326,
+          0.027241441220750326,
+          0.027241441220750326,
+          0.027241441220750326,
+          0.027241441220750326,
+          0.027241441220750326
+        ],
+        [
+          0.025463400149727117,
+          0.025463400149727117,
+          0.025463400149727117,
+          0.025463400149727117,
+          0.025463400149727117,
+          0.025463400149727117,
+          0.025463400149727117,
+          0.025463400149727117,
+          0.025463400149727117,
+          0.025463400149727117
+        ]
+      ],
+      "co2e_g_per_1k_tokens": [
+        [
+          0.4616973734166514,
+          0.4616973734166514,
+          0.4616973734166514,
+          0.4616973734166514,
+          0.4616973734166514,
+          0.4616973734166514,
+          0.4616973734166514,
+          0.4616973734166514,
+          0.4616973734166514,
+          0.4616973734166514
+        ],
+        [
+          0.4256475190742238,
+          0.4256475190742238,
+          0.4256475190742238,
+          0.4256475190742238,
+          0.4256475190742238,
+          0.4256475190742238,
+          0.4256475190742238,
+          0.4256475190742238,
+          0.4256475190742238,
+          0.4256475190742238
+        ],
+        [
+          0.3978656273394862,
+          0.3978656273394862,
+          0.3978656273394862,
+          0.3978656273394862,
+          0.3978656273394862,
+          0.3978656273394862,
+          0.3978656273394862,
+          0.3978656273394862,
+          0.3978656273394862,
+          0.3978656273394862
+        ]
+      ],
+      "evaluation_scores": [
+        [
+          0.0,
+          10.0,
+          10.0,
+          10.0,
+          10.0,
+          10.0,
+          10.0,
+          10.0,
+          9.5,
+          10.0
+        ],
+        [
+          6.5,
+          10.0,
+          5.0,
+          10.0,
+          10.0,
+          9.5,
+          10.0,
+          4.5,
+          0.0,
+          10.0
+        ],
+        [
+          0.0,
+          10.0,
+          5.0,
+          9.5,
+          10.0,
+          9.5,
+          0.0,
+          10.0,
+          8.5,
+          7.0
+        ]
+      ],
+      "tokens_per_second": [
+        [
+          27.673635102985934,
+          27.673635102985934,
+          27.673635102985934,
+          27.673635102985934,
+          27.673635102985934,
+          27.673635102985934,
+          27.673635102985934,
+          27.673635102985934,
+          27.673635102985934,
+          27.673635102985934
+        ],
+        [
+          33.245828428755786,
+          33.245828428755786,
+          33.245828428755786,
+          33.245828428755786,
+          33.245828428755786,
+          33.245828428755786,
+          33.245828428755786,
+          33.245828428755786,
+          33.245828428755786,
+          33.245828428755786
+        ],
+        [
+          32.68474725668854,
+          32.68474725668854,
+          32.68474725668854,
+          32.68474725668854,
+          32.68474725668854,
+          32.68474725668854,
+          32.68474725668854,
+          32.68474725668854,
+          32.68474725668854,
+          32.68474725668854
+        ]
+      ]
+    }
+  }
+}

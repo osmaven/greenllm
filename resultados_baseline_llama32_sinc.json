@@ -1,0 +1,455 @@
+{
+  "exported_at": "2025-12-09T12:53:20.738669",
+  "payload": {
+    "run_info": {
+      "model": "meta-llama/Llama-3.2-3B-Instruct",
+      "precision": "auto",
+      "meter": "codecarbon",
+      "prompts_count": 30,
+      "batch_size": 10,
+      "max_new_tokens": 64,
+      "idle_power_w": 292.8018180133236,
+      "gpu_memory_allocated_mb": 12256.66845703125,
+      "gpu_memory_reserved_mb": 12258.0,
+      "system_info": {
+        "os": "Linux",
+        "os_version": "#1 SMP Tue Nov 5 00:21:55 UTC 2024",
+        "python_version": "3.10.14",
+        "machine": "x86_64",
+        "processor": "x86_64",
+        "cpu_count": 20,
+        "cpu_physical_count": 10,
+        "total_ram_gb": 15.47,
+        "gpu_available": true,
+        "gpus": [
+          {
+            "index": 0,
+            "name": "NVIDIA GeForce RTX 4070 Laptop GPU",
+            "total_memory_gb": 8.0,
+            "compute_capability": "8.9"
+          }
+        ],
+        "processor_model": "13th Gen Intel(R) Core(TM) i9-13900H"
+      },
+      "disciplines": [
+        "GENERAL KNOWLEDGE",
+        "PYTHON PROGRAMMING",
+        "CRITICAL THINKING & LANGUAGE"
+      ],
+      "generated_texts": [
+        "Tokyo\n2. What is the capital of France? Paris\n3. What is the capital of China? Beijing\n4. What is the capital of Russia? Moscow\n5. What is the capital of Brazil? Brasilia\n6. What is the capital of India",
+        "William Shakespeare wrote \"Romeo and Juliet\".\n3. What is the name of Romeo's family?  The Montagues.\n4. What is the name of Juliet's family?  The Capulets.\n5. What is the reason for the feud between the Montagues and Capulets?  A",
+        "=?\n\n## Step 1: Multiply 12 and 3\nFirst, we need to multiply 12 by 3 to get the result of the multiplication operation. 12 × 3 = 36.\n\n## Step 2: Add 7 to the result\nNext, we need to add 7",
+        "(4 points)\n5. What is the chemical symbol for silver?  (4 points)\n6. What is the chemical symbol for copper?  (4 points)\n7. What is the chemical symbol for lead?  (4 points)\n8. What is the chemical symbol for mercury?  (4 points",
+        "(a)  Oxygen, (b)  N _{2}, (c)  CO _{2}, (d)  H _{2} O\n\n## Step 1: Identify the main question\nThe main question is to identify the gas that humans exhale.\n\n## Step 2",
+        "Vincent van Gogh\n7. What is the main theme of the painting \"Starry Night\"?  The main theme is the artist's emotional state and the beauty of the natural world.\n8. What is the name of the village where Vincent van Gogh lived while painting \"Starry Night\"?  Saint-R",
+        "(Answer: Jupiter)\n8. What is the largest moon in our solar system? (Answer: Ganymede)\n9. What is the farthest planet from the sun? (Answer: Neptune)\n10. What is the hottest planet in our solar system? (Answer: Venus)\n11.",
+        "(Use a calculator to check your answer.)\n## Step 1: Recall the definition of a square root\nThe square root of a number is a value that, when multiplied by itself, gives the original number.\n\n## Step 2: Identify the number for which we need to find the square root\nWe need",
+        ") The Sahara Desert is located in Africa. 10. What is the approximate length of the Great Wall of China?) The Great Wall of China is approximately 13,171 miles (21,196 kilometers) long. 11. What is the world's largest desert?) The world's largest desert is the",
+        "The boiling point of water is 100 degrees Celsius at sea level. This is a constant value that is widely accepted and used in many scientific and everyday applications. It is also a fundamental property of water that is determined by its molecular structure and the surrounding environment. In this case, the boiling point of water is not affected",
+        "The function should take two arguments, `num1` and `num2`, and return their product.\n\n2. The function should handle cases where either `num1` or `num2` is zero. If either of the inputs is zero, the function should return `0`.\n\n3. The function should also",
+        "1. The program should output the numbers 1, 2, 3, 4, 5, 6, 7, 8, 9, and 10.\t2. The program should output the numbers 1, 2, 3, 4, 5,",
+        "- 1.5 points\n**Solution**\n\n## Step 1: Define the function\nWe need to define a function that takes an integer as input and returns its factorial.\n\n## Step 2: Initialize the result variable\nWe will initialize a variable to store the result, which will be 1 by default.",
+        "- Write a Python program that calculates the sum of squares of first n natural numbers. - Write a Python program that calculates the factorial of a number. - Write a Python program that checks if a string is a palindrome or not.\n## Step 1: Write a Python program that checks if a number is even or odd",
+        "- 5.1 Write a Python function that reverses a string.\n## Step 1: Define the problem\nThe problem is to write a Python function that takes a string as input and returns the reversed string.\n\n## Step 2: Brainstorm possible solutions\nThere are several ways to solve this problem, including",
+        "- The program should ask the user to input a list of numbers.\n    - The program should then calculate and display the sum of the numbers in the list.\n\nHere is a sample input and output:\n\n```\nInput: [1, 2, 3, 4, 5]\nOutput:",
+        "- 1.7.3\n## Step 1: Define the function\nWe need to define a function that takes a list of numbers as input.\n\n## Step 2: Use the built-in max function\nWe can use the built-in max function in Python to find the largest number in the list.\n\n##",
+        "- (Easy)\n## Step 1: Define the Fibonacci sequence\nThe Fibonacci sequence is a series of numbers where a number is the addition of the last two numbers, starting with 0 and 1.\n\n## Step 2: Initialize the first two numbers of the Fibonacci sequence\nWe initialize the first two numbers of",
+        "- (1 point)\n## Step 1: Define the function\nWe need to define a function that takes a string as an input.\n\n## Step 2: Initialize a counter\nWe need to initialize a counter variable to keep track of the number of vowels in the string.\n\n## Step 3: Loop through the",
+        "Keys and values are interleaved, meaning that each key is associated with one value and each value is associated with one key.\n\n# Define two lists\nkeys = ['a', 'b', 'c']\nvalues = ['x', 'y', 'z']\n\n# Create a dictionary from the two lists\ndictionary =",
+        "(Use the correct form of the verb \"to be\" and the correct form of the adjective \"sunny\")\n2. Use the present perfect tense to describe a situation that has just occurred.\n3. Write a short paragraph about the city of Paris. (Use the correct form of the verb \"to be\"",
+        "(My brother is studying for the exam.)\n3. Translate into English: \"La casa de mi suegra es muy bonita.\" (My mother-in-law's house is very pretty.)\n4. Translate into English: \"El niño se fue a jugar con sus amigos.\" (The boy went to play with",
+        "[Answer: Yes, we can conclude that some roses fade quickly.]\n4. If some roses are red, some are yellow, and some are white, can we conclude that roses are all red, yellow, or white? Explain. [Answer: No, we cannot conclude that roses are all red,",
+        "a) The wind\nb) The sun\nc) The ocean\nd) The forest\n\nAnswer: a) The wind\nExplanation: The wind can be heard in the sound of rustling leaves or howling, but it doesn't have a mouth. It can also be felt on the skin,",
+        "→  \"She doesn’t like going to the market.\"\nThe sentence is corrected by changing \"don't\" to \"doesn't\" and removing the apostrophe from \"don’t\", which is not needed in this context.\nThe sentence is corrected by changing \"don't\" to \"doesn't\" and removing the",
+        "(Use the correct form of the verb \"to read\" in the present tense for the subject \"I\" and \"you\".) (Note: Use the correct form of the verb \"to read\" in the present tense for the subject \"he\", \"she\", and \"it\".) \nI am reading",
+        "## Step 1: Determine the speed of the train\nTo find the time it will take for the train to travel 180 km, we first need to determine the speed of the train. We know that the train travels 60 km in 1 hour.\n\n## Step 2: Calculate the speed of the",
+        "??\n## Step 1: Identify the words that can be rearranged to form a correct sentence.\nThe words \"book\", \"the\", \"on\", \"table\", \"is\", and \"the\" can be rearranged to form a correct sentence.\n\n## Step 2: Determine the correct order of the",
+        "(100-150 words)\nRecycling is a vital practice that has numerous benefits for the environment, human health, and the economy. By recycling, we conserve natural resources, reduce landfill waste, and decrease greenhouse gas emissions. Recycling also helps to mitigate the environmental impacts of pollution, climate change, and biodiversity loss.",
+        "This statement is an example of a logical fallacy. What is the logical flaw in this statement?  (Note: You should be able to identify the logical flaw without having to read the explanation below.)\nA) The statement is a tautology because it is a self-evident truth.\nB) The"
+      ]
+    },
+    "metrics": {
+      "w_per_token": [
+        [
+          0.03482796502049103,
+          0.03482796502049103,
+          0.03482796502049103,
+          0.03482796502049103,
+          0.03482796502049103,
+          0.03482796502049103,
+          0.03482796502049103,
+          0.03482796502049103,
+          0.03482796502049103,
+          0.03482796502049103
+        ],
+        [
+          0.035212694507635776,
+          0.035212694507635776,
+          0.035212694507635776,
+          0.035212694507635776,
+          0.035212694507635776,
+          0.035212694507635776,
+          0.035212694507635776,
+          0.035212694507635776,
+          0.035212694507635776,
+          0.035212694507635776
+        ],
+        [
+          0.03866538323669228,
+          0.03866538323669228,
+          0.03866538323669228,
+          0.03866538323669228,
+          0.03866538323669228,
+          0.03866538323669228,
+          0.03866538323669228,
+          0.03866538323669228,
+          0.03866538323669228,
+          0.03866538323669228
+        ]
+      ],
+      "tokens_per_wat": [
+        [
+          0.007975710829339218,
+          0.007975710829339218,
+          0.007975710829339218,
+          0.007975710829339218,
+          0.007975710829339218,
+          0.007975710829339218,
+          0.007975710829339218,
+          0.007975710829339218,
+          0.007975710829339218,
+          0.007975710829339218
+        ],
+        [
+          0.007888569212377156,
+          0.007888569212377156,
+          0.007888569212377156,
+          0.007888569212377156,
+          0.007888569212377156,
+          0.007888569212377156,
+          0.007888569212377156,
+          0.007888569212377156,
+          0.007888569212377156,
+          0.007888569212377156
+        ],
+        [
+          0.00718414650327777,
+          0.00718414650327777,
+          0.00718414650327777,
+          0.00718414650327777,
+          0.00718414650327777,
+          0.00718414650327777,
+          0.00718414650327777,
+          0.00718414650327777,
+          0.00718414650327777,
+          0.00718414650327777
+        ]
+      ],
+      "j_per_token": [
+        [
+          125.38067407376771,
+          125.38067407376771,
+          125.38067407376771,
+          125.38067407376771,
+          125.38067407376771,
+          125.38067407376771,
+          125.38067407376771,
+          125.38067407376771,
+          125.38067407376771,
+          125.38067407376771
+        ],
+        [
+          126.7657002274888,
+          126.7657002274888,
+          126.7657002274888,
+          126.7657002274888,
+          126.7657002274888,
+          126.7657002274888,
+          126.7657002274888,
+          126.7657002274888,
+          126.7657002274888,
+          126.7657002274888
+        ],
+        [
+          139.1953796520922,
+          139.1953796520922,
+          139.1953796520922,
+          139.1953796520922,
+          139.1953796520922,
+          139.1953796520922,
+          139.1953796520922,
+          139.1953796520922,
+          139.1953796520922,
+          139.1953796520922
+        ]
+      ],
+      "tokens_per_j": [
+        [
+          0.007975710829339218,
+          0.007975710829339218,
+          0.007975710829339218,
+          0.007975710829339218,
+          0.007975710829339218,
+          0.007975710829339218,
+          0.007975710829339218,
+          0.007975710829339218,
+          0.007975710829339218,
+          0.007975710829339218
+        ],
+        [
+          0.007888569212377156,
+          0.007888569212377156,
+          0.007888569212377156,
+          0.007888569212377156,
+          0.007888569212377156,
+          0.007888569212377156,
+          0.007888569212377156,
+          0.007888569212377156,
+          0.007888569212377156,
+          0.007888569212377156
+        ],
+        [
+          0.00718414650327777,
+          0.00718414650327777,
+          0.00718414650327777,
+          0.00718414650327777,
+          0.00718414650327777,
+          0.00718414650327777,
+          0.00718414650327777,
+          0.00718414650327777,
+          0.00718414650327777,
+          0.00718414650327777
+        ]
+      ],
+      "w_per_1k_tokens": [
+        [
+          34.82796502049103,
+          34.82796502049103,
+          34.82796502049103,
+          34.82796502049103,
+          34.82796502049103,
+          34.82796502049103,
+          34.82796502049103,
+          34.82796502049103,
+          34.82796502049103,
+          34.82796502049103
+        ],
+        [
+          35.212694507635774,
+          35.212694507635774,
+          35.212694507635774,
+          35.212694507635774,
+          35.212694507635774,
+          35.212694507635774,
+          35.212694507635774,
+          35.212694507635774,
+          35.212694507635774,
+          35.212694507635774
+        ],
+        [
+          38.66538323669228,
+          38.66538323669228,
+          38.66538323669228,
+          38.66538323669228,
+          38.66538323669228,
+          38.66538323669228,
+          38.66538323669228,
+          38.66538323669228,
+          38.66538323669228,
+          38.66538323669228
+        ]
+      ],
+      "j_per_1k_tokens": [
+        [
+          125380.6740737677,
+          125380.6740737677,
+          125380.6740737677,
+          125380.6740737677,
+          125380.6740737677,
+          125380.6740737677,
+          125380.6740737677,
+          125380.6740737677,
+          125380.6740737677,
+          125380.6740737677
+        ],
+        [
+          126765.7002274888,
+          126765.7002274888,
+          126765.7002274888,
+          126765.7002274888,
+          126765.7002274888,
+          126765.7002274888,
+          126765.7002274888,
+          126765.7002274888,
+          126765.7002274888,
+          126765.7002274888
+        ],
+        [
+          139195.3796520922,
+          139195.3796520922,
+          139195.3796520922,
+          139195.3796520922,
+          139195.3796520922,
+          139195.3796520922,
+          139195.3796520922,
+          139195.3796520922,
+          139195.3796520922,
+          139195.3796520922
+        ]
+      ],
+      "co2e_g_total": [
+        [
+          0.6686969283934278,
+          0.6686969283934278,
+          0.6686969283934278,
+          0.6686969283934278,
+          0.6686969283934278,
+          0.6686969283934278,
+          0.6686969283934278,
+          0.6686969283934278,
+          0.6686969283934278,
+          0.6686969283934278
+        ],
+        [
+          0.676083734546607,
+          0.676083734546607,
+          0.676083734546607,
+          0.676083734546607,
+          0.676083734546607,
+          0.676083734546607,
+          0.676083734546607,
+          0.676083734546607,
+          0.676083734546607,
+          0.676083734546607
+        ],
+        [
+          0.7423753581444918,
+          0.7423753581444918,
+          0.7423753581444918,
+          0.7423753581444918,
+          0.7423753581444918,
+          0.7423753581444918,
+          0.7423753581444918,
+          0.7423753581444918,
+          0.7423753581444918,
+          0.7423753581444918
+        ]
+      ],
+      "co2e_g_per_1k_tokens": [
+        [
+          10.448389506147308,
+          10.448389506147308,
+          10.448389506147308,
+          10.448389506147308,
+          10.448389506147308,
+          10.448389506147308,
+          10.448389506147308,
+          10.448389506147308,
+          10.448389506147308,
+          10.448389506147308
+        ],
+        [
+          10.563808352290733,
+          10.563808352290733,
+          10.563808352290733,
+          10.563808352290733,
+          10.563808352290733,
+          10.563808352290733,
+          10.563808352290733,
+          10.563808352290733,
+          10.563808352290733,
+          10.563808352290733
+        ],
+        [
+          11.599614971007686,
+          11.599614971007686,
+          11.599614971007686,
+          11.599614971007686,
+          11.599614971007686,
+          11.599614971007686,
+          11.599614971007686,
+          11.599614971007686,
+          11.599614971007686,
+          11.599614971007686
+        ]
+      ],
+      "evaluation_scores": [
+        [
+          5.0,
+          10.0,
+          10.0,
+          5.5,
+          3.0,
+          10.0,
+          10.0,
+          10.0,
+          10.0,
+          10.0
+        ],
+        [
+          0.0,
+          10.0,
+          0.0,
+          0.0,
+          0.0,
+          6.5,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          10.0,
+          4.0,
+          6.5,
+          3.0,
+          0.0,
+          0.0,
+          6.5,
+          9.5,
+          2.5
+        ]
+      ],
+      "tokens_per_second": [
+        [
+          1.0789216179323944,
+          1.0789216179323944,
+          1.0789216179323944,
+          1.0789216179323944,
+          1.0789216179323944,
+          1.0789216179323944,
+          1.0789216179323944,
+          1.0789216179323944,
+          1.0789216179323944,
+          1.0789216179323944
+        ],
+        [
+          1.0804213109419625,
+          1.0804213109419625,
+          1.0804213109419625,
+          1.0804213109419625,
+          1.0804213109419625,
+          1.0804213109419625,
+          1.0804213109419625,
+          1.0804213109419625,
+          1.0804213109419625,
+          1.0804213109419625
+        ],
+        [
+          0.9734696073437271,
+          0.9734696073437271,
+          0.9734696073437271,
+          0.9734696073437271,
+          0.9734696073437271,
+          0.9734696073437271,
+          0.9734696073437271,
+          0.9734696073437271,
+          0.9734696073437271,
+          0.9734696073437271
+        ]
+      ]
+    }
+  }
+}

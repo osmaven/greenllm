@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte de Inferencia LLM (Bulk Loader)</title>
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border: #334155;
+            --accent: #38bdf8;
+            
+            /* Semáforo de Calidad */
+            --score-high: #4ade80;
+            --score-mid: #facc15;
+            --score-low: #f87171;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            font-weight: 300;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        /* Zona de Arrastre */
+        #drop-zone {
+            border: 2px dashed var(--border);
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            background-color: rgba(30, 41, 59, 0.5);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-bottom: 20px;
+        }
+
+        #drop-zone:hover, #drop-zone.dragover {
+            border-color: var(--accent);
+            background-color: rgba(56, 189, 248, 0.1);
+        }
+
+        #status-msg {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: var(--accent);
+            min-height: 20px;
+        }
+
+        .icon { font-size: 32px; display: block; margin-bottom: 10px; }
+
+        /* Controles */
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            gap: 10px;
+        }
+
+        .btn {
+            background-color: #334155;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: background 0.2s;
+        }
+        .btn:hover { background-color: #475569; }
+        .btn-clear { background-color: #dc2626; }
+        .btn-clear:hover { background-color: #b91c1c; }
+
+        /* Estilos del Selector de Gráfica */
+        .chart-selector {
+            background-color: var(--card-bg);
+            color: var(--text-main);
+            border: 1px solid var(--border);
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            outline: none;
+        }
+
+        /* Contenedores */
+        .section-container {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+            display: none; 
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        /* Tabla */
+        table { width: 100%; border-collapse: collapse; }
+        thead { background-color: #0f172a; }
+        th {
+            padding: 16px; text-align: left; font-size: 0.85rem;
+            text-transform: uppercase; color: var(--text-muted);
+            letter-spacing: 0.05em; border-bottom: 1px solid var(--border);
+        }
+        td {
+            padding: 16px; border-bottom: 1px solid var(--border);
+            vertical-align: middle;
+        }
+        tr:last-child td { border-bottom: none; }
+        tr:hover { background-color: #2a384a; }
+
+        .model-name { font-weight: bold; color: #fff; font-size: 1.05rem; }
+        .file-name { font-size: 0.75rem; color: var(--text-muted); display: block; margin-top: 4px; }
+        .metric-main { font-family: 'Courier New', monospace; font-size: 1.1rem; font-weight: bold; }
+        .metric-sub { font-size: 0.8rem; color: var(--text-muted); display: block; margin-top: 2px;}
+
+        /* Categorías */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            gap: 6px;
+        }
+        .cat-chip {
+            background-color: rgba(0,0,0,0.2);
+            padding: 5px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            display: flex; justify-content: space-between; align-items: center;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        .score-val { font-weight: bold; }
+        .score-bad { color: var(--score-low); }
+        .score-mid { color: var(--score-mid); }
+        .score-good { color: var(--score-high); }
+        
+        .global-chip {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+        }
+
+        /* Gráfica */
+        #chart-wrapper {
+            padding: 20px;
+            min-height: 450px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>📋 Analizador Masivo de LLMs</h1>
+
+    <div id="drop-zone">
+        <span class="icon">📂</span>
+        <p style="margin:0; color: #94a3b8;">Arrastra aquí todos tus archivos <strong>.JSON</strong></p>
+        <div id="status-msg"></div>
+    </div>
+
+    <div class="controls" id="controls" style="display:none;">
+        <div style="display: flex; gap: 15px; align-items: center;">
+            <span style="color: var(--text-muted); font-size: 0.9rem;" id="count-display"></span>
+        </div>
+        
+        <div style="display: flex; gap: 10px;">
+            <select id="metric-select" class="chart-selector" onchange="updateChart()">
+                <option value="tokens_per_second">⚡ Velocidad (Tokens/s)</option>
+                <option value="evaluation_scores">🎯 Calidad (Score 1-10)</option>
+                <option value="ttft">⏱️ Tiempo al 1er Token (s)</option>
+                <option value="w_per_token">🔋 Energía (Watts/Token)</option>
+            </select>
+            <button class="btn btn-clear" onclick="clearData()">Limpiar Todo</button>
+        </div>
+    </div>
+
+    <div id="chart-container" class="section-container">
+        <div id="chart-wrapper"></div>
+    </div>
+
+    <div id="table-container" class="section-container">
+        <table id="results-table">
+            <thead>
+                <tr>
+                    <th style="width: 25%;">Modelo</th>
+                    <th style="width: 15%;">Velocidad</th>
+                    <th style="width: 15%;">Eficiencia</th>
+                    <th style="width: 45%;">Calidad (Media por Categoría)</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    const dropZone = document.getElementById('drop-zone');
+    const tableContainer = document.getElementById('table-container');
+    const chartContainer = document.getElementById('chart-container');
+    const tableBody = document.querySelector('#results-table tbody');
+    const controls = document.getElementById('controls');
+    const countDisplay = document.getElementById('count-display');
+    const statusMsg = document.getElementById('status-msg');
+
+    // Almacén global de datos para la gráfica
+    let globalModelData = []; 
+
+    // Configuración Drag & Drop
+    ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(e => {
+        dropZone.addEventListener(e, (ev) => {
+            ev.preventDefault(); ev.stopPropagation();
+        });
+    });
+
+    ['dragenter', 'dragover'].forEach(e => dropZone.classList.add('dragover'));
+    ['dragleave', 'drop'].forEach(e => dropZone.classList.remove('dragover'));
+
+    dropZone.addEventListener('drop', async (e) => {
+        const files = Array.from(e.dataTransfer.files).filter(f => f.name.endsWith('.json'));
+        
+        if (files.length === 0) {
+            statusMsg.textContent = "No se encontraron archivos .json válidos.";
+            return;
+        }
+
+        statusMsg.textContent = `Procesando ${files.length} archivos...`;
+
+        const filePromises = files.map(readFileContent);
+        
+        try {
+            const results = await Promise.all(filePromises);
+            
+            let processedCount = 0;
+            results.forEach(result => {
+                if (result) {
+                    try {
+                        const json = JSON.parse(result.content);
+                        // Validamos y guardamos en memoria global
+                        if(json.payload && json.payload.metrics) {
+                            const modelName = (json.payload.run_info && json.payload.run_info.model) ? json.payload.run_info.model : result.filename;
+                            
+                            // Guardamos datos estructurados para la gráfica
+                            globalModelData.push({
+                                name: modelName,
+                                filename: result.filename,
+                                metrics: json.payload.metrics,
+                                rawJson: json
+                            });
+
+                            // Renderizamos la fila de la tabla
+                            renderRow(json, result.filename);
+                            processedCount++;
+                        }
+                    } catch (err) {
+                        console.error(`Error parseando JSON de ${result.filename}:`, err);
+                    }
+                }
+            });
+
+            updateUI();
+            statusMsg.textContent = `✅ ${processedCount} archivos cargados correctamente.`;
+            setTimeout(() => { statusMsg.textContent = ''; }, 3000);
+
+        } catch (error) {
+            console.error("Error global:", error);
+            statusMsg.textContent = "Hubo un error cargando los archivos.";
+        }
+    });
+
+    function readFileContent(file) {
+        return new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.onload = (e) => resolve({ filename: file.name, content: e.target.result });
+            reader.onerror = () => resolve(null);
+            reader.readAsText(file);
+        });
+    }
+
+    function updateUI() {
+        if (globalModelData.length > 0) {
+            tableContainer.style.display = 'block';
+            chartContainer.style.display = 'block';
+            controls.style.display = 'flex';
+            countDisplay.textContent = `${globalModelData.length} modelos cargados`;
+            
+            // Renderizamos la gráfica con los nuevos datos
+            updateChart();
+        }
+    }
+
+    // --- Lógica de la Gráfica (Plotly) ---
+    function updateChart() {
+        const selector = document.getElementById('metric-select');
+        const metricKey = selector.value;
+        const metricLabel = selector.options[selector.selectedIndex].text;
+
+        const traces = globalModelData.map(model => {
+            let yValues = [];
+
+            // Extracción de datos según la métrica
+            if (metricKey === 'evaluation_scores') {
+                // Flatten: a veces viene como array de arrays (por batches)
+                const raw = model.metrics.evaluation_scores || [];
+                yValues = raw.flat(Infinity); 
+            } else if (metricKey === 'ttft') {
+                // Time to first token (puede no existir en todos los jsons antiguos)
+                yValues = model.metrics.ttft || [];
+            } else {
+                // tokens_per_second, w_per_token, etc.
+                yValues = model.metrics[metricKey] || [];
+            }
+
+            return {
+                y: yValues,
+                type: 'box',
+                name: model.name,
+                boxpoints: 'outliers', // Muestra solo puntos raros, o 'all' para todos
+                jitter: 0.3,
+                marker: { size: 4 },
+                line: { width: 1.5 }
+            };
+        });
+
+        const layout = {
+            title: {
+                text: `Comparativa: ${metricLabel}`,
+                font: { color: '#f1f5f9', size: 18 }
+            },
+            paper_bgcolor: 'rgba(0,0,0,0)',
+            plot_bgcolor: 'rgba(0,0,0,0)',
+            yaxis: {
+                title: 'Valor',
+                gridcolor: '#334155',
+                zerolinecolor: '#334155',
+                tickfont: { color: '#94a3b8' },
+                titlefont: { color: '#94a3b8' }
+            },
+            xaxis: {
+                tickfont: { color: '#94a3b8' },
+                gridcolor: '#334155'
+            },
+            legend: {
+                font: { color: '#f1f5f9' },
+                orientation: 'h',
+                y: -0.2
+            },
+            margin: { t: 50, b: 50, l: 50, r: 20 }
+        };
+
+        const config = { responsive: true, displayModeBar: false };
+
+        Plotly.newPlot('chart-wrapper', traces, layout, config);
+    }
+
+
+    // --- Funciones Auxiliares Matemáticas (Mantenidas) ---
+    function calculateMean(arr) {
+        const flat = arr.flat(Infinity);
+        if (!flat.length) return 0;
+        return flat.reduce((a, b) => a + b, 0) / flat.length;
+    }
+
+    function calculateTotal(arr) {
+        return arr.flat(Infinity).reduce((a, b) => a + b, 0);
+    }
+
+    function getScoreColorClass(score) {
+        if (score >= 8) return 'score-good';
+        if (score >= 4) return 'score-mid';
+        return 'score-bad';
+    }
+
+    function renderRow(json, filename) {
+        const p = json.payload;
+        const m = p.metrics;
+        const info = p.run_info || {};
+        
+        const tps = calculateMean(m.tokens_per_second || []);
+        const w_per_tok = calculateMean(m.w_per_token || []);
+        const co2 = calculateTotal(m.co2e_g_total || []);
+        const modelName = info.model || "Desconocido";
+
+        const disciplines = info.disciplines || [];
+        const scoreBatches = m.evaluation_scores || [];
+        
+        let categoriesHTML = '<div class="category-grid">';
+        
+        disciplines.forEach((disc, index) => {
+            let catMean = 0;
+            if (scoreBatches[index] && Array.isArray(scoreBatches[index])) {
+                const scores = scoreBatches[index];
+                const sum = scores.reduce((a, b) => a + b, 0);
+                catMean = scores.length ? (sum / scores.length) : 0;
+            }
+
+            categoriesHTML += `
+                <div class="cat-chip">
+                    <span style="opacity:0.8; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; margin-right:5px;" title="${disc}">
+                        ${disc.toLowerCase().replace(/\b\w/g, l => l.toUpperCase())}
+                    </span>
+                    <span class="score-val ${getScoreColorClass(catMean)}">${catMean.toFixed(1)}</span>
+                </div>
+            `;
+        });
+        
+        const globalScore = calculateMean(m.evaluation_scores || []);
+        categoriesHTML += `
+            <div class="cat-chip global-chip">
+                <span><strong>GLOBAL</strong></span>
+                <span class="score-val ${getScoreColorClass(globalScore)}">${globalScore.toFixed(2)}</span>
+            </div>
+        `;
+        categoriesHTML += '</div>';
+
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>
+                <div class="model-name">${modelName}</div>
+                <span class="file-name">${filename}</span>
+            </td>
+            <td>
+                <div class="metric-main" style="color:var(--accent)">${tps.toFixed(2)}</div>
+                <span class="metric-sub">tokens/seg</span>
+            </td>
+            <td>
+                <div class="metric-main" style="color:#f59e0b">${(w_per_tok * 1000).toFixed(2)} <span style="font-size:0.7em">mW/tok</span></div>
+                <span class="metric-sub">CO2 Total: ${co2.toFixed(4)}g</span>
+            </td>
+            <td>${categoriesHTML}</td>
+        `;
+
+        tableBody.appendChild(row);
+    }
+
+    function clearData() {
+        tableBody.innerHTML = '';
+        tableContainer.style.display = 'none';
+        chartContainer.style.display = 'none'; // Ocultar gráfica
+        controls.style.display = 'none';
+        statusMsg.textContent = '';
+        globalModelData = []; // Limpiar datos de memoria
+        Plotly.purge('chart-wrapper'); // Limpiar instancia de Plotly
+    }
+</script>
+
+</body>
+</html>

@@ -25,7 +25,7 @@ def evaluar_modelos(prompts, disciplinas, resultados, seed, model="gemini-2.5-fl
 
     for i, (prompt_text, disciplina_text, resultado_text) in enumerate(zip(prompts, disciplinas, resultados), start=1):
 
-        time.sleep(1)
+        time.sleep(5)
 
         prompt = f"""
         You are an expert evaluator of language model outputs.
@@ -43,7 +43,8 @@ def evaluar_modelos(prompts, disciplinas, resultados, seed, model="gemini-2.5-fl
         Return ONLY the number (e.g., 7.8). 
         Do not include any extra text, labels, or explanations.
         If there is no answer or is non-sense, return 0.0.
-
+        Consider that are very small models with bad performance.
+        Ignore extra commentary in the response; focus only on whether the answer is correct or relevant.
         ---
         Original prompt:
         {prompt_text}

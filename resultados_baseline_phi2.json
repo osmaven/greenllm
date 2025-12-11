@@ -1,0 +1,455 @@
+{
+  "exported_at": "2025-12-09T11:45:35.519019",
+  "payload": {
+    "run_info": {
+      "model": "microsoft/phi-2",
+      "precision": "auto",
+      "meter": "codecarbon",
+      "prompts_count": 30,
+      "batch_size": 10,
+      "max_new_tokens": 64,
+      "idle_power_w": 223.80891712989336,
+      "gpu_memory_allocated_mb": 10731.65283203125,
+      "gpu_memory_reserved_mb": 10732.0,
+      "system_info": {
+        "os": "Linux",
+        "os_version": "#1 SMP Tue Nov 5 00:21:55 UTC 2024",
+        "python_version": "3.10.14",
+        "machine": "x86_64",
+        "processor": "x86_64",
+        "cpu_count": 20,
+        "cpu_physical_count": 10,
+        "total_ram_gb": 15.47,
+        "gpu_available": true,
+        "gpus": [
+          {
+            "index": 0,
+            "name": "NVIDIA GeForce RTX 4070 Laptop GPU",
+            "total_memory_gb": 8.0,
+            "compute_capability": "8.9"
+          }
+        ],
+        "processor_model": "13th Gen Intel(R) Core(TM) i9-13900H"
+      },
+      "disciplines": [
+        "GENERAL KNOWLEDGE",
+        "PYTHON PROGRAMMING",
+        "CRITICAL THINKING & LANGUAGE"
+      ],
+      "generated_texts": [
+        "2. What is the largest country in the world?3. Who wrote the Harry Potter series?\nAnswer: 1. Tokyo 2. Russia 3. J.K. Rowling\n\nExercise 2: True or False\n1. The sun is a planet.2. The moon is a star.3.",
+        "Answer: William Shakespeare.\n\n3. What is the name of the famous painting by Leonardo da Vinci?\nAnswer: The Mona Lisa.\n\n4. What is the name of the famous sculpture by Michelangelo?\nAnswer: David.\n\n5. What is the name of the famous",
+        "Answer: 37\n\n4. Solve: 5 × (4 + 2) - 3\nAnswer: 23\n\n5. Solve: 8 ÷ (2 + 1) × 3\nAnswer: 12\n\nRemember, practice makes perfect! Keep exploring the world of mathematics, and soon you'll",
+        "Answer: Au.\n\n5. What is the chemical symbol for oxygen?\nAnswer: O.",
+        "Answer: Carbon dioxide.",
+        "Answer: Vincent van Gogh.\n\n7. What is the name of the famous painting by Leonardo da Vinci?\nAnswer: The Mona Lisa.\n\n8. What is the name of the famous painting by Pablo Picasso?\nAnswer: Guernica.\n\n9. What is",
+        "Answer: Jupiter.\n\n8. What is the smallest planet in our solar system?\nAnswer: Mercury.\n\n9. What is the name of the dwarf planet that was once considered a planet?\nAnswer: Pluto.\n\n10. What is the name of the asteroid belt between Mars and Jupiter",
+        "Answer: 12\n\n9. What is the square root of 169?\nAnswer: 13\n\n10. What is the square root of 196?\nAnswer: 14\n\n11. What is the square root of 225?\nAnswer: 15\n\n12. What is the square root of 256?",
+        "Answer: Africa.\n\n10. What is the name of the largest desert in the world?\nAnswer: The Sahara Desert.\n\n11. What is the name of the largest desert in the world?\nAnswer: The Sahara Desert.\n\n12. What is the name of the largest desert in",
+        "Answer: 100 degrees Celsius.\n11. What is the boiling point of water at sea level in Fahrenheit?\nAnswer: 212 degrees Fahrenheit.\n12. What is the boiling point of water at an altitude of 5,000 feet in Celsius?\nAnswer: Approximately 95 degrees Celsius.\n13. What is",
+        "2. Write a Python function that calculates the area of a rectangle.\n3. Write a Python function that calculates the volume of a sphere.\n4. Write a Python function that calculates the distance between two points in 3D space.\n5. Write a Python function that calculates the mean, median, and",
+        "```python\nfor i in range(1, 11):\n    print(i)\n```\n\n3. Write a Python program that prints the first 5 even numbers.\n\n```python\nfor i in range(2, 12, 2):\n    print(i)",
+        "```python\ndef factorial(n):\n    if n == 0:\n        return 1\n    else:\n        return n * factorial(n-1)\n```\n\n4. Write a Python function that takes a list of numbers and returns the sum of all even numbers",
+        "5. Write a Python program that checks if a string is a palindrome.\n\n### Exercise 1 Solution\n\n```python\n# Exercise 1: Check if a number is positive or negative\n\nnum = int(input(\"Enter a number: \"))\n\nif num > 0:",
+        "```python\ndef reverse_string(string):\n    return string[::-1]\n\nprint(reverse_string(\"hello\")) # Output: olleh\n```",
+        "```python\nnumbers = [1, 2, 3, 4, 5]\ntotal = sum(numbers)\nprint(total)\n```\n\n7. Write a Python program that calculates the factorial of a number.\n\n```python\nnumber = 5\nfact",
+        "```python\ndef find_largest(numbers):\n    largest = numbers[0]\n    for num in numbers:\n        if num > largest:\n            largest = num\n    return largest\n\nnumbers = [1, 5, 3, 8, 2]\nprint(",
+        "```python\na, b = 0, 1\nwhile a < 20:\n    print(a)\n    a, b = b, a+b\n```\n\n9. Write a Python program that prints the multiplication table of a given number up to 10.\n\n```",
+        "```python\ndef count_vowels(string):\n    vowels = ['a', 'e', 'i', 'o', 'u']\n    count = 0\n    for char in string:\n        if char.lower() in vowels:\n            count += 1",
+        "```python\nkeys = ['a', 'b', 'c']\nvalues = [1, 2, 3]\n\nmy_dict = dict(zip(keys, values))\nprint(my_dict)\n```\n\nOutput:\n```\n{'a': 1",
+        "2. Translate into Spanish: \"I am going to the park with my friends.\"3. Translate into Spanish: \"She is reading a book in the library.\"",
+        "3. Translate into English: \"El perro corre rápidamente por el parque.\"\n4. Translate into English: \"La casa está cerrada por la noche.\"\n5. Translate into English: \"El libro tiene cinco p",
+        "",
+        "Answer: An echo.\n\n5. Create a story using at least three different types of figurative language.\nAnswer: (Example) Once upon a time, there was a brave knight who rode his trusty steed through the dark forest. Suddenly, he heard a rustling in the bushes and saw",
+        "Answer: \"She doesn't like going to the market.\"\n\nRemember, practice makes perfect! Keep exploring the world of language arts, and soon you'll be a master of grammar, just like a skilled chef creating a delicious dish.",
+        "Solution:\n1. The word \"book\" in French is \"livre\".\n2. The word \"reading\" in French is \"lire\".\n3. The word \"in\" in French is \"dans\".\n4. The word \"library\" in French is \"biblioth",
+        "Answer: 3 hours\n\n8. Solve: If a recipe calls for 2 cups of flour and makes 12 cookies, how much flour is needed to make 24 cookies?\nAnswer: 4 cups\n\n9. Solve: If a car travels at a speed of 50 km/h for 2 hours,",
+        "Answer: The book is on the table.\n\n9. Rearrange the words to make a correct sentence: \"the / cat / chased / mouse / the\"\nAnswer: The cat chased the mouse.\n\n10. Rearrange the words to make a correct sentence: \"the / dog / brown",
+        "10. Write a paragraph about a time when you had to use your writing skills to solve a problem.",
+        "Answer: The logical flaw in this statement is called the fallacy of affirming the consequent. Just because all cats are animals, it does not mean that all animals are cats.\n\n11. Explain the concept of deductive reasoning using an example.\nAnswer: Deductive reasoning is a logical process where conclusions"
+      ]
+    },
+    "metrics": {
+      "w_per_token": [
+        [
+          0.0347709375173892,
+          0.0347709375173892,
+          0.0347709375173892,
+          0.0347709375173892,
+          0.0347709375173892,
+          0.0347709375173892,
+          0.0347709375173892,
+          0.0347709375173892,
+          0.0347709375173892,
+          0.0347709375173892
+        ],
+        [
+          0.03558556224847513,
+          0.03558556224847513,
+          0.03558556224847513,
+          0.03558556224847513,
+          0.03558556224847513,
+          0.03558556224847513,
+          0.03558556224847513,
+          0.03558556224847513,
+          0.03558556224847513,
+          0.03558556224847513
+        ],
+        [
+          0.03865798365976543,
+          0.03865798365976543,
+          0.03865798365976543,
+          0.03865798365976543,
+          0.03865798365976543,
+          0.03865798365976543,
+          0.03865798365976543,
+          0.03865798365976543,
+          0.03865798365976543,
+          0.03865798365976543
+        ]
+      ],
+      "tokens_per_wat": [
+        [
+          0.007988791721214278,
+          0.007988791721214278,
+          0.007988791721214278,
+          0.007988791721214278,
+          0.007988791721214278,
+          0.007988791721214278,
+          0.007988791721214278,
+          0.007988791721214278,
+          0.007988791721214278,
+          0.007988791721214278
+        ],
+        [
+          0.007805912292131362,
+          0.007805912292131362,
+          0.007805912292131362,
+          0.007805912292131362,
+          0.007805912292131362,
+          0.007805912292131362,
+          0.007805912292131362,
+          0.007805912292131362,
+          0.007805912292131362,
+          0.007805912292131362
+        ],
+        [
+          0.00718552163047459,
+          0.00718552163047459,
+          0.00718552163047459,
+          0.00718552163047459,
+          0.00718552163047459,
+          0.00718552163047459,
+          0.00718552163047459,
+          0.00718552163047459,
+          0.00718552163047459,
+          0.00718552163047459
+        ]
+      ],
+      "j_per_token": [
+        [
+          125.17537506260113,
+          125.17537506260113,
+          125.17537506260113,
+          125.17537506260113,
+          125.17537506260113,
+          125.17537506260113,
+          125.17537506260113,
+          125.17537506260113,
+          125.17537506260113,
+          125.17537506260113
+        ],
+        [
+          128.10802409451048,
+          128.10802409451048,
+          128.10802409451048,
+          128.10802409451048,
+          128.10802409451048,
+          128.10802409451048,
+          128.10802409451048,
+          128.10802409451048,
+          128.10802409451048,
+          128.10802409451048
+        ],
+        [
+          139.16874117515556,
+          139.16874117515556,
+          139.16874117515556,
+          139.16874117515556,
+          139.16874117515556,
+          139.16874117515556,
+          139.16874117515556,
+          139.16874117515556,
+          139.16874117515556,
+          139.16874117515556
+        ]
+      ],
+      "tokens_per_j": [
+        [
+          0.007988791721214278,
+          0.007988791721214278,
+          0.007988791721214278,
+          0.007988791721214278,
+          0.007988791721214278,
+          0.007988791721214278,
+          0.007988791721214278,
+          0.007988791721214278,
+          0.007988791721214278,
+          0.007988791721214278
+        ],
+        [
+          0.007805912292131362,
+          0.007805912292131362,
+          0.007805912292131362,
+          0.007805912292131362,
+          0.007805912292131362,
+          0.007805912292131362,
+          0.007805912292131362,
+          0.007805912292131362,
+          0.007805912292131362,
+          0.007805912292131362
+        ],
+        [
+          0.00718552163047459,
+          0.00718552163047459,
+          0.00718552163047459,
+          0.00718552163047459,
+          0.00718552163047459,
+          0.00718552163047459,
+          0.00718552163047459,
+          0.00718552163047459,
+          0.00718552163047459,
+          0.00718552163047459
+        ]
+      ],
+      "w_per_1k_tokens": [
+        [
+          34.7709375173892,
+          34.7709375173892,
+          34.7709375173892,
+          34.7709375173892,
+          34.7709375173892,
+          34.7709375173892,
+          34.7709375173892,
+          34.7709375173892,
+          34.7709375173892,
+          34.7709375173892
+        ],
+        [
+          35.58556224847513,
+          35.58556224847513,
+          35.58556224847513,
+          35.58556224847513,
+          35.58556224847513,
+          35.58556224847513,
+          35.58556224847513,
+          35.58556224847513,
+          35.58556224847513,
+          35.58556224847513
+        ],
+        [
+          38.65798365976543,
+          38.65798365976543,
+          38.65798365976543,
+          38.65798365976543,
+          38.65798365976543,
+          38.65798365976543,
+          38.65798365976543,
+          38.65798365976543,
+          38.65798365976543,
+          38.65798365976543
+        ]
+      ],
+      "j_per_1k_tokens": [
+        [
+          125175.37506260112,
+          125175.37506260112,
+          125175.37506260112,
+          125175.37506260112,
+          125175.37506260112,
+          125175.37506260112,
+          125175.37506260112,
+          125175.37506260112,
+          125175.37506260112,
+          125175.37506260112
+        ],
+        [
+          128108.02409451046,
+          128108.02409451046,
+          128108.02409451046,
+          128108.02409451046,
+          128108.02409451046,
+          128108.02409451046,
+          128108.02409451046,
+          128108.02409451046,
+          128108.02409451046,
+          128108.02409451046
+        ],
+        [
+          139168.74117515553,
+          139168.74117515553,
+          139168.74117515553,
+          139168.74117515553,
+          139168.74117515553,
+          139168.74117515553,
+          139168.74117515553,
+          139168.74117515553,
+          139168.74117515553,
+          139168.74117515553
+        ]
+      ],
+      "co2e_g_total": [
+        [
+          0.6676020003338726,
+          0.6676020003338726,
+          0.6676020003338726,
+          0.6676020003338726,
+          0.6676020003338726,
+          0.6676020003338726,
+          0.6676020003338726,
+          0.6676020003338726,
+          0.6676020003338726,
+          0.6676020003338726
+        ],
+        [
+          0.6832427951707226,
+          0.6832427951707226,
+          0.6832427951707226,
+          0.6832427951707226,
+          0.6832427951707226,
+          0.6832427951707226,
+          0.6832427951707226,
+          0.6832427951707226,
+          0.6832427951707226,
+          0.6832427951707226
+        ],
+        [
+          0.7422332862674963,
+          0.7422332862674963,
+          0.7422332862674963,
+          0.7422332862674963,
+          0.7422332862674963,
+          0.7422332862674963,
+          0.7422332862674963,
+          0.7422332862674963,
+          0.7422332862674963,
+          0.7422332862674963
+        ]
+      ],
+      "co2e_g_per_1k_tokens": [
+        [
+          10.43128125521676,
+          10.43128125521676,
+          10.43128125521676,
+          10.43128125521676,
+          10.43128125521676,
+          10.43128125521676,
+          10.43128125521676,
+          10.43128125521676,
+          10.43128125521676,
+          10.43128125521676
+        ],
+        [
+          10.67566867454254,
+          10.67566867454254,
+          10.67566867454254,
+          10.67566867454254,
+          10.67566867454254,
+          10.67566867454254,
+          10.67566867454254,
+          10.67566867454254,
+          10.67566867454254,
+          10.67566867454254
+        ],
+        [
+          11.59739509792963,
+          11.59739509792963,
+          11.59739509792963,
+          11.59739509792963,
+          11.59739509792963,
+          11.59739509792963,
+          11.59739509792963,
+          11.59739509792963,
+          11.59739509792963,
+          11.59739509792963
+        ]
+      ],
+      "evaluation_scores": [
+        [
+          5.0,
+          5.0,
+          5.4,
+          10.0,
+          10.0,
+          9.5,
+          6.0,
+          10.0,
+          5.0,
+          10.0
+        ],
+        [
+          0.0,
+          5.0,
+          10.0,
+          0.0,
+          10.0,
+          8.5,
+          9.5,
+          8.5,
+          9.5,
+          10.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          5.0,
+          10.0,
+          4.5,
+          6.5,
+          9.5,
+          0.0,
+          8.5
+        ]
+      ],
+      "tokens_per_second": [
+        [
+          1.122580629156606,
+          1.122580629156606,
+          1.122580629156606,
+          1.122580629156606,
+          1.122580629156606,
+          1.122580629156606,
+          1.122580629156606,
+          1.122580629156606,
+          1.122580629156606,
+          1.122580629156606
+        ],
+        [
+          1.1080764687087266,
+          1.1080764687087266,
+          1.1080764687087266,
+          1.1080764687087266,
+          1.1080764687087266,
+          1.1080764687087266,
+          1.1080764687087266,
+          1.1080764687087266,
+          1.1080764687087266,
+          1.1080764687087266
+        ],
+        [
+          1.017932051836814,
+          1.017932051836814,
+          1.017932051836814,
+          1.017932051836814,
+          1.017932051836814,
+          1.017932051836814,
+          1.017932051836814,
+          1.017932051836814,
+          1.017932051836814,
+          1.017932051836814
+        ]
+      ]
+    }
+  }
+}

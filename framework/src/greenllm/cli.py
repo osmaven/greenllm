@@ -1,5 +1,3 @@
-
-
 import warnings
 warnings.filterwarnings("ignore", category=FutureWarning)
 
@@ -11,6 +9,9 @@ import argparse, json, time, os
 from .metrics.metrics import compute_metrics
 from .exporters.json_exporter import JSONExporter
 
+from .login.login import login_hugging_face
+import shutil
+import datetime
 
 
 def main():
@@ -48,11 +49,13 @@ def main():
   \__, |_|  \___|\___|_| |_|_|_|_| |_| |_|
   |___/                                   \n""")
     
-    import shutil
+
+
     columnas = shutil.get_terminal_size().columns
-    import datetime
     print("-" * columnas)
     print(f'[greenllm @ {datetime.datetime.now().strftime("%H:%M:%S")}] \033[0m Ejecutando medición con los siguientes parámetros: \nModelo: {args.model}\nPrompts: {args.prompts}\nMax new tokens: {args.max_new_tokens}\nBatch size: {args.batch_size}\nPrecision: {args.precision}\nMedidor: {args.meter}\nCarbon intensity: {args.carbon_intensity}\nSeed: {args.seed}\nIteraciones: {args.n_iterations}\n', "\033[0m")
+
+    login_hugging_face()
 
     from .runners.inference_runner import run_measurement
     results = run_measurement(

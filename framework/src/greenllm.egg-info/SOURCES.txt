@@ -10,6 +10,7 @@ src/greenllm.egg-info/requires.txt
 src/greenllm.egg-info/top_level.txt
 src/greenllm/emeter/codecarbon_meter.py
 src/greenllm/exporters/json_exporter.py
+src/greenllm/login/login.py
 src/greenllm/metrics/evaluation.py
 src/greenllm/metrics/metrics.py
 src/greenllm/runners/inference_runner.py

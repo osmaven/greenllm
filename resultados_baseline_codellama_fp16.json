@@ -1,0 +1,455 @@
+{
+  "exported_at": "2025-12-09T13:26:35.558710",
+  "payload": {
+    "run_info": {
+      "model": "codellama/CodeLlama-7b-Python-hf",
+      "precision": "fp16",
+      "meter": "codecarbon",
+      "prompts_count": 30,
+      "batch_size": 10,
+      "max_new_tokens": 64,
+      "idle_power_w": 373.729815513019,
+      "gpu_memory_allocated_mb": 12852.50830078125,
+      "gpu_memory_reserved_mb": 12854.0,
+      "system_info": {
+        "os": "Linux",
+        "os_version": "#1 SMP Tue Nov 5 00:21:55 UTC 2024",
+        "python_version": "3.10.14",
+        "machine": "x86_64",
+        "processor": "x86_64",
+        "cpu_count": 20,
+        "cpu_physical_count": 10,
+        "total_ram_gb": 15.47,
+        "gpu_available": true,
+        "gpus": [
+          {
+            "index": 0,
+            "name": "NVIDIA GeForce RTX 4070 Laptop GPU",
+            "total_memory_gb": 8.0,
+            "compute_capability": "8.9"
+          }
+        ],
+        "processor_model": "13th Gen Intel(R) Core(TM) i9-13900H"
+      },
+      "disciplines": [
+        "GENERAL KNOWLEDGE",
+        "PYTHON PROGRAMMING",
+        "CRITICAL THINKING & LANGUAGE"
+      ],
+      "generated_texts": [
+        "2. What is the capital of France?\n3. What is the capital of Germany?\n4. What is the capital of Italy?\n5. What is the capital of Spain?\n6. What is the capital of Russia?\n7. What is the capital of China?\n8. What",
+        "3. Who wrote \"The Tempest\"?\n4. Who wrote \"Macbeth\"?\n5. Who wrote \"Hamlet\"?\n6. Who wrote \"Othello\"?\n7. Who wrote \"A Midsummer Night's Dream\"?\n8. Who wrote \"The Merchant",
+        "× 2 = 42\n\n# 1.\n# 2.\n# 3.\n\n# 1.\n# 2.\n# 3.\n\n# 1.\n# 2.\n# 3.\n\n# 1.\n#",
+        "5. What is the chemical symbol for silver?\n6. What is the chemical symbol for copper?\n7. What is the chemical symbol for iron?\n8. What is the chemical symbol for aluminum?\n9. What is the chemical symbol for magnesium?\n10.",
+        "6. What is the average temperature of the Earth?\n7. What is the average temperature of the Sun?\n8. What is the average temperature of the Moon?\n9. What is the average temperature of the Earth's core?\n10. What is the average temperature of the Earth'",
+        "7. What is the name of the first American president?\n8. What is the name of the first American president?\n9. What is the name of the first American president?\n10. What is the name of the first American president?\n11. What is the name of the first",
+        "8. What is the smallest planet in our solar system?\n9. What is the average distance between the Earth and the Sun?\n10. What is the average distance between the Moon and the Earth?\n11. What is the average distance between the Sun and the Earth?\n12.",
+        "9. What is the square root of 144?\n10. What is the square root of 144?\n11. What is the square root of 144?\n12. What is the square root of 144?\n13. What",
+        "10. Which of the following is the largest desert in the world?\n11. Which of the following is the largest desert in the world?\n12. Which of the following is the largest desert in the world?\n13. Which of the following is the largest desert in the world?",
+        "11. What is the boiling point of water at 1000 meters in Celsius?\n12. What is the boiling point of water at 1000 meters in Fahrenheit?\n13. What is the boiling point of water at 10",
+        "2. Write a Python function that multiplies two numbers and returns the result.\n\n3. Write a Python function that multiplies two numbers and returns the result.\n\n4. Write a Python function that multiplies two numbers and returns the result.\n\n5. Write a Python function that multip",
+        "3. Write a Python program that prints all numbers from 1 to 100.\n4. Write a Python program that prints all even numbers from 1 to 100.\n5. Write a Python program that prints all odd numbers from 1 to 100.\n6",
+        "def factorial(n):\n    if n == 0:\n        return 1\n    else:\n        return n * factorial(n-1)\n\nprint(factorial(5))\n\n\n4. Write a Python function that returns the sum of two numbers.",
+        "Input:\n\nA number as an integer.\n\nOutput:\n\nA string indicating whether the number is even or odd.\n\nExample:\n\npython odd_even.py\n\nEnter a number: 10\n\nThe number 10 is even.\n\npython odd",
+        "def reverse(string):\n    return string[::-1]\n\nprint(reverse(\"Hello\"))\n\n6. Write a Python function that takes a list and returns a new list with unique elements of the first list.\n\ndef unique(list):\n    return list(set(list",
+        "7. Write a Python program to find the maximum and minimum numbers from a list of integers.\n8. Write a Python program to find the maximum length of a string from a list of strings.\n9. Write a Python program to find the number of strings where the string length is 2 or more and",
+        "def largest_number(list):\n    largest = list[0]\n    for i in list:\n        if i > largest:\n            largest = i\n    return largest\n\nprint(largest_number([1, 2, 3, 4, 5,",
+        "9. Write a Python program to find the number of prime numbers which are less than or equal to a given integer.\n10. Write a Python program to find the number of combinations that can be made from letters of a word.\n11. Write a Python program to find the number of divisors",
+        "10. Write a Python function that counts the number of uppercase letters in a string.\n\n11. Write a Python function that counts the number of lowercase letters in a string.\n\n12. Write a Python function that counts the number of digits in a string.\n\n1",
+        "Sample Output:\n{1: 'a', 2: 'b', 3: 'c', 4: 'd', 5: 'e', 6: 'f', 7: 'g', 8: 'h', 9: 'i'}\n{1:",
+        "2. Translate into Spanish: \"I am very hungry.\"\n3. Translate into Spanish: \"I am very tired.\"\n4. Translate into Spanish: \"I am very cold.\"\n5. Translate into Spanish: \"I am very hot.\"\n6. Translate into Spanish",
+        "3. Translate into Spanish: \"My brother is studying for the exam.\"\n4. Translate into English: \"Mi hermana está estudiando para el examen.\"\n5. Translate into Spanish: \"My sister is studying for the exam.\"\n6. Translate into English:",
+        "4. If all roses are flowers and some flowers fade quickly, can we conclude that some roses fade quickly? Explain.\n5. If all roses are flowers and some flowers fade quickly, can we conclude that some roses fade quickly? Explain.\n6. If all roses are",
+        "5. What is the name of the person who invented the telephone?\n6. What is the name of the person who invented the telephone?\n7. What is the name of the person who invented the telephone?\n8. What is the name of the person who invented",
+        "6. Correct the grammar: \"I don’t like going to the market.\"\n7. Correct the grammar: \"I don’t like going to the market.\"\n8. Correct the grammar: \"I don’t like going to the market.\"\n9. Correct the grammar: \"I don",
+        "7. Translate into French: \"I am going to the library.\"\n8. Translate into French: \"I am going to the library.\"\n9. Translate into French: \"I am going to the library.\"\n10. Translate into French: \"I am going to the library",
+        "7. Solve: If a train travels 60 km in 1 hour, how long will it take to travel 180 km?\n7. Solve: If a train travels 60 km in 1 hour, how long will it take to travel 180",
+        "9. Rearrange the words to make a correct sentence: \"the / book / is / on / the / table\"\n10. Rearrange the words to make a correct sentence: \"the / book / is / on / the / table\"\n11. Rearrange the words",
+        "10. Write a brief argument for why recycling is important.\n11. Write a brief argument for why recycling is important.\n12. Write a brief argument for why recycling is important.\n13. Write a brief argument for why recycling is important.",
+        "11. What is the logical fallacy in this statement: \"All cats are animals, therefore all animals are cats.\"\n12. What is the logical fallacy in this statement: \"All cats are animals, therefore all animals are cats.\"\n13. What is"
+      ]
+    },
+    "metrics": {
+      "w_per_token": [
+        [
+          0.033972784959282895,
+          0.033972784959282895,
+          0.033972784959282895,
+          0.033972784959282895,
+          0.033972784959282895,
+          0.033972784959282895,
+          0.033972784959282895,
+          0.033972784959282895,
+          0.033972784959282895,
+          0.033972784959282895
+        ],
+        [
+          0.03368374569557972,
+          0.03368374569557972,
+          0.03368374569557972,
+          0.03368374569557972,
+          0.03368374569557972,
+          0.03368374569557972,
+          0.03368374569557972,
+          0.03368374569557972,
+          0.03368374569557972,
+          0.03368374569557972
+        ],
+        [
+          0.035073958640922685,
+          0.035073958640922685,
+          0.035073958640922685,
+          0.035073958640922685,
+          0.035073958640922685,
+          0.035073958640922685,
+          0.035073958640922685,
+          0.035073958640922685,
+          0.035073958640922685,
+          0.035073958640922685
+        ]
+      ],
+      "tokens_per_wat": [
+        [
+          0.008176479441137969,
+          0.008176479441137969,
+          0.008176479441137969,
+          0.008176479441137969,
+          0.008176479441137969,
+          0.008176479441137969,
+          0.008176479441137969,
+          0.008176479441137969,
+          0.008176479441137969,
+          0.008176479441137969
+        ],
+        [
+          0.008246641578648132,
+          0.008246641578648132,
+          0.008246641578648132,
+          0.008246641578648132,
+          0.008246641578648132,
+          0.008246641578648132,
+          0.008246641578648132,
+          0.008246641578648132,
+          0.008246641578648132,
+          0.008246641578648132
+        ],
+        [
+          0.007919772633069123,
+          0.007919772633069123,
+          0.007919772633069123,
+          0.007919772633069123,
+          0.007919772633069123,
+          0.007919772633069123,
+          0.007919772633069123,
+          0.007919772633069123,
+          0.007919772633069123,
+          0.007919772633069123
+        ]
+      ],
+      "j_per_token": [
+        [
+          122.30202585341843,
+          122.30202585341843,
+          122.30202585341843,
+          122.30202585341843,
+          122.30202585341843,
+          122.30202585341843,
+          122.30202585341843,
+          122.30202585341843,
+          122.30202585341843,
+          122.30202585341843
+        ],
+        [
+          121.261484504087,
+          121.261484504087,
+          121.261484504087,
+          121.261484504087,
+          121.261484504087,
+          121.261484504087,
+          121.261484504087,
+          121.261484504087,
+          121.261484504087,
+          121.261484504087
+        ],
+        [
+          126.26625110732166,
+          126.26625110732166,
+          126.26625110732166,
+          126.26625110732166,
+          126.26625110732166,
+          126.26625110732166,
+          126.26625110732166,
+          126.26625110732166,
+          126.26625110732166,
+          126.26625110732166
+        ]
+      ],
+      "tokens_per_j": [
+        [
+          0.008176479441137969,
+          0.008176479441137969,
+          0.008176479441137969,
+          0.008176479441137969,
+          0.008176479441137969,
+          0.008176479441137969,
+          0.008176479441137969,
+          0.008176479441137969,
+          0.008176479441137969,
+          0.008176479441137969
+        ],
+        [
+          0.008246641578648132,
+          0.008246641578648132,
+          0.008246641578648132,
+          0.008246641578648132,
+          0.008246641578648132,
+          0.008246641578648132,
+          0.008246641578648132,
+          0.008246641578648132,
+          0.008246641578648132,
+          0.008246641578648132
+        ],
+        [
+          0.007919772633069123,
+          0.007919772633069123,
+          0.007919772633069123,
+          0.007919772633069123,
+          0.007919772633069123,
+          0.007919772633069123,
+          0.007919772633069123,
+          0.007919772633069123,
+          0.007919772633069123,
+          0.007919772633069123
+        ]
+      ],
+      "w_per_1k_tokens": [
+        [
+          33.9727849592829,
+          33.9727849592829,
+          33.9727849592829,
+          33.9727849592829,
+          33.9727849592829,
+          33.9727849592829,
+          33.9727849592829,
+          33.9727849592829,
+          33.9727849592829,
+          33.9727849592829
+        ],
+        [
+          33.68374569557972,
+          33.68374569557972,
+          33.68374569557972,
+          33.68374569557972,
+          33.68374569557972,
+          33.68374569557972,
+          33.68374569557972,
+          33.68374569557972,
+          33.68374569557972,
+          33.68374569557972
+        ],
+        [
+          35.07395864092268,
+          35.07395864092268,
+          35.07395864092268,
+          35.07395864092268,
+          35.07395864092268,
+          35.07395864092268,
+          35.07395864092268,
+          35.07395864092268,
+          35.07395864092268,
+          35.07395864092268
+        ]
+      ],
+      "j_per_1k_tokens": [
+        [
+          122302.02585341842,
+          122302.02585341842,
+          122302.02585341842,
+          122302.02585341842,
+          122302.02585341842,
+          122302.02585341842,
+          122302.02585341842,
+          122302.02585341842,
+          122302.02585341842,
+          122302.02585341842
+        ],
+        [
+          121261.48450408698,
+          121261.48450408698,
+          121261.48450408698,
+          121261.48450408698,
+          121261.48450408698,
+          121261.48450408698,
+          121261.48450408698,
+          121261.48450408698,
+          121261.48450408698,
+          121261.48450408698
+        ],
+        [
+          126266.25110732166,
+          126266.25110732166,
+          126266.25110732166,
+          126266.25110732166,
+          126266.25110732166,
+          126266.25110732166,
+          126266.25110732166,
+          126266.25110732166,
+          126266.25110732166,
+          126266.25110732166
+        ]
+      ],
+      "co2e_g_total": [
+        [
+          0.6522774712182315,
+          0.6522774712182315,
+          0.6522774712182315,
+          0.6522774712182315,
+          0.6522774712182315,
+          0.6522774712182315,
+          0.6522774712182315,
+          0.6522774712182315,
+          0.6522774712182315,
+          0.6522774712182315
+        ],
+        [
+          0.6467279173551307,
+          0.6467279173551307,
+          0.6467279173551307,
+          0.6467279173551307,
+          0.6467279173551307,
+          0.6467279173551307,
+          0.6467279173551307,
+          0.6467279173551307,
+          0.6467279173551307,
+          0.6467279173551307
+        ],
+        [
+          0.6734200059057157,
+          0.6734200059057157,
+          0.6734200059057157,
+          0.6734200059057157,
+          0.6734200059057157,
+          0.6734200059057157,
+          0.6734200059057157,
+          0.6734200059057157,
+          0.6734200059057157,
+          0.6734200059057157
+        ]
+      ],
+      "co2e_g_per_1k_tokens": [
+        [
+          10.191835487784868,
+          10.191835487784868,
+          10.191835487784868,
+          10.191835487784868,
+          10.191835487784868,
+          10.191835487784868,
+          10.191835487784868,
+          10.191835487784868,
+          10.191835487784868,
+          10.191835487784868
+        ],
+        [
+          10.105123708673917,
+          10.105123708673917,
+          10.105123708673917,
+          10.105123708673917,
+          10.105123708673917,
+          10.105123708673917,
+          10.105123708673917,
+          10.105123708673917,
+          10.105123708673917,
+          10.105123708673917
+        ],
+        [
+          10.522187592276808,
+          10.522187592276808,
+          10.522187592276808,
+          10.522187592276808,
+          10.522187592276808,
+          10.522187592276808,
+          10.522187592276808,
+          10.522187592276808,
+          10.522187592276808,
+          10.522187592276808
+        ]
+      ],
+      "evaluation_scores": [
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          9.5,
+          8.5,
+          8.5,
+          0.0,
+          9.5,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          10.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "tokens_per_second": [
+        [
+          1.1488920142499193,
+          1.1488920142499193,
+          1.1488920142499193,
+          1.1488920142499193,
+          1.1488920142499193,
+          1.1488920142499193,
+          1.1488920142499193,
+          1.1488920142499193,
+          1.1488920142499193,
+          1.1488920142499193
+        ],
+        [
+          1.1609466471804473,
+          1.1609466471804473,
+          1.1609466471804473,
+          1.1609466471804473,
+          1.1609466471804473,
+          1.1609466471804473,
+          1.1609466471804473,
+          1.1609466471804473,
+          1.1609466471804473,
+          1.1609466471804473
+        ],
+        [
+          1.0976731760352167,
+          1.0976731760352167,
+          1.0976731760352167,
+          1.0976731760352167,
+          1.0976731760352167,
+          1.0976731760352167,
+          1.0976731760352167,
+          1.0976731760352167,
+          1.0976731760352167,
+          1.0976731760352167
+        ]
+      ]
+    }
+  }
+}

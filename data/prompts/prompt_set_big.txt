@@ -1,0 +1,35 @@
+[GENERAL KNOWLEDGE]
+1. What is the capital of Japan?
+2. Who wrote "Romeo and Juliet"?
+3. Solve: 12 × 3 + 7
+4. What is the chemical symbol for gold?
+5. What gas do humans exhale?
+6. Who painted "Starry Night"?
+7. What is the largest planet in our solar system?
+8. What is the square root of 144?
+9. In which continent is the Sahara Desert located?
+10. What is the boiling point of water at sea level in Celsius?
+
+[PYTHON PROGRAMMING]
+1. Write a Python function that multiplies two numbers.
+2. Write a Python program that prints all numbers from 1 to 10.
+3. Write a Python function that returns the factorial of a number.
+4. Write a Python program that checks if a number is even or odd.
+5. Write a Python function that reverses a string.
+6. Write a Python program that calculates the sum of a list of numbers.
+7. Write a Python function that finds the largest number in a list.
+8. Write a Python program that prints the Fibonacci sequence up to 20.
+9. Write a Python function that counts the number of vowels in a string.
+10. Write a Python program that creates a dictionary from two lists (keys and values).
+
+[CRITICAL THINKING & LANGUAGE]
+1. Translate into Spanish: "The weather is very sunny today."
+2. Translate into English: "Mi hermano está estudiando para el examen."
+3. If all roses are flowers and some flowers fade quickly, can we conclude that some roses fade quickly? Explain.
+4. Solve the riddle: "I speak without a mouth and hear without ears. What am I?"
+5. Correct the grammar: "She don’t like going to the market."
+6. Translate into French: "I am reading a book in the library."
+7. Solve: If a train travels 60 km in 1 hour, how long will it take to travel 180 km?
+8. Rearrange the words to make a correct sentence: "book / the / on / table / is / the"
+9. Write a brief argument for why recycling is important.
+10. Identify the logical flaw in this statement: "All cats are animals, therefore all animals are cats."

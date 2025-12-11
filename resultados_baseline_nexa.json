@@ -1,0 +1,455 @@
+{
+  "exported_at": "2025-12-09T12:06:54.351496",
+  "payload": {
+    "run_info": {
+      "model": "NexaAI/Octopus-v2",
+      "precision": "auto",
+      "meter": "codecarbon",
+      "prompts_count": 30,
+      "batch_size": 10,
+      "max_new_tokens": 64,
+      "idle_power_w": 217.63046693613487,
+      "gpu_memory_allocated_mb": 9560.46142578125,
+      "gpu_memory_reserved_mb": 9564.0,
+      "system_info": {
+        "os": "Linux",
+        "os_version": "#1 SMP Tue Nov 5 00:21:55 UTC 2024",
+        "python_version": "3.10.14",
+        "machine": "x86_64",
+        "processor": "x86_64",
+        "cpu_count": 20,
+        "cpu_physical_count": 10,
+        "total_ram_gb": 15.47,
+        "gpu_available": true,
+        "gpus": [
+          {
+            "index": 0,
+            "name": "NVIDIA GeForce RTX 4070 Laptop GPU",
+            "total_memory_gb": 8.0,
+            "compute_capability": "8.9"
+          }
+        ],
+        "processor_model": "13th Gen Intel(R) Core(TM) i9-13900H"
+      },
+      "disciplines": [
+        "GENERAL KNOWLEDGE",
+        "PYTHON PROGRAMMING",
+        "CRITICAL THINKING & LANGUAGE"
+      ],
+      "generated_texts": [
+        "Response: ('Tokyo')\n\nFunction description: \ndef get_weather_forecast(location):\n    \"\"\"\n    Provides a weather forecast for a specified location over a given number of days. Each day's forecast includes a brief description of the expected weather conditions.\n\n    Parameters:",
+        "Response: ('Romeo and Juliet')\n\nFunction description: \ndef search_youtube_videos(query):\n    \"\"\"\n    Searches YouTube for videos matching a query.\n\n    Parameters:\n    - query (str): Search query.\n\n    Returns:\n    - list[str",
+        "× 4 = 48\n\nResponse: (48)\n\nFunction description: \ndef change_screen_brightness(level):\n    \"\"\"\n    Adjust the device's screen brightness level.\n\n    Parameters:\n    - level (int): Desired brightness level, on a scale",
+        "Response: (10)\n\nFunction description: \ndef change_screen_brightness(level):\n    \"\"\"\n    Adjust the device's screen brightness level.\n\n    Parameters:\n    - level (int): Desired brightness level, on a scale from 0 (minimum) to",
+        "Response: (55)\n\nFunction description: \ndef change_nest_temperature(target_temperature):\n    \"\"\"\n    Sets a Nest Thermostat to a desired temperature.\n\n    Parameters:\n    - target_temperature (float): Target temperature in degrees Fahrenheit, ranging from 5",
+        "Starry Night by Bob Ross\n\nStarry Night by Bob Ross\n\nStarry Night by Bob Ross\n\nStarry Night by Bob Ross\n\nStarry Night by Bob Ross\n\nStarry Night by Bob Ross\n\nStarry Night by Bob Ross\n\nStarry Night by Bob Ross\n\nStarry Night by Bob Ross",
+        "Response: ('largest planet in our solar system')\n\nFunction description: \ndef search_youtube_videos(query):\n    \"\"\"\n    Searches YouTube for videos matching a query.\n\n    Parameters:\n    - query (str): Search query.\n\n    Returns:\n    -",
+        "Response: (144)\n\nFunction description: \ndef change_screen_brightness(level):\n    \"\"\"\n    Adjust the device's screen brightness level.\n\n    Parameters:\n    - level (int): Desired brightness level, on a scale from 0 (minimum)",
+        "Response: ('Sahara Desert')\n\nFunction description: \ndef get_weather_forecast(location):\n    \"\"\"\n    Provides a weather forecast for a specified location over a given number of days. Each day's forecast includes a brief description of the expected weather conditions.\n\n    Parameters",
+        "Response: (110)\n\nFunction description: \ndef set_nest_temperature(target_temperature):\n    \"\"\"\n    Sets a Nest Thermostat to a desired temperature.\n\n    Parameters:\n    - target_temperature (float): Target temperature in degrees Fahrenheit, ranging from",
+        "Parameters:\n    - a (int): Target number, from which the multiplication is desired. Can be a single digit or a complex number.\n    - b (int): Target number, from which the multiplication is desired. Can be a single digit or a complex number.\n\n    Returns:",
+        "Parameters:\n    - mode (enum): Mode of transportation, options include 'driving', 'walking', 'bicycling', and 'transit'. The default mode is 'driving'.\n\n    Returns:\n    \"\"\"",
+        "Parameters:\n    - number (str): The number for which the factorial is desired. Can be a number, or it can be a variable containing the number.\n\n    Returns:\n    \"\"\"\n    The function returns the factorial of a number. The factorial is a product of all the numbers in the",
+        "Parameters:\n    - number (str): The number to check.\n\n    Returns:\n    - str: A message with the detailed smoke detector status. This message includes information about battery level, sensor functionality, and connectivity status.\n    \"\"\"",
+        "Parameters:\n    - string (str): The string to reverse.\n\n    Returns:\n    \"\"\"\n    def reverse_string(string):\n    \"\"\"\n    Reverse the string to a new language.\n\n    Parameters:\n    - string (str): The string to reverse.\n\n    Returns",
+        "Parameters:\n    - list_of_numbers (str): A list of strings, each string includes the numeric value and the corresponding label.\n    - format (str): The format for which the numeric value is represented. Can be a decimal point or a scientific notation (e.g., +1",
+        "Parameters:\n    - list (str): A list of strings, each string includes the file path of the image.\n\n    Returns:\n    - list[str]: A list of strings, each string includes the file path of the image.\n    \"\"\"",
+        "Response: ('Fibonacci sequence up to 20')\n\nFunction description: \ndef search_youtube_videos(query):\n    \"\"\"\n    Searches YouTube for videos matching a query.\n\n    Parameters:\n    - query (str): Search query.\n\n    Returns:",
+        "Parameters:\n    - string (str): The string contains the vowel count. The default is 10 seconds.\n\n    Returns:\n    - list[str]: A list of strings, each string includes the vowel count and the string itself.\n    \"\"\"",
+        "Parameters:\n    - list_of_keys (str): A list of strings, each string includes the key and a value.\n    - list_of_values (str): A list of strings, each string includes the key and a value.\n\n    Returns:\n    \"\"\"",
+        "Returns:\n    \"\"\"\n    Translates a sentence into Spanish using a language translation app on a Windows Surface tablet\n\n    Parameters:\n    - language (str): ISO 639-1 language code. The default language is English ('en'), but it can be set to any valid ISO",
+        "Response: ('Mi hermano está studying para el examen', 'en')\n\nFunction description: \ndef translate_text_message(text):\n    \"\"\"\n    Translates a text message into a specified language.\n\n    Parameters:\n    - text (str): The content of the translation",
+        "Response: ('Some roses fade quickly')\n\nFunction description: \ndef search_youtube_videos(query):\n    \"\"\"\n    Searches YouTube for videos matching a query.\n\n    Parameters:\n    - query (str): Search query.\n\n    Returns:\n    - list[",
+        "Response: ('I speak without a mouth and hear without ears. What am I?')\n\nFunction description: \ndef send_text_message(contact_name, message):\n    \"\"\"\n    Sends a text message to the specified contact.\n\n    Parameters:\n    - contact_",
+        "Response: ('She don’t like going to the market.')\n\nFunction description: \ndef send_text_message(contact_name, message):\n    \"\"\"\n    Sends a text message to the specified contact.\n\n    Parameters:\n    - contact_name (str):",
+        "Response: ('I am reading a book in the library.')\n\nFunction description: \ndef translate_text_message(text):\n    \"\"\"\n    Translates a text message into French.\n\n    Parameters:\n    - text (str): The content of the translation. This is what",
+        "Response: ('60 km', '180 km', 'transit')\n\nFunction description: \ndef find_route_google_maps(origin, destination, mode):\n    \"\"\"\n    Computes a route using Google Maps from an origin to a destination.\n\n    Parameters:",
+        "Response: ()\n\nFunction description: \ndef irrelevant_function():\n  \"\"\"\n  If user query is not related to any of the predefined functions, this function will be called.\n  \n  Args:\n  \n  Returns:\n  \"\"\"",
+        "Response: ()\n\nFunction description: \ndef irrelevant_function():\n  \"\"\"\n  If user query is not related to any of the predefined functions, this function will be called.\n  \n  Args:\n  \n  Returns:\n  \"\"\"",
+        "Response: ('All cats are animals, therefore all animals are cats.')\n\nFunction description: \ndef search_youtube_videos(query):\n    \"\"\"\n    Searches YouTube for videos matching a query.\n\n    Parameters:\n    - query (str): Search query.\n\n    Returns"
+      ]
+    },
+    "metrics": {
+      "w_per_token": [
+        [
+          0.016021538164653095,
+          0.016021538164653095,
+          0.016021538164653095,
+          0.016021538164653095,
+          0.016021538164653095,
+          0.016021538164653095,
+          0.016021538164653095,
+          0.016021538164653095,
+          0.016021538164653095,
+          0.016021538164653095
+        ],
+        [
+          0.016931048300269255,
+          0.016931048300269255,
+          0.016931048300269255,
+          0.016931048300269255,
+          0.016931048300269255,
+          0.016931048300269255,
+          0.016931048300269255,
+          0.016931048300269255,
+          0.016931048300269255,
+          0.016931048300269255
+        ],
+        [
+          0.01837553775461235,
+          0.01837553775461235,
+          0.01837553775461235,
+          0.01837553775461235,
+          0.01837553775461235,
+          0.01837553775461235,
+          0.01837553775461235,
+          0.01837553775461235,
+          0.01837553775461235,
+          0.01837553775461235
+        ]
+      ],
+      "tokens_per_wat": [
+        [
+          0.017337772124190572,
+          0.017337772124190572,
+          0.017337772124190572,
+          0.017337772124190572,
+          0.017337772124190572,
+          0.017337772124190572,
+          0.017337772124190572,
+          0.017337772124190572,
+          0.017337772124190572,
+          0.017337772124190572
+        ],
+        [
+          0.016406413404027695,
+          0.016406413404027695,
+          0.016406413404027695,
+          0.016406413404027695,
+          0.016406413404027695,
+          0.016406413404027695,
+          0.016406413404027695,
+          0.016406413404027695,
+          0.016406413404027695,
+          0.016406413404027695
+        ],
+        [
+          0.015116715575197476,
+          0.015116715575197476,
+          0.015116715575197476,
+          0.015116715575197476,
+          0.015116715575197476,
+          0.015116715575197476,
+          0.015116715575197476,
+          0.015116715575197476,
+          0.015116715575197476,
+          0.015116715575197476
+        ]
+      ],
+      "j_per_token": [
+        [
+          57.67753739275114,
+          57.67753739275114,
+          57.67753739275114,
+          57.67753739275114,
+          57.67753739275114,
+          57.67753739275114,
+          57.67753739275114,
+          57.67753739275114,
+          57.67753739275114,
+          57.67753739275114
+        ],
+        [
+          60.95177388096931,
+          60.95177388096931,
+          60.95177388096931,
+          60.95177388096931,
+          60.95177388096931,
+          60.95177388096931,
+          60.95177388096931,
+          60.95177388096931,
+          60.95177388096931,
+          60.95177388096931
+        ],
+        [
+          66.15193591660446,
+          66.15193591660446,
+          66.15193591660446,
+          66.15193591660446,
+          66.15193591660446,
+          66.15193591660446,
+          66.15193591660446,
+          66.15193591660446,
+          66.15193591660446,
+          66.15193591660446
+        ]
+      ],
+      "tokens_per_j": [
+        [
+          0.017337772124190572,
+          0.017337772124190572,
+          0.017337772124190572,
+          0.017337772124190572,
+          0.017337772124190572,
+          0.017337772124190572,
+          0.017337772124190572,
+          0.017337772124190572,
+          0.017337772124190572,
+          0.017337772124190572
+        ],
+        [
+          0.016406413404027695,
+          0.016406413404027695,
+          0.016406413404027695,
+          0.016406413404027695,
+          0.016406413404027695,
+          0.016406413404027695,
+          0.016406413404027695,
+          0.016406413404027695,
+          0.016406413404027695,
+          0.016406413404027695
+        ],
+        [
+          0.015116715575197476,
+          0.015116715575197476,
+          0.015116715575197476,
+          0.015116715575197476,
+          0.015116715575197476,
+          0.015116715575197476,
+          0.015116715575197476,
+          0.015116715575197476,
+          0.015116715575197476,
+          0.015116715575197476
+        ]
+      ],
+      "w_per_1k_tokens": [
+        [
+          16.021538164653094,
+          16.021538164653094,
+          16.021538164653094,
+          16.021538164653094,
+          16.021538164653094,
+          16.021538164653094,
+          16.021538164653094,
+          16.021538164653094,
+          16.021538164653094,
+          16.021538164653094
+        ],
+        [
+          16.931048300269254,
+          16.931048300269254,
+          16.931048300269254,
+          16.931048300269254,
+          16.931048300269254,
+          16.931048300269254,
+          16.931048300269254,
+          16.931048300269254,
+          16.931048300269254,
+          16.931048300269254
+        ],
+        [
+          18.37553775461235,
+          18.37553775461235,
+          18.37553775461235,
+          18.37553775461235,
+          18.37553775461235,
+          18.37553775461235,
+          18.37553775461235,
+          18.37553775461235,
+          18.37553775461235,
+          18.37553775461235
+        ]
+      ],
+      "j_per_1k_tokens": [
+        [
+          57677.53739275114,
+          57677.53739275114,
+          57677.53739275114,
+          57677.53739275114,
+          57677.53739275114,
+          57677.53739275114,
+          57677.53739275114,
+          57677.53739275114,
+          57677.53739275114,
+          57677.53739275114
+        ],
+        [
+          60951.77388096931,
+          60951.77388096931,
+          60951.77388096931,
+          60951.77388096931,
+          60951.77388096931,
+          60951.77388096931,
+          60951.77388096931,
+          60951.77388096931,
+          60951.77388096931,
+          60951.77388096931
+        ],
+        [
+          66151.93591660446,
+          66151.93591660446,
+          66151.93591660446,
+          66151.93591660446,
+          66151.93591660446,
+          66151.93591660446,
+          66151.93591660446,
+          66151.93591660446,
+          66151.93591660446,
+          66151.93591660446
+        ]
+      ],
+      "co2e_g_total": [
+        [
+          0.30761353276133946,
+          0.30761353276133946,
+          0.30761353276133946,
+          0.30761353276133946,
+          0.30761353276133946,
+          0.30761353276133946,
+          0.30761353276133946,
+          0.30761353276133946,
+          0.30761353276133946,
+          0.30761353276133946
+        ],
+        [
+          0.3250761273651697,
+          0.3250761273651697,
+          0.3250761273651697,
+          0.3250761273651697,
+          0.3250761273651697,
+          0.3250761273651697,
+          0.3250761273651697,
+          0.3250761273651697,
+          0.3250761273651697,
+          0.3250761273651697
+        ],
+        [
+          0.352810324888557,
+          0.352810324888557,
+          0.352810324888557,
+          0.352810324888557,
+          0.352810324888557,
+          0.352810324888557,
+          0.352810324888557,
+          0.352810324888557,
+          0.352810324888557,
+          0.352810324888557
+        ]
+      ],
+      "co2e_g_per_1k_tokens": [
+        [
+          4.806461449395929,
+          4.806461449395929,
+          4.806461449395929,
+          4.806461449395929,
+          4.806461449395929,
+          4.806461449395929,
+          4.806461449395929,
+          4.806461449395929,
+          4.806461449395929,
+          4.806461449395929
+        ],
+        [
+          5.079314490080777,
+          5.079314490080777,
+          5.079314490080777,
+          5.079314490080777,
+          5.079314490080777,
+          5.079314490080777,
+          5.079314490080777,
+          5.079314490080777,
+          5.079314490080777,
+          5.079314490080777
+        ],
+        [
+          5.512661326383704,
+          5.512661326383704,
+          5.512661326383704,
+          5.512661326383704,
+          5.512661326383704,
+          5.512661326383704,
+          5.512661326383704,
+          5.512661326383704,
+          5.512661326383704,
+          5.512661326383704
+        ]
+      ],
+      "evaluation_scores": [
+        [
+          10.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "tokens_per_second": [
+        [
+          2.5088251080618256,
+          2.5088251080618256,
+          2.5088251080618256,
+          2.5088251080618256,
+          2.5088251080618256,
+          2.5088251080618256,
+          2.5088251080618256,
+          2.5088251080618256,
+          2.5088251080618256,
+          2.5088251080618256
+        ],
+        [
+          2.389889203683646,
+          2.389889203683646,
+          2.389889203683646,
+          2.389889203683646,
+          2.389889203683646,
+          2.389889203683646,
+          2.389889203683646,
+          2.389889203683646,
+          2.389889203683646,
+          2.389889203683646
+        ],
+        [
+          2.1651199844488134,
+          2.1651199844488134,
+          2.1651199844488134,
+          2.1651199844488134,
+          2.1651199844488134,
+          2.1651199844488134,
+          2.1651199844488134,
+          2.1651199844488134,
+          2.1651199844488134,
+          2.1651199844488134
+        ]
+      ]
+    }
+  }
+}
