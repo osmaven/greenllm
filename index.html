@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Explorador de Resultados LLM</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <style>
         :root {
             /* Light mode (default) */
@@ -233,10 +234,63 @@
 
         .table-controls {
             display: flex;
+            justify-content: space-between;
             flex-wrap: wrap;
             gap: 10px;
             align-items: center;
         }
+        .btn-ghost {
+            border: 1px dashed var(--border);
+            background: transparent;
+            color: var(--text);
+        }
+        .control-left {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-items: center;
+        }
+        .status-pill {
+            padding: 6px 10px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            background: rgba(255,255,255,0.06);
+            color: var(--muted);
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+        .help-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            color: var(--muted);
+            font-size: 12px;
+            cursor: pointer;
+            margin-left: 6px;
+            position: relative;
+        }
+        .help-icon .tooltip {
+            display: none;
+            position: absolute;
+            top: 24px;
+            left: 0;
+            transform: translateX(-10%);
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 8px 10px;
+            color: var(--text);
+            font-size: 0.88rem;
+            max-width: 240px;
+            white-space: normal;
+            box-shadow: var(--shadow);
+            z-index: 5;
+        }
+        .help-icon:hover .tooltip { display: block; }
         .input {
             padding: 8px 10px;
             border-radius: 8px;
@@ -257,6 +311,30 @@
             color: var(--muted);
             font-size: 0.8rem;
         }
+
+        /* Compare page */
+        #compare-page {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: var(--bg);
+            overflow-y: auto;
+            padding: 26px 18px 36px;
+            z-index: 10;
+        }
+        #compare-page .compare-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 14px;
+        }
+        #compare-page .metric-block {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 14px;
+        }
+        #compare-page h2 { margin: 0 0 6px; letter-spacing: -0.2px; }
+        #compare-page .meta { color: var(--muted); margin-bottom: 10px; }
 
         @media (max-width: 800px) {
             header { flex-direction: column; align-items: flex-start; }
@@ -279,7 +357,12 @@
 
         <div class="panel" id="uploader">
             <div class="panel-heading">
-                <h3>Importar resultados</h3>
+                <div style="display:flex; align-items:center; gap:8px;">
+                    <h3>Importar resultados</h3>
+                    <span class="help-icon" aria-label="Ayuda importación">i
+                        <span class="tooltip">Sube JSON de resultados o arrástralos aquí. Para defaults, sirve la web con un servidor local.</span>
+                    </span>
+                </div>
                 <div class="actions">
                     <button class="btn" id="clear-data">Limpiar datos</button>
                     <button class="btn-primary btn" id="open-picker">Seleccionar JSON</button>
@@ -296,9 +379,11 @@
         <div id="summary-row" style="margin-top:14px;">
             <div class="panel" id="radar-panel" style="display:none;">
                 <div class="panel-heading">
-                    <div>
+                    <div style="display:flex; align-items:center; gap:8px;">
                         <h3>Radar de métricas</h3>
-                        <span class="tag">Velocidad, calidad, energía, TTFT y CO₂ normalizados</span>
+                        <span class="help-icon" aria-label="Ayuda radar">i
+                            <span class="tooltip">Usa el desplegable o la leyenda para enfocar un modelo. Los ejes se normalizan con mínimos/máximos globales.</span>
+                        </span>
                     </div>
                     <select id="radar-select" class="btn" aria-label="Seleccionar modelo para radar">
                         <option value="__auto__">Top 6 por calidad</option>
@@ -356,10 +441,19 @@
 
         <div class="panel" id="table-panel" style="display:none; margin-top: 14px;">
             <div class="panel-heading">
-                <h3>Tabla de modelos</h3>
+                <div style="display:flex; align-items:center; gap:8px;">
+                    <h3>Tabla de modelos</h3>
+                    <span class="help-icon" aria-label="Ayuda tabla">i
+                        <span class="tooltip">Ordena con los encabezados. Filtra por texto. Haz clic en filas para marcar hasta 2 y abrir la comparativa.</span>
+                    </span>
+                </div>
                 <div class="table-controls">
-                    <input class="input" id="table-filter" type="search" placeholder="Filtrar por modelo o archivo">
-                    <span class="tag" id="table-hint">Click en encabezados para ordenar</span>
+                    <div class="control-left">
+                        <input class="input" id="table-filter" type="search" placeholder="Filtrar por modelo o archivo">
+                    </div>
+                    <div class="control-right">
+                        <button class="btn btn-ghost" id="open-compare" disabled>Comparativa (0/2)</button>
+                    </div>
                 </div>
             </div>
             <div style="overflow-x:auto;">
@@ -377,6 +471,28 @@
                 </table>
             </div>
         </div>
+    </div>
+
+    <div class="panel" id="compare-panel" style="display:none; margin-top: 14px;">
+        <div class="panel-heading">
+            <h3>Comparativa lado a lado</h3>
+            <span class="tag" id="compare-title">Selecciona 2 modelos en la tabla</span>
+        </div>
+        <div id="compare-grid" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px;"></div>
+    </div>
+
+    <div id="compare-page">
+        <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:14px;">
+            <div>
+                <h2>Comparativa detallada</h2>
+                <div class="meta" id="compare-page-subtitle">Selecciona 2 modelos en la tabla</div>
+            </div>
+            <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                <button class="btn" id="close-compare-page">Volver</button>
+                <button class="btn btn-ghost" id="clear-compare">Limpiar selección</button>
+            </div>
+        </div>
+        <div id="compare-page-grid" class="compare-grid"></div>
     </div>
 
     <script>
@@ -419,6 +535,16 @@
         const tableFilter = document.getElementById("table-filter");
         const tableHeaders = Array.from(document.querySelectorAll("th.sortable"));
         const clearBtn = document.getElementById("clear-data");
+        const comparePanel = document.getElementById("compare-panel");
+        const compareGrid = document.getElementById("compare-grid");
+        const compareTitle = document.getElementById("compare-title");
+        const compareHint = document.getElementById("compare-hint");
+        const comparePage = document.getElementById("compare-page");
+        const comparePageGrid = document.getElementById("compare-page-grid");
+        const comparePageSubtitle = document.getElementById("compare-page-subtitle");
+        const openCompareBtn = document.getElementById("open-compare");
+        const closeComparePageBtn = document.getElementById("close-compare-page");
+        const clearCompareBtn = document.getElementById("clear-compare");
 
         const speedCard = document.getElementById("speed-card");
         const energyCard = document.getElementById("energy-card");
@@ -428,6 +554,7 @@
         const THEME_KEY = "results_viewer_theme";
         const tableSort = { key: "speed", dir: "desc" };
         let filterText = "";
+        let selectedForCompare = [];
 
         document.getElementById("open-picker").addEventListener("click", () => fileInput.click());
         document.getElementById("metric-select").addEventListener("change", () => renderChart());
@@ -436,8 +563,17 @@
             state.activeModel = val === "__auto__" ? null : val;
             renderRadarChart();
             renderSummary();
+            renderComparePanel();
         });
         clearBtn.addEventListener("click", () => clearAll());
+        openCompareBtn.addEventListener("click", () => openComparePage());
+        closeComparePageBtn.addEventListener("click", () => closeComparePage());
+        clearCompareBtn.addEventListener("click", () => {
+            selectedForCompare = [];
+            renderTable();
+            renderComparePanel();
+            closeComparePage();
+        });
         tableFilter.addEventListener("input", (e) => {
             filterText = e.target.value.toLowerCase();
             renderTable();
@@ -463,6 +599,9 @@
 
         initializeTheme();
         loadDefaults(true);
+        setTimeout(() => {
+            if (!state.models.length) loadDefaults(true);
+        }, 400);
 
         fileInput.addEventListener("change", (e) => handleFiles([...e.target.files]));
 
@@ -546,17 +685,27 @@
         }
 
         async function loadDefaults(isAuto = false) {
+            if (location.protocol === "file:") {
+                if (isAuto) {
+                    status.textContent = "No se pueden cargar archivos por defecto en modo file://. Usa un servidor local o sube JSON.";
+                }
+                return;
+            }
             status.textContent = isAuto ? "Cargando resultados locales..." : "Cargando archivos...";
             const fetches = defaultFiles.map(async (name) => {
                 if (state.seen.has(name)) return null;
-                try {
-                    const res = await fetch(name);
-                    if (!res.ok) throw new Error(res.statusText);
-                    const text = await res.text();
-                    return { name, text };
-                } catch (e) {
-                    return null;
+                const candidates = Array.from(new Set([name, `./${name}`]));
+                for (const url of candidates) {
+                    try {
+                        const res = await fetch(url, { cache: "no-store" });
+                        if (!res.ok) continue;
+                        const text = await res.text();
+                        return { name, text };
+                    } catch (e) {
+                        continue;
+                    }
                 }
+                return null;
             });
             const results = await Promise.all(fetches);
             const loaded = results.filter(Boolean);
@@ -565,8 +714,13 @@
                 return;
             }
             loaded.forEach(f => ingestContent(f.text, f.name));
-            if (loaded.length) finalizeRender();
-            else status.textContent = "No se cargaron archivos.";
+            if (loaded.length) {
+                finalizeRender();
+            } else {
+                status.textContent = location.protocol === "file:"
+                    ? "Inicia un servidor local (por ej. `python -m http.server`) o sube JSON manualmente."
+                    : "No se cargaron archivos.";
+            }
         }
 
         function finalizeRender() {
@@ -616,6 +770,7 @@
             state.byFile = {};
             state.colorMap = {};
             state.activeModel = null;
+            selectedForCompare = [];
             radarSelect.innerHTML = '<option value="__auto__">Top 6 por calidad</option>';
             document.getElementById("chart").innerHTML = "";
             document.getElementById("table-body").innerHTML = "";
@@ -632,6 +787,8 @@
             tablePanel.style.display = "none";
             cards.style.display = "none";
             updateInfoPanel();
+            renderComparePanel();
+            updateCompareButton();
         }
 
         function renderChart() {
@@ -861,6 +1018,10 @@
 
             rows.forEach(m => {
                 const tr = document.createElement("tr");
+                tr.dataset.file = m.filename;
+                if (selectedForCompare.includes(m.filename)) {
+                    tr.style.outline = `2px solid ${state.colorMap[m.filename] || "var(--accent)"}`;
+                }
                 tr.innerHTML = `
                     <td><strong>${m.model}</strong><span class="file-name">${m.filename}</span></td>
                     <td>${m.speed.toFixed(2)} <span class="tag">tokens/s</span></td>
@@ -868,6 +1029,9 @@
                     <td>${m.eval.toFixed(2)} <span class="tag">score</span></td>
                     <td>${m.co2.toFixed(2)} <span class="tag">g</span></td>
                 `;
+                tr.addEventListener("click", () => {
+                    toggleCompare(m.filename);
+                });
                 tbody.appendChild(tr);
             });
 
@@ -883,10 +1047,6 @@
                     th.setAttribute("data-sort-icon", "");
                 }
             });
-            const hint = document.getElementById("table-hint");
-            const labelMap = { model: "modelo", speed: "velocidad", wpt: "energía", eval: "calidad", co2: "CO₂" };
-            const label = labelMap[tableSort.key] || tableSort.key;
-            hint.textContent = `Ordenados por ${label} (${tableSort.dir === "asc" ? "asc" : "desc"})`;
         }
 
         function updateInfoPanel() {
@@ -952,6 +1112,153 @@
                     infoList.appendChild(li);
                 });
             }
+        }
+
+        function toggleCompare(file) {
+            const idx = selectedForCompare.indexOf(file);
+            if (idx >= 0) {
+                selectedForCompare.splice(idx, 1);
+            } else {
+                if (selectedForCompare.length >= 2) selectedForCompare.shift();
+                selectedForCompare.push(file);
+            }
+            renderTable();
+            renderComparePanel();
+            updateCompareButton();
+        }
+
+        function renderComparePanel() {
+            compareGrid.innerHTML = "";
+            if (selectedForCompare.length < 1) {
+                comparePanel.style.display = "none";
+                compareTitle.textContent = "Selecciona 2 modelos en la tabla";
+                updateCompareButton();
+                return;
+            }
+            const selectedModels = selectedForCompare
+                .map(f => state.byFile[f])
+                .filter(Boolean);
+            if (!selectedModels.length) {
+                comparePanel.style.display = "none";
+                updateCompareButton();
+                return;
+            }
+            comparePanel.style.display = "block";
+            compareTitle.textContent = selectedForCompare.length === 1
+                ? "Comparando 1 modelo (selecciona otro para lado a lado)"
+                : "Comparativa lado a lado";
+
+            selectedModels.forEach(m => {
+                const info = m.raw?.payload?.run_info || {};
+                const gpu = (info.system_info?.gpus || [])[0];
+                const card = document.createElement("div");
+                card.className = "panel";
+                card.style.padding = "14px";
+                card.innerHTML = `
+                    <div style="display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:8px;">
+                        <div>
+                            <div style="font-weight:700;">${m.model}</div>
+                            <div class="tag" style="display:block; margin-top:2px;">${m.filename}</div>
+                        </div>
+                        <span class="legend-swatch" style="background:${state.colorMap[m.filename] || 'var(--accent)'}; width:16px; height:16px;"></span>
+                    </div>
+                    <ul class="info-list">
+                        <li><span class="info-key">Velocidad</span><span class="info-val">${m.speed.toFixed(2)} tok/s</span></li>
+                        <li><span class="info-key">Calidad</span><span class="info-val">${m.eval.toFixed(2)}</span></li>
+                        <li><span class="info-key">Energía</span><span class="info-val">${m.wpt.toFixed(2)} mW/tok</span></li>
+                        <li><span class="info-key">TTFT</span><span class="info-val">${m.ttft.toFixed(2)} s</span></li>
+                        <li><span class="info-key">CO₂</span><span class="info-val">${m.co2.toFixed(2)} g</span></li>
+                        <li><span class="info-key">Prompts</span><span class="info-val">${info.prompts_count ?? "—"}</span></li>
+                        <li><span class="info-key">Batch</span><span class="info-val">${info.batch_size ?? "—"}</span></li>
+                        <li><span class="info-key">Precisión</span><span class="info-val">${info.precision ?? "—"}</span></li>
+                        <li><span class="info-key">GPU</span><span class="info-val">${gpu ? gpu.name : "—"}</span></li>
+                    </ul>
+                `;
+                compareGrid.appendChild(card);
+            });
+            updateCompareButton();
+        }
+
+        function openComparePage() {
+            if (selectedForCompare.length === 0) return;
+            renderComparePage();
+            comparePage.style.display = "block";
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeComparePage() {
+            comparePage.style.display = "none";
+            document.body.style.overflow = "";
+        }
+
+        function renderComparePage() {
+            comparePageGrid.innerHTML = "";
+            const models = selectedForCompare.map(f => state.byFile[f]).filter(Boolean);
+            if (!models.length) {
+                comparePageSubtitle.textContent = "Selecciona 2 modelos en la tabla";
+                return;
+            }
+            comparePageSubtitle.textContent = selectedForCompare.length === 1
+                ? "Comparando 1 modelo (selecciona otro para más detalles)"
+                : `Comparativa detallada (${selectedForCompare.length} modelos)`;
+
+            models.forEach(m => {
+                const info = m.raw?.payload?.run_info || {};
+                const sys = info.system_info || {};
+                const gpu = (sys.gpus || [])[0];
+                const disciplines = (info.disciplines || []).map((d, i) => {
+                    const scores = (m.scores || [])[i] || [];
+                    const mean = average(Array.isArray(scores) ? scores : [scores]);
+                    return `${d}: ${mean.toFixed(2)}`;
+                }).join("<br>");
+                const temps = m.raw?.payload?.metrics?.gpu_temps_c || [];
+                const power = m.raw?.payload?.metrics?.power_w || [];
+                const memUtil = m.raw?.payload?.metrics?.gpu_mem_util || [];
+
+                const card = document.createElement("div");
+                card.className = "metric-block";
+                card.innerHTML = `
+                    <div style="display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:8px;">
+                        <div>
+                            <div style="font-weight:700;">${m.model}</div>
+                            <div class="meta">${m.filename}</div>
+                        </div>
+                        <span class="legend-swatch" style="background:${state.colorMap[m.filename] || 'var(--accent)'}; width:16px; height:16px;"></span>
+                    </div>
+                    <div class="info-list" style="display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap:6px;">
+                        <div><span class="info-key">Velocidad</span><br><span class="info-val">${m.speed.toFixed(2)} tok/s</span></div>
+                        <div><span class="info-key">Calidad</span><br><span class="info-val">${m.eval.toFixed(2)}</span></div>
+                        <div><span class="info-key">Energía</span><br><span class="info-val">${m.wpt.toFixed(2)} mW/tok</span></div>
+                        <div><span class="info-key">TTFT</span><br><span class="info-val">${m.ttft.toFixed(2)} s</span></div>
+                        <div><span class="info-key">CO₂</span><br><span class="info-val">${m.co2.toFixed(2)} g</span></div>
+                        <div><span class="info-key">Prompts</span><br><span class="info-val">${info.prompts_count ?? "—"}</span></div>
+                        <div><span class="info-key">Batch</span><br><span class="info-val">${info.batch_size ?? "—"}</span></div>
+                        <div><span class="info-key">Max tokens</span><br><span class="info-val">${info.max_new_tokens ?? "—"}</span></div>
+                        <div><span class="info-key">Precisión</span><br><span class="info-val">${info.precision ?? "—"}</span></div>
+                        <div><span class="info-key">Medidor</span><br><span class="info-val">${info.meter ?? "—"}</span></div>
+                        <div><span class="info-key">GPU temp (avg)</span><br><span class="info-val">${temps.length ? average(temps).toFixed(2) + " °C" : "—"}</span></div>
+                        <div><span class="info-key">Power (avg)</span><br><span class="info-val">${power.length ? average(power).toFixed(2) + " W" : "—"}</span></div>
+                        <div><span class="info-key">GPU util</span><br><span class="info-val">${memUtil.length ? average(memUtil).toFixed(2) + " %" : "—"}</span></div>
+                    </div>
+                    <hr style="border:1px solid var(--border); margin:10px 0;">
+                    <div class="info-list">
+                        <div><span class="info-key">GPU</span><span class="info-val">${gpu ? gpu.name : "—"}</span></div>
+                        <div><span class="info-key">GPU mem</span><span class="info-val">${info.gpu_memory_allocated_mb ? info.gpu_memory_allocated_mb.toFixed(0) : "—"} / ${info.gpu_memory_reserved_mb ? info.gpu_memory_reserved_mb.toFixed(0) : "—"} MB</span></div>
+                        <div><span class="info-key">RAM total</span><span class="info-val">${sys.total_ram_gb ? sys.total_ram_gb.toFixed(2) + " GB" : "—"}</span></div>
+                        <div><span class="info-key">CPU</span><span class="info-val">${sys.processor_model || "—"}</span></div>
+                        <div><span class="info-key">OS</span><span class="info-val">${sys.os || "—"} ${sys.os_version || ""}</span></div>
+                        <div><span class="info-key">Python</span><span class="info-val">${sys.python_version || "—"}</span></div>
+                    </div>
+                    ${disciplines ? `<hr style="border:1px solid var(--border); margin:10px 0;"><div class="meta">Calidad por disciplina</div><div class="tag" style="display:block; line-height:1.4;">${disciplines}</div>` : ""}
+                `;
+                comparePageGrid.appendChild(card);
+            });
+        }
+
+        function updateCompareButton() {
+            openCompareBtn.disabled = selectedForCompare.length === 0;
+            const count = selectedForCompare.length;
+            openCompareBtn.textContent = `Comparativa (${count}/2)`;
         }
 
         function mean(arr) {
