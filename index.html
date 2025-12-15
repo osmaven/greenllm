@@ -119,7 +119,7 @@
         .grid {
             display: grid;
             gap: 12px;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(2, minmax(220px, 1fr));
         }
 
         .metric-card {
@@ -130,6 +130,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            box-shadow: 0 10px 20px -12px rgba(0,0,0,0.35);
         }
         .metric-card small { opacity: 0.85; font-weight: 600; letter-spacing: 0.2px; }
         .metric-card .value { font-size: 1.6rem; font-weight: 800; margin-top: 4px; }
@@ -395,21 +396,29 @@
 
             <div class="cards-col" id="cards" style="display:none;">
                 <div class="grid">
-                    <div class="metric-card" style="background: var(--card-1);">
-                        <small>Velocidad media (tokens/s)</small>
-                        <div class="value" id="speed-card">0</div>
-                    </div>
-                    <div class="metric-card" style="background: var(--card-2);">
+                    <div class="metric-card" style="background: linear-gradient(135deg,#22c55e,#16a34a); color:#052e16;">
                         <small>Energía por token (mW)</small>
                         <div class="value" id="energy-card">0</div>
                     </div>
-                    <div class="metric-card" style="background: var(--card-3);">
+                    <div class="metric-card" style="background: linear-gradient(135deg,#16a34a,#15803d); color:#052e16;">
+                        <small>CO₂ total (g)</small>
+                        <div class="value" id="co2-card">0</div>
+                    </div>
+                    <div class="metric-card" style="background: linear-gradient(135deg,#0ea5e9,#2563eb); color:#0b1224;">
+                        <small>Velocidad media (tokens/s)</small>
+                        <div class="value" id="speed-card">0</div>
+                    </div>
+                    <div class="metric-card" style="background: linear-gradient(135deg,#3b82f6,#1d4ed8); color:#e2f0ff;">
+                        <small>TTFT medio (s)</small>
+                        <div class="value" id="ttft-card">0</div>
+                    </div>
+                    <div class="metric-card" style="background: linear-gradient(135deg,#f97316,#ea580c); color:#431407;">
                         <small>Score de calidad</small>
                         <div class="value" id="quality-card">0</div>
                     </div>
-                    <div class="metric-card" style="background: var(--card-4);">
-                        <small>CO₂ total (g)</small>
-                        <div class="value" id="co2-card">0</div>
+                    <div class="metric-card" style="background: linear-gradient(135deg,#facc15,#eab308); color:#422006;">
+                        <small>Memoria reservada (MB)</small>
+                        <div class="value" id="mem-card">0</div>
                     </div>
                 </div>
                 <div class="panel" id="info-panel">
@@ -431,7 +440,7 @@
                         <option value="tps">Tokens por segundo</option>
                         <option value="eval">Score de calidad</option>
                         <option value="wpt">mW por token</option>
-                        <option value="ttft">Tiempo al primer token</option>
+                        <option value="mem_reserved">Memoria reservada (MB)</option>
                     </select>
                 </div>
             </div>
@@ -464,6 +473,7 @@
                             <th class="sortable" data-key="speed" data-sort-icon="">Velocidad</th>
                             <th class="sortable" data-key="wpt" data-sort-icon="">Energía</th>
                             <th class="sortable" data-key="eval" data-sort-icon="">Calidad</th>
+                            <th class="sortable" data-key="mem_reserved" data-sort-icon="">Mem reservada</th>
                             <th class="sortable" data-key="co2" data-sort-icon="">CO₂</th>
                         </tr>
                     </thead>
@@ -548,7 +558,9 @@
 
         const speedCard = document.getElementById("speed-card");
         const energyCard = document.getElementById("energy-card");
+        const memCard = document.getElementById("mem-card");
         const qualityCard = document.getElementById("quality-card");
+        const ttftCard = document.getElementById("ttft-card");
         const co2Card = document.getElementById("co2-card");
 
         const THEME_KEY = "results_viewer_theme";
@@ -673,6 +685,7 @@
                     eval: mean(metrics.evaluation_scores),
                     ttft: mean(metrics.ttft),
                     co2: sum(metrics.co2e_g_total),
+                    mem_reserved: info.gpu_memory_reserved_mb || 0,
                     raw: parsed
                 };
 
@@ -748,17 +761,23 @@
             if (active) {
                 speedCard.textContent = (active.speed ?? 0).toFixed(2);
                 energyCard.textContent = (active.wpt ?? 0).toFixed(2);
+                memCard.textContent = (active.mem_reserved ?? 0).toFixed(0);
                 qualityCard.textContent = (active.eval ?? 0).toFixed(2);
+                ttftCard.textContent = (active.ttft ?? 0).toFixed(2);
                 co2Card.textContent = (active.co2 ?? 0).toFixed(2);
             } else {
                 const speedAvg = average(state.models.map(m => m.speed));
                 const wptAvg = average(state.models.map(m => m.wpt));
                 const evalAvg = average(state.models.map(m => m.eval));
+                const memAvg = average(state.models.map(m => m.mem_reserved));
+                const ttftAvg = average(state.models.map(m => m.ttft));
                 const co2Total = state.models.reduce((acc, m) => acc + (m.co2 || 0), 0);
 
                 speedCard.textContent = speedAvg.toFixed(2);
                 energyCard.textContent = wptAvg.toFixed(2);
+                memCard.textContent = memAvg.toFixed(0);
                 qualityCard.textContent = evalAvg.toFixed(2);
+                ttftCard.textContent = ttftAvg.toFixed(2);
                 co2Card.textContent = co2Total.toFixed(2);
             }
             updateInfoPanel();
@@ -801,7 +820,7 @@
                 tps: { label: "tokens/s", key: "speed" },
                 eval: { label: "score", key: "eval" },
                 wpt: { label: "mW/token", key: "wpt" },
-                ttft: { label: "s", key: "ttft", invert: true }
+                mem_reserved: { label: "MB", key: "mem_reserved" }
             }[metric];
 
             const values = state.models.map(m => m[mapKey.key] || 0);
@@ -879,7 +898,7 @@
                 { key: "speed", label: "Velocidad", better: "high" },
                 { key: "eval", label: "Calidad", better: "high" },
                 { key: "wpt", label: "Energía", better: "low" },
-                { key: "ttft", label: "TTFT", better: "low" },
+                { key: "mem_reserved", label: "Mem reservada", better: "low" },
                 { key: "co2", label: "CO₂", better: "low" }
             ];
 
@@ -1027,6 +1046,7 @@
                     <td>${m.speed.toFixed(2)} <span class="tag">tokens/s</span></td>
                     <td>${m.wpt.toFixed(2)} <span class="tag">mW/token</span></td>
                     <td>${m.eval.toFixed(2)} <span class="tag">score</span></td>
+                    <td>${m.mem_reserved.toFixed(0)} <span class="tag">MB</span></td>
                     <td>${m.co2.toFixed(2)} <span class="tag">g</span></td>
                 `;
                 tr.addEventListener("click", () => {
@@ -1064,7 +1084,7 @@
                     ["Batch size", info.batch_size != null ? info.batch_size : "—"],
                     ["Max tokens", info.max_new_tokens != null ? info.max_new_tokens : "—"],
                     ["Idle power (W)", info.idle_power_w != null ? info.idle_power_w.toFixed(2) : "—"],
-                    ["TTFT medio (s)", (active.ttft ?? 0).toFixed(2)],
+                    ["Mem reservada (MB)", (active.mem_reserved ?? 0).toFixed(0)],
                     ["CO₂ total (g)", (active.co2 ?? 0).toFixed(2)],
                     ["Medidor", info.meter || "—"],
                     ["GPU", gpu ? `${gpu.name} (${gpu.total_memory_gb ?? "?"}GB)` : "—"],
@@ -1104,7 +1124,7 @@
                     ["Promedio velocidad", `${avgSpeed.toFixed(2)} tok/s`],
                     ["Promedio calidad", avgEval.toFixed(2)],
                     ["Promedio energía", `${avgWpt.toFixed(2)} mW/tok`],
-                    ["Promedio TTFT", `${avgTtft.toFixed(2)} s`]
+                    ["Promedio Mem reservada", `${average(state.models.map(m => m.mem_reserved)).toFixed(0)} MB`]
                 ];
                 rows.forEach(([k, v]) => {
                     const li = document.createElement("li");
@@ -1229,7 +1249,7 @@
                         <div><span class="info-key">Velocidad</span><br><span class="info-val">${m.speed.toFixed(2)} tok/s</span></div>
                         <div><span class="info-key">Calidad</span><br><span class="info-val">${m.eval.toFixed(2)}</span></div>
                         <div><span class="info-key">Energía</span><br><span class="info-val">${m.wpt.toFixed(2)} mW/tok</span></div>
-                        <div><span class="info-key">TTFT</span><br><span class="info-val">${m.ttft.toFixed(2)} s</span></div>
+                        <div><span class="info-key">Mem reservada</span><br><span class="info-val">${m.mem_reserved.toFixed(0)} MB</span></div>
                         <div><span class="info-key">CO₂</span><br><span class="info-val">${m.co2.toFixed(2)} g</span></div>
                         <div><span class="info-key">Prompts</span><br><span class="info-val">${info.prompts_count ?? "—"}</span></div>
                         <div><span class="info-key">Batch</span><br><span class="info-val">${info.batch_size ?? "—"}</span></div>
