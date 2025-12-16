@@ -22,6 +22,7 @@
             --shadow: 0 20px 50px -28px rgba(0,0,0,0.25);
         }
 
+        /* end style */
         body[data-theme="dark"] {
             --bg: #0b1224;
             --panel: rgba(17, 24, 39, 0.8);
@@ -145,6 +146,27 @@
             margin-top: 6px;
             display: grid;
             gap: 10px;
+        }
+
+        #chart-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .chart-card {
+            padding: 14px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: var(--panel);
+        }
+        .chart-canvas {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: rgba(255,255,255,0.02);
         }
 
         .bar {
@@ -445,6 +467,26 @@
                 </div>
             </div>
             <div id="chart"></div>
+            <div id="chart-row">
+                <div class="chart-card">
+                    <div class="panel-heading" style="margin-bottom:8px; padding:0;">
+                        <div>
+                            <h3 style="margin:0;">CO₂ vs Calidad</h3>
+                            <span class="tag">Tamaño = tokens/s</span>
+                        </div>
+                    </div>
+                    <canvas id="bubble-canvas" class="chart-canvas"></canvas>
+                </div>
+                <div class="chart-card">
+                    <div class="panel-heading" style="margin-bottom:8px; padding:0;">
+                        <div>
+                            <h3 style="margin:0;">Distribución de energía</h3>
+                            <span class="tag">Energía por token (mW) por modelo</span>
+                        </div>
+                    </div>
+                    <canvas id="box-canvas" class="chart-canvas"></canvas>
+                </div>
+            </div>
         </div>
 
 
@@ -555,6 +597,8 @@
         const openCompareBtn = document.getElementById("open-compare");
         const closeComparePageBtn = document.getElementById("close-compare-page");
         const clearCompareBtn = document.getElementById("clear-compare");
+        const bubbleCanvas = document.getElementById("bubble-canvas");
+        const boxCanvas = document.getElementById("box-canvas");
 
         const speedCard = document.getElementById("speed-card");
         const energyCard = document.getElementById("energy-card");
@@ -744,6 +788,10 @@
             populateRadarSelect();
             assignColors();
             renderRadarChart();
+            renderBubble();
+            if (typeof renderBoxPlot === "function") {
+                renderBoxPlot();
+            }
             renderTable();
             updateInfoPanel();
             modelCount.textContent = `${state.models.length} modelo(s) cargado(s)`;
@@ -869,6 +917,243 @@
             const nextVal = exists ? current : "__auto__";
             radarSelect.value = nextVal;
             state.activeModel = nextVal === "__auto__" ? null : nextVal;
+        }
+
+        function renderBubble() {
+            if (!state.models.length) return;
+            const dpr = window.devicePixelRatio || 1;
+            const container = bubbleCanvas.parentElement;
+            const width = Math.max(520, container?.clientWidth || 800);
+            const height = Math.max(420, container?.clientHeight || 0, 420);
+            bubbleCanvas.width = width * dpr;
+            bubbleCanvas.height = height * dpr;
+            bubbleCanvas.style.width = "100%";
+            bubbleCanvas.style.height = `${height}px`;
+            const ctx = bubbleCanvas.getContext("2d");
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            ctx.clearRect(0, 0, width, height);
+            ctx.font = "12px 'Inter', 'Segoe UI', sans-serif";
+            ctx.textBaseline = "middle";
+
+            const margin = { top: 24, right: 90, bottom: 60, left: 70 };
+            const plotW = width - margin.left - margin.right;
+            const plotH = height - margin.top - margin.bottom;
+
+            const xs = state.models.map(m => m.co2 || 0);
+            const ys = state.models.map(m => m.eval || 0);
+            const sizes = state.models.map(m => m.speed || 0);
+            const minX = Math.min(...xs, 0);
+            const maxX = Math.max(...xs, 1);
+            const minY = Math.min(...ys, 0);
+            const maxY = Math.max(...ys, 1);
+            const minS = Math.min(...sizes, 0);
+            const maxS = Math.max(...sizes, 1);
+
+            const xPad = (maxX - minX || 1) * 0.1;
+            const yPad = (maxY - minY || 1) * 0.1;
+            const x0 = minX - xPad;
+            const x1 = maxX + xPad;
+            const y0 = minY - yPad;
+            const y1 = maxY + yPad;
+
+            function xScale(v) {
+                return margin.left + ((v - x0) / (x1 - x0 || 1)) * plotW;
+            }
+            function yScale(v) {
+                return margin.top + plotH - ((v - y0) / (y1 - y0 || 1)) * plotH;
+            }
+            function sizeScale(v) {
+                const norm = (v - minS) / (maxS - minS || 1);
+                return 10 + norm * 24;
+            }
+
+            const textColor = getComputedStyle(document.body).getPropertyValue("--text") || "#0f172a";
+            const borderColor = getComputedStyle(document.body).getPropertyValue("--border") || "#e5e7eb";
+
+            // grid + axes
+            ctx.strokeStyle = borderColor;
+            ctx.lineWidth = 1;
+            ctx.fillStyle = textColor;
+            ctx.textAlign = "center";
+
+            const ticks = 4;
+            for (let i = 0; i <= ticks; i++) {
+                const tx = margin.left + (plotW / ticks) * i;
+                const valX = x0 + (x1 - x0) * (i / ticks);
+                ctx.beginPath();
+                ctx.moveTo(tx, margin.top + plotH);
+                ctx.lineTo(tx, margin.top + plotH + 4);
+                ctx.stroke();
+                ctx.fillText(valX.toFixed(3), tx, margin.top + plotH + 16);
+            }
+            for (let i = 0; i <= ticks; i++) {
+                const ty = margin.top + (plotH / ticks) * i;
+                const valY = y1 - (y1 - y0) * (i / ticks);
+                ctx.beginPath();
+                ctx.moveTo(margin.left - 4, ty);
+                ctx.lineTo(margin.left, ty);
+                ctx.stroke();
+                ctx.textAlign = "right";
+                ctx.fillText(valY.toFixed(2), margin.left - 6, ty + 4);
+                ctx.textAlign = "center";
+            }
+            ctx.beginPath();
+            ctx.moveTo(margin.left, margin.top);
+            ctx.lineTo(margin.left, margin.top + plotH);
+            ctx.lineTo(margin.left + plotW, margin.top + plotH);
+            ctx.stroke();
+
+            ctx.fillText("CO₂ total (g)", margin.left + plotW / 2, height - 8);
+            ctx.save();
+            ctx.translate(16, margin.top + plotH / 2);
+            ctx.rotate(-Math.PI / 2);
+            ctx.fillText("Score de calidad", 0, 0);
+            ctx.restore();
+
+            // bubbles
+            state.models.forEach(m => {
+                const x = xScale(m.co2 || 0);
+                const y = yScale(m.eval || 0);
+                const r = sizeScale(m.speed || 0);
+                const color = state.colorMap[m.filename] || "rgba(34, 197, 94, 0.7)";
+                ctx.fillStyle = color.replace(")", ",0.55)").replace("rgb(", "rgba(");
+                ctx.strokeStyle = color;
+                ctx.beginPath();
+                ctx.arc(x, y, r, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.stroke();
+
+                ctx.fillStyle = textColor;
+                ctx.textAlign = "center";
+                ctx.fillText(m.model.slice(0, 24), x, y - r - 6);
+            });
+        }
+
+        function renderBoxPlot() {
+            if (!state.models.length) return;
+            const dpr = window.devicePixelRatio || 1;
+            const container = boxCanvas.parentElement;
+            const width = Math.max(520, container?.clientWidth || 800);
+            const height = Math.max(420, container?.clientHeight || 0, 420);
+            boxCanvas.width = width * dpr;
+            boxCanvas.height = height * dpr;
+            boxCanvas.style.width = "100%";
+            boxCanvas.style.height = `${height}px`;
+            const ctx = boxCanvas.getContext("2d");
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            ctx.clearRect(0, 0, width, height);
+            ctx.font = "12px 'Inter', 'Segoe UI', sans-serif";
+            ctx.textBaseline = "middle";
+
+            const margin = { top: 30, right: 20, bottom: 60, left: 70 };
+            const plotW = width - margin.left - margin.right;
+            const plotH = height - margin.top - margin.bottom;
+
+            const datasets = state.models.map(m => ({
+                label: m.model,
+                values: flatten(m.raw?.payload?.metrics?.w_per_token || []).map(v => Number(v) * 1000)
+            })).filter(d => d.values.length);
+
+            const textColor = getComputedStyle(document.body).getPropertyValue("--text") || "#0f172a";
+            const borderColor = getComputedStyle(document.body).getPropertyValue("--border") || "#e5e7eb";
+
+            if (!datasets.length) {
+                ctx.fillStyle = textColor;
+                ctx.textAlign = "center";
+                ctx.fillText("Sin datos de w_per_token", width / 2, height / 2);
+                return;
+            }
+
+            const flatVals = datasets.flatMap(d => d.values);
+            let minY = Math.min(...flatVals);
+            let maxY = Math.max(...flatVals);
+            const pad = (maxY - minY || 1) * 0.08;
+            minY -= pad;
+            maxY += pad;
+
+            function yScale(v) {
+                return margin.top + plotH - ((v - minY) / (maxY - minY || 1)) * plotH;
+            }
+
+            // ticks + grid
+            ctx.fillStyle = textColor;
+            ctx.strokeStyle = borderColor;
+            const ticks = 4;
+            const decimals = (maxY - minY) < 1 ? 4 : 2;
+            for (let i = 0; i <= ticks; i++) {
+                const val = minY + (maxY - minY) * (i / ticks);
+                const y = yScale(val);
+                ctx.beginPath();
+                ctx.moveTo(margin.left, y);
+                ctx.lineTo(margin.left + plotW, y);
+                ctx.stroke();
+                ctx.textAlign = "right";
+                ctx.fillText(val.toFixed(decimals), margin.left - 6, y + 4);
+            }
+
+            // axes
+            ctx.beginPath();
+            ctx.moveTo(margin.left, margin.top);
+            ctx.lineTo(margin.left, margin.top + plotH);
+            ctx.lineTo(margin.left + plotW, margin.top + plotH);
+            ctx.stroke();
+
+            const bandW = plotW / Math.max(datasets.length, 1);
+
+            datasets.forEach((d, idx) => {
+                const sorted = [...d.values].sort((a, b) => a - b);
+                const q1 = sorted[Math.floor(sorted.length * 0.25)] ?? 0;
+                const q2 = sorted[Math.floor(sorted.length * 0.5)] ?? 0;
+                const q3 = sorted[Math.floor(sorted.length * 0.75)] ?? 0;
+                const minV = sorted[0] ?? 0;
+                const maxV = sorted[sorted.length - 1] ?? 0;
+
+                const xCenter = margin.left + bandW * idx + bandW / 2;
+                const boxW = Math.min(60, bandW * 0.6);
+
+                ctx.fillStyle = "rgba(14,165,233,0.4)";
+                ctx.strokeStyle = "#0ea5e9";
+                ctx.beginPath();
+                ctx.rect(xCenter - boxW / 2, yScale(q3), boxW, yScale(q1) - yScale(q3));
+                ctx.fill();
+                ctx.stroke();
+
+                ctx.beginPath();
+                ctx.moveTo(xCenter - boxW / 2, yScale(q2));
+                ctx.lineTo(xCenter + boxW / 2, yScale(q2));
+                ctx.stroke();
+
+                ctx.beginPath();
+                ctx.moveTo(xCenter, yScale(maxV));
+                ctx.lineTo(xCenter, yScale(q3));
+                ctx.moveTo(xCenter, yScale(minV));
+                ctx.lineTo(xCenter, yScale(q1));
+                ctx.stroke();
+
+                ctx.beginPath();
+                ctx.moveTo(xCenter - boxW / 3, yScale(maxV));
+                ctx.lineTo(xCenter + boxW / 3, yScale(maxV));
+                ctx.moveTo(xCenter - boxW / 3, yScale(minV));
+                ctx.lineTo(xCenter + boxW / 3, yScale(minV));
+                ctx.stroke();
+
+                // label inside plot, vertical
+                ctx.save();
+                ctx.translate(xCenter, yScale(maxV) - 8);
+                ctx.rotate(-Math.PI / 2);
+                ctx.fillStyle = textColor;
+                ctx.textAlign = "center";
+                ctx.fillText(d.label.slice(0, 18), 0, 0);
+                ctx.restore();
+            });
+
+            ctx.fillStyle = textColor;
+            ctx.textAlign = "center";
+            ctx.save();
+            ctx.translate(16, margin.top + plotH / 2);
+            ctx.rotate(-Math.PI / 2);
+            ctx.fillText("Energía por token (mW)", 0, 0);
+            ctx.restore();
         }
 
         function assignColors() {
