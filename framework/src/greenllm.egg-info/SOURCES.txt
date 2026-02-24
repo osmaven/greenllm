@@ -17,5 +17,8 @@ src/greenllm/exporters/csv_exporter.py
 src/greenllm/exporters/mlflow_exporter.py
 src/greenllm/metrics/metrics.py
 src/greenllm/runners/inference_runner.py
+src/greenllm/users/__init__.py
+src/greenllm/users/invite.py
 src/greenllm/util/nvml.py
+tests/test_invite.py
 tests/test_smoke.py

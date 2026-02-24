@@ -4,6 +4,7 @@ from .runners.inference_runner import run_measurement
 from .metrics.metrics import compute_metrics
 from .exporters.csv_exporter import CSVExporter
 from .exporters.mlflow_exporter import MLflowExporter
+from .users.invite import generate_invitation, load_invitations
 
 def main():
     parser = argparse.ArgumentParser(prog="greenllm", description="Medición energética/CO2e para LLM (docente)")
@@ -22,7 +23,22 @@ def main():
     m.add_argument("--experiment", default="greenllm", help="Nombre de experimento MLflow")
     m.add_argument("--seed", type=int, default=42)
 
+    # invite subcommand
+    inv = sub.add_parser("invite", help="Invita a un nuevo usuario a la plataforma")
+    inv.add_argument("--email", required=True, help="Correo electrónico del usuario a invitar")
+    inv.add_argument("--role", default="student", choices=["student", "instructor", "admin"],
+                     help="Rol asignado al usuario (por defecto: student)")
+    inv.add_argument("--store", default=None, help="Ruta del fichero JSON donde se almacenan las invitaciones")
+
     args = parser.parse_args()
+
+    if args.cmd == "invite":
+        kwargs = {"email": args.email, "role": args.role}
+        if args.store:
+            kwargs["store_path"] = args.store
+        invitation = generate_invitation(**kwargs)
+        print(json.dumps(invitation, indent=2))
+        return
 
     results = run_measurement(
         model_name=args.model,
